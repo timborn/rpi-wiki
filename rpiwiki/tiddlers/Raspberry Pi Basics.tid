@@ -1,0 +1,16 @@
+created: 20180704140955151
+modified: 20180704141914244
+title: Raspberry Pi Basics
+type: text/vnd.tiddlywiki
+
+A Raspberry Pi (RPi) is a credit-card sized computer that looks something like this:
+
+[img[raspberry pi 3b+.jpg]]
+
+The SD card is the "hard disk" for the RPi.
+All the programs, files, movies, music, etc. are stored in the filesystem on the SD card.
+The RPi has no moving parts, making it very durable.
+
+[img[samsung evo 32gb sdcard.jpg]]
+
+* [[More information about Raspberry Pi|https://www.raspberrypi.org]]

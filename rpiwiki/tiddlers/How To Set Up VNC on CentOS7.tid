@@ -1,0 +1,9 @@
+created: 20180704142934924
+modified: 20180704144042988
+title: How To Set Up VNC on CentOS7
+type: text/vnd.tiddlywiki
+
+VNC - Virtual Network Computing - software that allows us to connect to the desktop of a remote machine.  
+Compare to 
+
+There are various VNC servers, but it appears TigerVNC is available and supported by RedHat.

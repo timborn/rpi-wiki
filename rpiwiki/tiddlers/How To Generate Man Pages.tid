@@ -1,0 +1,17 @@
+created: 20180704144126753
+modified: 20180704150426552
+title: How To Generate Man Pages
+type: text/vnd.tiddlywiki
+
+All the commands on your system should have man (manual) pages for them, but on a fresh install the man pages may not have been generated yet.
+Here is how to force the generation of man pages on a virgin Linux installation.
+
+```
+[timborn@localhost ~]$ sudo /etc/cron.daily/man-db.cron 
+[sudo] password for timborn:
+```
+
+That script finds and regenerates all the man pages.
+It is set to run daily, so it if you just wait a day it would have happened.
+
+See also: [[What Is Cron?]]

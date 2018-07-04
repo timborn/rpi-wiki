@@ -1,0 +1,37 @@
+created: 20180704135857192
+modified: 20180704144446382
+title: How to Change hostname in CentOS7 on RPi
+type: text/vnd.tiddlywiki
+
+You can change the hostname of your RPi from the command line:
+
+```
+[timborn@localhost ~]$ sudo hostname rpi3.local
+[sudo] password for timborn: 
+[timborn@localhost ~]$ hostname -f
+rpi3.local
+[timborn@localhost ~]$
+```
+According to the man page for hostname, this change is only temporary, and will be lost upon next reboot.
+Apparently editing /etc/hostname is the more permanent solution.
+
+Also notice that the prompt in that example encodes the hostname, and yet it didn't change even after we proved that the hostname had changed.  
+This is an example of a change outside the current shell.
+Any terminal windows opened subsequently will have the correct hostname shown.
+
+TODO: explain editing /etc/hostname, and the format of that file
+
+In the Gnome GUI:
+
+Applications / System Tools / Settings / Sharing -- change hostname
+
+To test to see that your changes have worked:
+
+```
+yes, master> hostname -f
+```
+
+
+That should show the Fully Qualified Domain Name (FQDN) for your machine.
+
+See also: uname, hostname

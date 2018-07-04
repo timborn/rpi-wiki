@@ -1,0 +1,15 @@
+created: 20180704123903836
+modified: 20180704123907744
+title: Breaking Into Your RPi
+type: text/vnd.tiddlywiki
+
+Breaking Into Your Pi
+
+Edit the SD card on another machine, adding “init=/bin/sh” to commandline.txt.  This will get you single user (root).  Once logged in as root, there are additional steps to help:
+
+/etc/init.d/mountall.sh
+mount -n -o remount,rw / (this will remount / so you can make changes)
+
+from http://raspberrypi.stackexchange.com/questions/3751/oops-i-need-runlevel-1
+
+It also mentions you should be able to hit Shift on start up, then ‘e’ to edit the command line and add ‘init=/bin/sh’, but I wasn’t able to get this to work.

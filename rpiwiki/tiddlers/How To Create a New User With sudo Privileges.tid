@@ -1,0 +1,29 @@
+created: 20180704160500802
+modified: 20180704161230026
+tags: CentOS7
+title: How To Create a New User With sudo Privileges
+type: text/vnd.tiddlywiki
+
+Create a new user account (in this case 'norman') and create an initial password.
+
+```
+yes master> sudo adduser norman
+yes master> password norman
+```
+
+Members of the 'wheel' group are special, and can use the sudo command to temporarily become root to execute some administrative commands.
+
+```
+yes master> sudo usermod -G wheel norman
+```
+
+You can confirm this works by becoming the new user, checking the group and if you are really paranoid, try running a command with sudo.
+
+```
+yes master> sudo su - norman
+norm> id
+uid=1001(norman) gid=1001(norman) groups=1001(norman),10(wheel) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+norm> sudo date
+```
+
+See Also: [[What Is sudo?]]

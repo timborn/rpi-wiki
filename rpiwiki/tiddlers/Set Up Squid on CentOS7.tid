@@ -1,0 +1,9 @@
+created: 20180704133327797
+modified: 20180704133406323
+title: Set Up Squid on CentOS7
+type: text/vnd.tiddlywiki
+
+Squid is a caching proxy server.  
+The caching can be very effective in a classroom situation with limited bandwidth, as the students tend to hit the same sites at about the same time.
+
+https://www.server-world.info/en/note?os=CentOS_7&p=squid&f=1

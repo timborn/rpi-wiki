@@ -1,0 +1,23 @@
+created: 20180704123056472
+modified: 20180704135642184
+title: How to Set up RPi Without a Monitor
+type: text/vnd.tiddlywiki
+
+I've been able to set up //some// RPi without a monitor by this method.
+After creating the SD card, put it in another computer and edit cmdline.txt to force network settings (preferably for the wired network).
+This works in distributions that have ssh installed by default.  
+Looks like ~CentOS7 does not install ssh be default.
+
+I observe ~CentOS tries to connect to wifi out of the box.
+If you could get ssh or VNC working, you could eventually (nmap?) find the IP of the new RPi, or you could force an IP by editing cmdline.txt.
+
+!Forcing Network Settings From The Command Line
+
+If you need to force network settings during boot (e.g. headless machine), you can remove the SD card and edit cmdline.txt
+
+ip=192.168.0.100::192.168.0.1:255.255.255.0:rpi:eth0:off
+ip=<client-ip>:<server-ip>:<gw-ip>:<netmask>:<hostname>:<device>:<autoconf>
+
+ref: https://www.raspberrypi.org/forums/viewtopic.php?f=91&t=24993
+
+At this point you can manually set the ethernet port on your laptop and connect via ssh.  As shown above, your laptop is expected to be 192.168.0.1 and serve as a gateway for the Pi.

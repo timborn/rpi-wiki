@@ -1,0 +1,13 @@
+created: 20180704140054071
+modified: 20180704142903042
+title: How to Set Up ssh in CentOS7
+type: text/vnd.tiddlywiki
+
+# yum install ssh-clients ssh-server
+# sudo systemctl restart sshd.service
+
+You should now be able to connect to this machine via ssh on port 22 (the ssh default).
+
+```
+yes, master> ssh `hostname -f`
+```

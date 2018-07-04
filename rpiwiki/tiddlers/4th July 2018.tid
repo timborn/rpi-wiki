@@ -1,0 +1,44 @@
+created: 20180704115354323
+modified: 20180704161338235
+tags: Journal
+title: 4th July 2018
+type: text/vnd.tiddlywiki
+
+I'm interested in getting people up to speed on Linux.
+I think if I can get them interested in Raspberry Pi, the learning will be more fun.
+
+I worked with Kevin to procure a number of RPi 3B+ with case, power supply and SD card.
+
+We should focus on using ~CentOS 7, the free version of ~RedHat Enterprise Linux (RHEL) that we use.
+
+I found ~CentOS 7 for RPi here: http://mirror.centos.org/altarch/7/isos/armhfp/
+
+I think we need a few formal lessons to get started:
+
+# assembling RPi and installing Linux
+# setting up ssh and VNC so we can use RPi headless
+## this will require explaining sudo, concept of 'root' and users
+## this will require knowing how to install software - Yum, RPM
+## this will require an editor (nano?)
+## this may require some explanation of ssh basics
+# mapping commands from DOS to Linux
+# the zen of Unix - pipes and filters, file streams stdin, stdout, stderr
+# command line args, options, flags, short and long
+# pagers, more or less
+# date, and it's various forms
+# regex, sed, grep
+# git, tiddlywiki?
+# how to find things?  man, info?, RHEL docs, yum search, yum info, apropos
+## how to make sure man works on a new install?
+# shells, sub-shells and backticks 
+# environment variables, env
+## have some fun.  change PS1
+# watch movies?  demo audio?
+# an exam of some sort?  self-correcting would be nice
+## what should people be able to demonstrate?
+### install software
+### edit config files
+### find things 
+### demonstrate use of pipes & filters
+### demo use of basic Unix commands: grep, cat, bash (looping?), creating a custom cmd
+# final project show & tell

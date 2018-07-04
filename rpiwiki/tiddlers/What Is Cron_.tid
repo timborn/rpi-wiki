@@ -1,0 +1,33 @@
+created: 20180704150432022
+modified: 20180704151653339
+title: What Is Cron?
+type: text/vnd.tiddlywiki
+
+Cron - Greek: chronos ~= time
+
+Cron is a Unix scheduler so you can set up jobs to run at regular intervals.
+The command for seeing or editing your table of cron jobs is 'crontab'.
+
+```
+yes, master> crontab -l 
+no crontab for majnelson
+yes, master> crontab -e   # edit your crontab.  this uses a Visual editor
+```
+
+The format of a crontab is something like this:
+
+```
+# For details see man 4 crontabs
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+0 * * * * $HOME/bin/cuckoo
+```
+
+See Also: crontab 

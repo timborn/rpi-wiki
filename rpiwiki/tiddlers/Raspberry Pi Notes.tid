@@ -1,0 +1,26 @@
+created: 20180704114926866
+modified: 20180704145304700
+tags: 
+title: Raspberry Pi Notes
+type: text/vnd.tiddlywiki
+
+!Topic Pages - Short Summaries and How Tos 
+* [[Raspberry Pi Basics]]
+* [[How to Install CentOS7 on RPi]]
+* [[How to Set up RPi Without a Monitor]]
+* [[Raspberry Pi Spec Summaries]]
+* [[RPi Media Center]]
+* [[Breaking Into Your RPi]]
+* [[Learning to Live with SELinux]]
+* [[Firewalls]]
+* [[Regular Expressions, sed, grep]]
+* [[Set Up Squid on CentOS7]]
+* [[How to Change hostname in CentOS7 on RPi]]
+* [[How to Set Up ssh in CentOS7]]
+* [[How To Tell What Services Are Running On CentOS7?]]
+* [[How To Set Up VNC on CentOS7]]
+* [[How To Generate Man Pages]]
+* [[How To Find and Install Software on CentOS7]]
+
+!Blog Posts
+* [[4th July 2018]]

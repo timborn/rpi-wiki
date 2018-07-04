@@ -1,0 +1,19 @@
+created: 20180704134901358
+modified: 20180704160449925
+title: How to Install CentOS7 on RPi
+type: text/vnd.tiddlywiki
+
+I found ~CentOS 7 for RPi here: http://mirror.centos.org/altarch/7/isos/armhfp/
+
+There are three versions: Gnome, KDE and minimal (presumably without a desktop environment).
+
+# download the image
+# check the checksums for any damage
+# uncompress the file .xz files ('unxz *.xz')
+# copy the image to an SD card
+## Mac: use Etcher to burn the image.  You can double check to make sure you are landing on the SD card using diskutils
+# install the card in your RPi, apply power and, assuming you have a monitor attached, you should see it come up
+# login root/centos
+## be aware that selinux enforcing is on by default
+## be aware that wlan0 is set for DHCP by default (ie. your machine will try to connect to a wifi if it can)
+# [[How To Create a New User With sudo Privileges]]

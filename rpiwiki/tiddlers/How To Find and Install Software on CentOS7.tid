@@ -1,0 +1,37 @@
+created: 20180704145310200
+modified: 20180704152252620
+title: How To Find and Install Software on CentOS7
+type: text/vnd.tiddlywiki
+
+```
+[root@rpi3 cron.d]# file /etc/cron.hourly/
+bash: file: command not found...
+```
+
+Now what?  Finding which RPM has 'file' will be challenging.  Try something easier.
+
+```
+[timborn@localhost ~]$ man dialog
+No manual entry for dialog
+[timborn@localhost ~]$ yum search dialog
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+============================= N/S matched: dialog ==============================
+dialog.armv7hl : A utility for creating TTY dialog boxes
+dialog-devel.armv7hl : Development files for building applications with the
+                     : dialog library
+gnome-shell-extension-updates-dialog.noarch : Show a modal dialog when there are
+                                            : software updates
+libreoffice-glade.armv7hl : Support for creating LibreOffice dialogs in glade
+openssh-askpass.armv7hl : A passphrase dialog for OpenSSH and X
+pinentry.armv7hl : Collection of simple PIN or passphrase entry dialogs
+pinentry-gtk.armv7hl : Passphrase/PIN entry dialog based on GTK+
+pinentry-qt.armv7hl : Passphrase/PIN entry dialog based on Qt3
+pinentry-qt4.armv7hl : Passphrase/PIN entry dialog based on Qt4
+zenity.armv7hl : Display dialog boxes from shell scripts
+
+  Name and summary matches only, use "search all" for everything.
+[timborn@localhost ~]$ sudo yum install dialog
+```
+
+Sometime, but not always, the name of the RPM is close to the name of the command you are looking for.
