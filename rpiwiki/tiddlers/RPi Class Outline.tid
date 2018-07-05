@@ -1,0 +1,36 @@
+created: 20180705211013715
+modified: 20180705211213810
+title: RPi Class Outline
+type: text/vnd.tiddlywiki
+
+
+# assembling RPi and installing Linux
+# setting up ssh and VNC so we can use RPi headless
+## this will require explaining sudo, concept of 'root' and users
+## this will require knowing how to install software - Yum, RPM
+## this will require an editor (nano?)
+## this may require some explanation of ssh basics
+# mapping commands from DOS to Linux
+# the zen of Unix - pipes and filters, file streams stdin, stdout, stderr
+# command line args, options, flags, short and long
+# top, tload, loadavg
+# who, id
+# df, du - how to see what is being used
+# pagers, more or less
+# date, and it's various forms
+# regex, sed, grep
+# git, tiddlywiki?
+# how to find things?  man, info?, RHEL docs, yum search, yum info, apropos
+## how to make sure man works on a new install?
+# shells, sub-shells and backticks 
+# environment variables, env
+## have some fun.  change PS1
+# watch movies?  demo audio?
+# an exam of some sort?  self-correcting would be nice
+## what should people be able to demonstrate?
+### install software
+### edit config files
+### find things 
+### demonstrate use of pipes & filters
+### demo use of basic Unix commands: grep, cat, bash (looping?), creating a custom cmd
+# final project show & tell

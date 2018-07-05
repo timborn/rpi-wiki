@@ -1,0 +1,12 @@
+created: 20180705213403308
+modified: 20180705213537330
+title: How To See How Fast Your RPi Is
+type: text/vnd.tiddlywiki
+
+Keywords: clock speed
+
+```
+yes master> vcgencmd get_config arm_freq
+```
+
+Shows clock speed in MHz 
