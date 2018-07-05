@@ -1,5 +1,5 @@
 created: 20180704115354323
-modified: 20180704161338235
+modified: 20180705114750015
 tags: Journal
 title: 4th July 2018
 type: text/vnd.tiddlywiki
@@ -24,6 +24,7 @@ I think we need a few formal lessons to get started:
 # mapping commands from DOS to Linux
 # the zen of Unix - pipes and filters, file streams stdin, stdout, stderr
 # command line args, options, flags, short and long
+# df, du - how to see what is being used
 # pagers, more or less
 # date, and it's various forms
 # regex, sed, grep

@@ -1,0 +1,14 @@
+created: 20180705114537969
+modified: 20180705114621778
+title: How To Expand The Filesystems on CentOS7
+type: text/vnd.tiddlywiki
+
+great article
+search for 'expand'
+
+https://github.com/rharmonson/richtech/wiki/Using-CentOS-7.2.1511-Minimal-on-the-Raspberry-PI-3
+
+TODO: finish writing this one
+
+NB the 'normal' and easy expand failed for me using 64GB SD card. 
+I hope it works on 32GB cards.
