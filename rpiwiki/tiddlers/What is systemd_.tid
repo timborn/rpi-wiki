@@ -1,0 +1,21 @@
+created: 20180704165001757
+modified: 20180704173732985
+tags: CentOS7
+title: What is systemd?
+type: text/vnd.tiddlywiki
+
+systemd is new in ~CentOS7, replacing the init process.
+
+what is it, what does it do, and how to use it?
+
+systemctl
+
+"... in addition to the systemd init daemon, includes the daemons journald, logind and networkd"
+
+"...systemd also provides replacements for various daemons and utilities, including the startup shell scripts, pm-utils, inetd, acpid, syslog, watchdog, cron and atd."
+
+No more cron?  No more syslog?  
+
+"...systemd tracks processes using the Linux kernel's cgroups subsystem instead of using process identifiers (PIDs); thus, daemons cannot "escape" systemd"
+
+TODO: finish me

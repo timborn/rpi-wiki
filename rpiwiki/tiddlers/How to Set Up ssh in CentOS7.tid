@@ -1,13 +1,21 @@
 created: 20180704140054071
-modified: 20180704142903042
+modified: 20180704191130390
 title: How to Set Up ssh in CentOS7
 type: text/vnd.tiddlywiki
 
-# yum install ssh-clients ssh-server
-# sudo systemctl restart sshd.service
+Based on [[this article|https://www.rosehosting.com/blog/how-to-configure-and-use-openssh-on-centos-7/]]
+
+```
+yes master> sudo yum install ssh-clients ssh-server
+yes master> sudo systemctl restart sshd.service
+```
 
 You should now be able to connect to this machine via ssh on port 22 (the ssh default).
+
+[ Extra credit: when we install [[VNC|How To Set Up VNC on CentOS7]] we need to open holes in the firewall, but when we install ssh we don't.  Why not? ]
 
 ```
 yes, master> ssh `hostname -f`
 ```
+
+The article cited at the top mentions, as does the sshd config file, how to disable passwords for ssh.  That's an excellent security move, but it requires you to know how to generate and share ssh keys (the alternative to passwords).

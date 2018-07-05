@@ -1,5 +1,5 @@
 created: 20180704114926866
-modified: 20180704145304700
+modified: 20180704164955370
 tags: 
 title: Raspberry Pi Notes
 type: text/vnd.tiddlywiki
@@ -21,6 +21,7 @@ type: text/vnd.tiddlywiki
 * [[How To Set Up VNC on CentOS7]]
 * [[How To Generate Man Pages]]
 * [[How To Find and Install Software on CentOS7]]
+* [[What is systemd?]]
 
 !Blog Posts
 * [[4th July 2018]]

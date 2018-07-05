@@ -7,3 +7,6 @@ Installed TiddlyWiki on Node.js as an experiment.
 I believe this will open a webserver that I can expose.
 Test to make sure changes get saved.
 Figure out how to make backups.
+
+This whole wiki is stored in git
+https://github.com/timborn/rpi-wiki

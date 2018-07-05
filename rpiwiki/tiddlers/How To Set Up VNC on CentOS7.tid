@@ -1,9 +1,45 @@
 created: 20180704142934924
-modified: 20180704144042988
+modified: 20180704191549209
+tags: CentOS7
 title: How To Set Up VNC on CentOS7
 type: text/vnd.tiddlywiki
 
 VNC - Virtual Network Computing - software that allows us to connect to the desktop of a remote machine.  
-Compare to 
+Compare to Remote Desktop Connection (RDC).
 
-There are various VNC servers, but it appears TigerVNC is available and supported by RedHat.
+There are various VNC servers, but it appears ~TigerVNC is available and supported by ~RedHat.  These notes are based on [[this article|https://www.tecmint.com/install-and-configure-vnc-server-in-centos-7/]]
+
+```
+yes master> sudo yum install tigervnc-server tigervnc-server-applet
+
+# run this as the user you want to have remote access; sets password for VNC
+yes master> vncpasswd   
+
+# NB the '1' changes per user
+# the backslash on the end of the line means the line continues; this is really one line
+yes master> sudo cp /lib/systemd/system/vncserver@:.service \
+                    /etc/systemd/system/vncserver@:1.service
+
+# edit /etc/systemd/system/vncserver@:1.service
+# basically replacing <USER> with the username you want to grant remote access
+
+# restart daemons
+yes master> sudo systemctl daemon-reload
+yes master> sudo systemctl start vncserver@:1
+yes master> sudo systemctl enable vncserver@:1  # yes, both 'start' and 'enable'
+yes master> systemctl status vncserver@:1   # should see it enabled now
+
+# by default the firewall is operational so you will need to allow port 590X through
+yes master> sudo firewall-cmd --add-port=5901/tcp
+
+# that only lasts until a reboot.  You can make it permanent thusly:
+yes master> sudo firewall-cmd --add-port=5901/tcp --permanent
+```
+
+Extra Credit: if you check the ports being used (sudo ss -tulpn | grep vnc) you will see ports 5801, 5901 and 6001.  5901 is what VNC uses, but it also opens up 6001 for X access.  What is 5801 all about?  It's a web interface that is supposed to download a java applet so you can run VNC inside your browser.  You installed this with tigernvc-server-applet.
+
+How to get this to work properly?
+
+Extra Extra Credit - if you can get the java applet to work, figure out how to run it over TLS (https).  TODO: Please tell me how.
+
+See Also: [[How To See Your Firewall Settings in CentOS7]]
