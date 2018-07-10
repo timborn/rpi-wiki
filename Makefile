@@ -17,6 +17,7 @@ local:
 
 www:
 	@echo Starting tiddlywiki on http://$(MYIP):$(PORT)
+	@echo See Also: http://linuxlabs.duckdns.org:8080
 	tiddlywiki $(WIKI) --server $(PORT) "$$:/core/save/all" text/plain text/html rpi linuxrules $(MYIP)
 	
 
