@@ -1,8 +1,7 @@
 created: 20180705211013715
-modified: 20180705211213810
+modified: 20180710140727240
 title: RPi Class Outline
 type: text/vnd.tiddlywiki
-
 
 # assembling RPi and installing Linux
 # setting up ssh and VNC so we can use RPi headless
@@ -16,6 +15,7 @@ type: text/vnd.tiddlywiki
 # top, tload, loadavg
 # who, id
 # df, du - how to see what is being used
+# shasum & md5sum - how to check files for corruption 
 # pagers, more or less
 # date, and it's various forms
 # regex, sed, grep
