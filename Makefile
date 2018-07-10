@@ -2,9 +2,11 @@
 WIKI=rpiwiki
 
 default:
-	tiddlywiki $(WIKI) --server &
-	sleep 2
-	open http://localhost:8080
+	@echo Starting the server.  You can connect at 
+	@echo http://localhost:8080
+	@echo press return to continue ...
+	@read nothing
+	tiddlywiki $(WIKI) --server 
 
 create:  # only once!!
 	# tiddlywiki $(WIKI) --init server
