@@ -1,0 +1,15 @@
+created: 20180711205652803
+creator: rpi
+modified: 20180711210601421
+modifier: rpi
+title: How To Burn SD Cards In RPi
+type: text/vnd.tiddlywiki
+
+The //normal// way to burn SD cards is using a Mac or other machine, and use [[Etcher|http://etcher.io]].
+
+If you want to, you can use a RPi to burn SD cards.  As the SD card slot is obviously in use, you will need a [[USB-SD Card adapter|]].
+
+The details are here:
+https://www.raspberrypi.org/documentation/installation/installing-images/linux.md
+
+With a bit of clever scripting, you should be able to run several in parallel.

@@ -1,5 +1,7 @@
 created: 20180705211013715
-modified: 20180710140727240
+creator: rpi
+modified: 20180712020138965
+modifier: rpi
 title: RPi Class Outline
 type: text/vnd.tiddlywiki
 
@@ -13,6 +15,7 @@ type: text/vnd.tiddlywiki
 # the zen of Unix - pipes and filters, file streams stdin, stdout, stderr
 # command line args, options, flags, short and long
 # top, tload, loadavg
+# thinking in octal, permissions, user, group and other
 # who, id
 # df, du - how to see what is being used
 # shasum & md5sum - how to check files for corruption 

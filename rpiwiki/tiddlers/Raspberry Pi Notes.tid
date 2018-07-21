@@ -1,5 +1,7 @@
 created: 20180704114926866
-modified: 20180705213348875
+creator: rpi
+modified: 20180712015656735
+modifier: rpi
 tags: 
 title: Raspberry Pi Notes
 type: text/vnd.tiddlywiki
@@ -24,6 +26,8 @@ type: text/vnd.tiddlywiki
 * [[What is systemd?]]
 * [[How To Expand The Filesystems on CentOS7]]
 * [[How To See How Fast Your RPi Is]]
+* [[How To Burn SD Cards In RPi]]
+* [[How To Add A New User]]
 
 !Blog Posts
 * [[4th July 2018]]

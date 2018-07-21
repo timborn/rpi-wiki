@@ -1,0 +1,17 @@
+created: 20180712015702911
+creator: rpi
+modified: 20180712015919985
+modifier: rpi
+title: How To Add A New User
+type: text/vnd.tiddlywiki
+
+There is probably a way to do this through the GUI too.  
+
+```
+$ useradd timborn -G sudo -m -s /bin/bash
+```
+-G sudo -- I want to be part of the sudo group
+
+-m -- create a new $HOME directory
+
+-s /bin/bash -- this is the $SHELL I like

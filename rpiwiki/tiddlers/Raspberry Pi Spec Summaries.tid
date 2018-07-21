@@ -1,5 +1,7 @@
 created: 20180704123258277
-modified: 20180710120208918
+creator: rpi
+modified: 20180711201448206
+modifier: rpi
 title: Raspberry Pi Spec Summaries
 type: text/vnd.tiddlywiki
 
@@ -13,6 +15,8 @@ RASPBERRY PI 3 - MOD B, 1GB RAM; Silicon Manufacturer:Broadcom; Core Architectur
 The built-in wifi and bluetooth are new on this model.  Clock speed bumped from 900MHz to 1.2GHz.  CPU moved from Cortex-A7 (32-bits) set to a Cortex-A53 (64-bits).  GPU clock moved from 250 MHz to 400 Mhz.  RAM clock moved from 450 MHz to 900 MHz.
 
 The CPU change probably make most sense when you can recompile your code to take advantage of it.
+
+The arm8 is the first RPi with a 64-bit processor.  It is also backward compatible with the arm7 so you may see people running 32-bit kernels or apps on a RPi 3.
 
 !Raspberry Pi Model 2 B v1.1
 * ??
