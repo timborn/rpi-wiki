@@ -1,6 +1,6 @@
 created: 20180704114926866
 creator: rpi
-modified: 20180712015656735
+modified: 20180722185344537
 modifier: rpi
 tags: 
 title: Raspberry Pi Notes
@@ -28,6 +28,7 @@ type: text/vnd.tiddlywiki
 * [[How To See How Fast Your RPi Is]]
 * [[How To Burn SD Cards In RPi]]
 * [[How To Add A New User]]
+* [[How To Set Up A Security Camera Using RPi]]
 
 !Blog Posts
 * [[4th July 2018]]

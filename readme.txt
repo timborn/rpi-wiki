@@ -10,3 +10,5 @@ Figure out how to make backups.
 
 This whole wiki is stored in git
 https://github.com/timborn/rpi-wiki
+
+rpi/linuxrules
