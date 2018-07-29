@@ -27,3 +27,6 @@ create:  # only once!!
 
 backup:	# how does this worK?
 	tiddlywiki $(WIKI) --build index
+
+ssh: 
+	ssh bitnami@192.168.0.51
