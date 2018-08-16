@@ -1,0 +1,22 @@
+created: 20180711213202973
+creator: rpi
+modified: 20180711214704202
+modifier: rpi
+title: Learning to Live with SELinux
+type: text/vnd.tiddlywiki
+
+!What Is SELinux?
+"Security-Enhanced Linux (SELinux) is a Linux kernel security module that provides a mechanism for supporting access control security policies, including United States Department of Defense–style mandatory access controls (MAC)."
+
+[[wikipedia|https://en.wikipedia.org/wiki/Security-Enhanced_Linux]]
+
+!Where Did SELinux Come From?
+
+!Why Use It?
+
+!How Can I Tell If My System Uses SELinux?
+
+!Typical SELinux Commands
+* restore con
+
+!How To Disable SELinux On My RPi

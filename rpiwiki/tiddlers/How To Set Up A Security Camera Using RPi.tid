@@ -1,0 +1,17 @@
+created: 20180722185445243
+creator: rpi
+modified: 20180722192116988
+modifier: rpi
+title: How To Set Up A Security Camera Using RPi
+type: text/vnd.tiddlywiki
+
+This article was pretty inspirational: [[Build a Raspberry Pi Security Camera Network|https://pimylifeup.com/raspberry-pi-security-camera/]].
+
+I ended up using a RPi Model 1 B+ v1.2.  Relatively old by RPi standards, but it performs well.
+
+The instructions were straightforward.  I used Etcher to burn a 32GB Samsung SD card and it booted right up.  I was able to send email via gmail.  Since I have 2-factor authentication I needed to generate a password for gmail here: https://support.google.com/accounts/answer/185833?hl=en
+
+I was similarly able to have the images and videos automatically uploaded to gdrive.  You need to generate an authentication code to give motioneye access.  The link in the motioneye configuration takes you right to the page to generate the authentication code.
+
+
+[img[Screen Shot 2018-07-22 at 2.00.05 PM.png]]

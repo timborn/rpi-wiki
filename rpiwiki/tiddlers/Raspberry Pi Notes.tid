@@ -1,5 +1,6 @@
 created: 20180704114926866
-modified: 20180706155924483
+creator: rpi
+modified: 20180722185344537
 tags: 
 title: Raspberry Pi Notes
 type: text/vnd.tiddlywiki
@@ -25,6 +26,9 @@ type: text/vnd.tiddlywiki
 * [[How To Expand The Filesystems on CentOS7]]
 * [[How To See How Fast Your RPi Is]]
 * [[How To Install Node.js On RPi Running CentOS7]]
+* [[How To Burn SD Cards In RPi]]
+* [[How To Add A New User]]
+* [[How To Set Up A Security Camera Using RPi]]
 
 !Blog Posts
 * [[4th July 2018]]

@@ -1,5 +1,7 @@
 created: 20180704135857192
-modified: 20180704144446382
+creator: rpi
+modified: 20180712014846998
+modifier: rpi
 title: How to Change hostname in CentOS7 on RPi
 type: text/vnd.tiddlywiki
 
@@ -34,4 +36,7 @@ yes, master> hostname -f
 
 That should show the Fully Qualified Domain Name (FQDN) for your machine.
 
-See also: uname, hostname
+See Also: 
+
+* uname, hostname
+* [[Rename A Computer (Debian)|https://wiki.debian.org/HowTo/ChangeHostname]]
