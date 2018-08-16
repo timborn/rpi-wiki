@@ -1,0 +1,10 @@
+created: 20180706160014225
+modified: 20180706160309478
+title: How To Install Node.js On RPi Running CentOS7
+type: text/vnd.tiddlywiki
+
+I was unable to find node in the stock repos for RPi/~CentOS7.
+
+I found this blog: https:/blog.wia.io/installing-node-js-on-a-raspberry-pi-3
+
+He's juist grabbing a taball 

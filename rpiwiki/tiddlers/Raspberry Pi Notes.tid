@@ -1,5 +1,5 @@
 created: 20180704114926866
-modified: 20180705213348875
+modified: 20180706155924483
 tags: 
 title: Raspberry Pi Notes
 type: text/vnd.tiddlywiki
@@ -24,6 +24,7 @@ type: text/vnd.tiddlywiki
 * [[What is systemd?]]
 * [[How To Expand The Filesystems on CentOS7]]
 * [[How To See How Fast Your RPi Is]]
+* [[How To Install Node.js On RPi Running CentOS7]]
 
 !Blog Posts
 * [[4th July 2018]]
