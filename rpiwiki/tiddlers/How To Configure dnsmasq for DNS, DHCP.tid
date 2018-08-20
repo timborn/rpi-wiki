@@ -1,0 +1,34 @@
+created: 20180819230844003
+creator: rpi
+modified: 20180819231106638
+modifier: rpi
+title: How To Configure dnsmasq for DNS, DHCP
+type: text/vnd.tiddlywiki
+
+Work in progress.  Here are the changes I made to /etc/dnsmasq.conf on the Gateway for the following configuration.
+
+INET <...> Gateway <--> ~AccessPoint <...> ~UserMachine
+
+
+```
+domain-needed
+bogus-priv
+interface=eth0
+expand-hosts
+domain=local
+dhcp-range=192.168.0.100,192.168.0.254,255.255.255.0,4h
+# .55 is our TP-link Nano #3 Access Point
+dhcp-host=e8:94:f6:7a:f8:2e,192.168.0.55,linuxlabs-ap,infinite
+dhcp-host=b8:27:eb:32:2a:33,192.168.0.52,linuxlabs-gw,infinite
+dhcp-script=/bin/echo
+log-queries
+log-dhcp
+
+# RPi hotspot config - dhcp on eth0 (to AP) and inet through wlan0
+# "Raspberry Pi - Hotspot/Access Point dhcpcd method" raspberryconnect.com
+interface=eth0
+bind-dynamic
+domain-needed
+bogus-priv
+domain=local
+```

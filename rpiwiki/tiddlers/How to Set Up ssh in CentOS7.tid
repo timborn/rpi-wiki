@@ -1,12 +1,14 @@
 created: 20180704140054071
-modified: 20180704191130390
+creator: rpi
+modified: 20180817111736416
+modifier: rpi
 title: How to Set Up ssh in CentOS7
 type: text/vnd.tiddlywiki
 
 Based on [[this article|https://www.rosehosting.com/blog/how-to-configure-and-use-openssh-on-centos-7/]]
 
 ```
-yes master> sudo yum install ssh-clients ssh-server
+yes master> sudo yum install openssh-clients openssh-server
 yes master> sudo systemctl restart sshd.service
 ```
 
