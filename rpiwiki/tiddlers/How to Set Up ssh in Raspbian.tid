@@ -1,0 +1,13 @@
+created: 20180820140540368
+creator: rpi
+modified: 20180821214249256
+modifier: rpi
+tags: Raspbian
+title: How to Set Up ssh in Raspbian
+type: text/vnd.tiddlywiki
+
+You can get ssh started by editing the boot partition (which is FAT formatted, so you can do this on any machine). 
+By just creating an empty file called 'ssh', the next reboot will have ssh enabled.
+
+Of course, this assumes you have an account, so presumably you will be using the default pi/raspberry unless you have already created your own account.
+(remember to change the default password for the 'pi' account, or disable is, as it is a security hold)

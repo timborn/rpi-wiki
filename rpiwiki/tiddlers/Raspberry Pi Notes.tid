@@ -1,6 +1,6 @@
 created: 20180704114926866
 creator: rpi
-modified: 20180819230837278
+modified: 20180821225530089
 modifier: rpi
 tags: 
 title: Raspberry Pi Notes
@@ -19,6 +19,7 @@ type: text/vnd.tiddlywiki
 * [[Set Up Squid on CentOS7]]
 * [[How to Change hostname in CentOS7 on RPi]]
 * [[How to Set Up ssh in CentOS7]]
+* [[How to Set Up ssh in Raspbian]]
 * [[How To Tell What Services Are Running On CentOS7?]]
 * [[How To Set Up VNC on CentOS7]]
 * [[How To Generate Man Pages]]
@@ -31,6 +32,8 @@ type: text/vnd.tiddlywiki
 * [[How To Add A New User]]
 * [[How To Set Up A Security Camera Using RPi]]
 * [[How To Configure dnsmasq for DNS, DHCP]]
+* [[How To Configure dnsmasq as an AdBlocker]]
+* [[How To Backup Your Raspberry Pi]]
 
 !Blog Posts
 * [[4th July 2018]]

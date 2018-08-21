@@ -1,25 +1,63 @@
 created: 20180819230844003
 creator: rpi
-modified: 20180819231106638
+modified: 20180821230052685
 modifier: rpi
+tags: Raspbian
 title: How To Configure dnsmasq for DNS, DHCP
 type: text/vnd.tiddlywiki
+
+Based on this article: http://raspberryconnect.com/network/item/333-raspberry-pi-hotspot-access-point-dhcpcd-method
 
 Work in progress.  Here are the changes I made to /etc/dnsmasq.conf on the Gateway for the following configuration.
 
 INET <...> Gateway <--> ~AccessPoint <...> ~UserMachine
 
+Goal: a gateway with DNS that tacks on ".local" for domains and registers all clients as they are seen, DHCP, squid, for caching and adblocking.  Most of that is handled by dnsmasq.
+
+1. Start with raspbian stretch-2017-09-07
+
+2. Edit cmdline.txt on boot partition to fix eth0
 
 ```
+ip=192.168.1.52:::255.255.255.0:linuxlabs-gw:eth0:off
+```
+
+3. Touch ssh on boot partition
+
+4. Connect router to eth0 & ssh in.  rasps-config enable VNC
+
+5. VNC in.  Add wifi settings 
+
+6. Update all your software. You want the latest security patches.  NB this will take a while.
+
+```
+$ sudo apt-get update
+$ sudo apt-get upgrade
+```
+  
+7. install dnsmasq
+
+```
+$ sudo apt-get install dnsmasq
+$ systemctl status dnsmasq. # check status; may need a reboot first
+```
+
+8. Edit /etc/dnsmasq.conf and append these settings to the end:
+
+```
+### TDB 180820 - experimental changes to get dnsmasq to work for lab
+
 domain-needed
 bogus-priv
 interface=eth0
 expand-hosts
 domain=local
-dhcp-range=192.168.0.100,192.168.0.254,255.255.255.0,4h
+# we want the range of IP addresses offered via eth0 to be DISTINCT 
+# from the addresses on wlan0
+dhcp-range=192.168.1.100,192.168.1.254,255.255.255.0,4h
 # .55 is our TP-link Nano #3 Access Point
-dhcp-host=e8:94:f6:7a:f8:2e,192.168.0.55,linuxlabs-ap,infinite
-dhcp-host=b8:27:eb:32:2a:33,192.168.0.52,linuxlabs-gw,infinite
+dhcp-host=e8:94:f6:7a:f8:2e,192.168.1.55,linuxlabs-ap,infinite
+dhcp-host=b8:27:eb:32:2a:33,192.168.1.52,linuxlabs-gw,infinite
 dhcp-script=/bin/echo
 log-queries
 log-dhcp
@@ -32,3 +70,105 @@ domain-needed
 bogus-priv
 domain=local
 ```
+
+9. Plug in AP to eth0 & reboot.  Use laptop to join SSID linuxlabs.
+
+Confirm all of the following:
+
+* IP/mask
+* hostname -f.  # should have .local appended
+* ping linuxlabs-gw.   # test dns
+* ping yahoo.com.      # test inet connection
+
+10. (housekeeping) when VNC works, goto GUI preferences / RPi config and *disable* auto login.
+Set resolution to 1920x1080 (Mac).
+Change the password on the 'pi' account (or disable it).
+
+```
+$ user add timborn -G sudo -m -s /bin/bash.  # give myself an account
+```
+
+11. Enable IP forwarding.  Edit /etc/sysctl.conf and uncomment (or add):
+
+```
+net.ipv4.ip_forward=1
+```
+
+12. Create /etc/iptables-hs.  NB the use of eth0/wlan0 here is *reversed* from the article cited above, because in our case the internet is on wlan0 and our private network is hanging behind eth0.
+
+```
+#!/bin/bash
+# NB this is the OPPOSITE of what the article says, because I have an AP 
+# attached on eth0 and my backhaul is over wlan0
+iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+iptables -A FORWARD -i wlan0 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i eth0 -o wlan0 -j ACCEPT
+```
+
+Make it executable:
+
+```
+$ sudo chmod +x /etc/iptables-hs
+```
+
+13. Create /etc/systemd/system/hs-iptables.service:
+
+```
+[Unit]
+Description=Activate IPtables for Hotspot
+After=network-pre.target
+Before=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/etc/iptables-hs
+
+[Install]
+WantedBy=multi-user.target
+```
+
+NB I had to reboot before service hs-iptables would work.  There's probably a way to (re)start the service manually.
+
+14. Edit /etc/hosts and add entries for all static hosts.  Dnsmasq will use these names for it's DNS.
+
+```
+192.168.1.52	linuxlabs-gw	# eth0
+# 192.168.0.53	linuxlabs-gw	# wifi
+192.168.1.55	linuxlabs-ap
+127.0.1.1	linuxlabs-gw
+```
+
+15. Confirm all of the following:
+
+* IP/mask
+* hostname -f.  # should have .local appended
+* ping linuxlabs-gw.   # test dns
+* ping yahoo.com.      # test inet connection
+
+Check the routes on the gateway:
+
+```
+timborn@linuxlabs-gw:~ $ route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         192.168.0.1     0.0.0.0         UG    303    0        0 wlan0
+192.168.0.0     0.0.0.0         255.255.255.0   U     303    0        0 wlan0
+192.168.1.0     0.0.0.0         255.255.255.0   U     0      0        0 eth0
+```
+
+You may need e.g. things like this:
+
+```
+$ sudo route del link-local/16 dev eth0
+$ sudo route add -net 192.168.1.0/24 dev eth0
+```
+
+[[Persistent routes in raspbian stretch|http://www.hospitableit.com/howto/configuring-a-static-ip-and-static-routes-on-a-raspberry-pi-running-raspbian-jessie-using-the-cli/]]
+
+```
+timborn@linuxlabs-gw:/lib/dhcpcd/dhcpcd-hooks $ cat 40-route 
+route del link-local/16 dev eth0
+route add -net 192.168.1.0/24 dev eth0
+```
+
+See Also [[How To Configure dnsmasq as an AdBlocker]]

@@ -1,0 +1,17 @@
+created: 20180820151159201
+creator: rpi
+modified: 20180820153003246
+modifier: rpi
+title: How To Backup Your Raspberry Pi
+type: text/vnd.tiddlywiki
+
+```
+# Mac syntax
+$ diskutil list        # find the exact rdiskX for our SD card
+$ dd if=/dev/rdiskx bs=1m | xz -7 -C sha256 > backup.xz
+```
+
+See Also: 
+
+* [[How To Shrink Your Filesystem|http://www.aoakley.com/articles/2015-10-09-resizing-sd-images.php]]
+* [[pishrink|https://github.com/Drewsif/PiShrink]]

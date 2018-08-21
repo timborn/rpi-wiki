@@ -1,0 +1,13 @@
+created: 20180821225535415
+creator: rpi
+modified: 20180821230022578
+modifier: rpi
+title: How To Configure dnsmasq as an AdBlocker
+type: text/vnd.tiddlywiki
+
+https://vsefer.com/content/raspberry-pi-adblock-box-entire-network
+
+Two changes of note, both in /etc/dnsmasq.d/adb.conf
+
+# comment out no-poll.  Was getting an error "dnsmasq: only one resolv.conf file allowed in no-poll mode"
+# change to interface=wlan0, since that is where our inet connection is
