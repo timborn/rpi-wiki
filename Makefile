@@ -2,6 +2,7 @@
 WIKI=rpiwiki
 MYIP="192.168.0.51"
 PORT=8080
+CLASSIP=$$( ifconfig|grep 192| awk '{print $$2}' )
 
 def:
 	@echo "Targets:"
@@ -14,6 +15,10 @@ local:
 	@echo press return to continue ...
 	@read nothing
 	tiddlywiki $(WIKI) --server 
+
+classroom:
+	@echo Starting tiddlywiki on http://$(CLASSIP):$(PORT)
+	tiddlywiki $(WIKI) --server $(PORT) "$$:/core/save/all" text/plain text/html rpi linuxrules $(CLASSIP)
 
 www:
 	@echo Starting tiddlywiki on http://$(MYIP):$(PORT)
