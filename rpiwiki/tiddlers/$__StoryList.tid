@@ -1,6 +1,6 @@
-created: 20180821230052679
-list: [[How To Add A New User]] [[How to Set up RPi Without a Monitor]] [[How to Set Up ssh in CentOS7]] GettingStarted [[Raspberry Pi Notes]] [[How To Configure dnsmasq as an AdBlocker]] [[How To Configure dnsmasq for DNS, DHCP]] [[How to Set Up ssh in Raspbian]]
-modified: 20180821230052679
+created: 20180824221517500
+list: [[How To Set Up VNC on CentOS7]] GettingStarted
+modified: 20180824221517500
 title: $:/StoryList
 type: text/vnd.tiddlywiki
 

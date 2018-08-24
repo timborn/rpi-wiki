@@ -1,5 +1,7 @@
 created: 20180704142934924
-modified: 20180704191549209
+creator: rpi
+modified: 20180824213658979
+modifier: rpi
 tags: CentOS7
 title: How To Set Up VNC on CentOS7
 type: text/vnd.tiddlywiki
@@ -17,7 +19,7 @@ yes master> vncpasswd
 
 # NB the '1' changes per user
 # the backslash on the end of the line means the line continues; this is really one line
-yes master> sudo cp /lib/systemd/system/vncserver@:.service \
+yes master> sudo cp /lib/systemd/system/vncserver@.service \
                     /etc/systemd/system/vncserver@:1.service
 
 # edit /etc/systemd/system/vncserver@:1.service
