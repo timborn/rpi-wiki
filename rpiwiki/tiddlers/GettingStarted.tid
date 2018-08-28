@@ -1,13 +1,13 @@
 caption: Step 1<br>Syncing
 created: 20180819230731840
 creator: rpi
-modified: 20180824205228089
+modified: 20180825173652993
 modifier: rpi
 tags: $:/tags/GettingStarted
 title: GettingStarted
 type: text/vnd.tiddlywiki
 
-''NB THIS COPY IS RUNNING ON PLEASANT''
+''NB THIS COPY IS RUNNING ON BITNAMI''
 
 Start Here: [[Raspberry Pi Notes|Raspberry Pi Notes]]
 

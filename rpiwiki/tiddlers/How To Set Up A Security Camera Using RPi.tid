@@ -1,6 +1,6 @@
 created: 20180722185445243
 creator: rpi
-modified: 20180722192116988
+modified: 20180827223435161
 modifier: rpi
 title: How To Set Up A Security Camera Using RPi
 type: text/vnd.tiddlywiki
@@ -15,3 +15,9 @@ I was similarly able to have the images and videos automatically uploaded to gdr
 
 
 [img[Screen Shot 2018-07-22 at 2.00.05 PM.png]]
+
+As a follow up, there was an article cited in Wired, "[[We compared the 3 best image analysis API’s — here’s what we learned|https://engineering.musefind.com/we-compared-the-3-best-image-analysis-apis-here-s-what-we-learned-2d54cff5ae62]]".  That article talked about using the ML models for image recognition.  I think the guy mentioned his dog walking through the security camera was generating a lot of false positives, so he filters his images through one of these sites to check for image recognition of "dog" to ignore.
+
+One of the sites even accepts small video input, which is what this security camera generates.
+
+TODO: insert screenshot of image recognition with motioneye input
