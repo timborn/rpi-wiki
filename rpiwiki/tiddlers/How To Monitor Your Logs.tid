@@ -1,0 +1,16 @@
+created: 20180829154642315
+creator: rpi
+modified: 20180829154800113
+modifier: rpi
+tags: CentOS7
+title: How To Monitor Your Logs
+type: text/vnd.tiddlywiki
+
+Watching your logfiles as you make changes is often helpful.
+In a terminal window, you can tail the general log for your system:
+
+```
+sudo tail -f /var/log/messages
+```
+
+There are various other log files in that same directory, but they tend to be specific to some application.  

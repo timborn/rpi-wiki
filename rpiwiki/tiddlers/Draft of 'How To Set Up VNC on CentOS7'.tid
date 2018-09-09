@@ -1,9 +1,11 @@
 created: 20180704142934924
 creator: rpi
-modified: 20180829153658140
+draft.of: How To Set Up VNC on CentOS7
+draft.title: How To Set Up VNC on CentOS7
+modified: 20180829153649830
 modifier: rpi
 tags: CentOS7
-title: How To Set Up VNC on CentOS7
+title: Draft of 'How To Set Up VNC on CentOS7'
 type: text/vnd.tiddlywiki
 
 VNC - Virtual Network Computing - software that allows us to connect to the desktop of a remote machine.  

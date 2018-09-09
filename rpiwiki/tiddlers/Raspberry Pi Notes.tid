@@ -1,6 +1,6 @@
 created: 20180704114926866
 creator: rpi
-modified: 20180821225530089
+modified: 20180829154635185
 modifier: rpi
 tags: 
 title: Raspberry Pi Notes
@@ -34,6 +34,9 @@ type: text/vnd.tiddlywiki
 * [[How To Configure dnsmasq for DNS, DHCP]]
 * [[How To Configure dnsmasq as an AdBlocker]]
 * [[How To Backup Your Raspberry Pi]]
+* [[How to Delete Unwanted Packages]]
+* [[Performance Tuning RPi]]
+* [[How To Monitor Your Logs]]
 
 !Blog Posts
 * [[4th July 2018]]

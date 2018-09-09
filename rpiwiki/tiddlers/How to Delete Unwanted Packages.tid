@@ -1,0 +1,21 @@
+created: 20180829135120755
+creator: rpi
+modified: 20180829135219809
+modifier: rpi
+tags: Raspbian
+title: How to Delete Unwanted Packages
+type: text/vnd.tiddlywiki
+
+```
+while the Raspberry Pi 3 and later is suitable for use as a desktop, you might not need that functionality. So the presence of LibreOffice may seem utterly pointless. Ready to save 250MB?
+
+Open a terminal window and enter:
+
+sudo apt purge libreoffice*
+sudo apt clean
+sudo apt autoremove
+```
+
+https://www.makeuseof.com/tag/raspberry-pi-performance-tips/
+
+keywords: bloatware
