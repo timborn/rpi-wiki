@@ -1,6 +1,6 @@
 created: 20180704140054071
 creator: rpi
-modified: 20180820140452308
+modified: 20180920040536734
 modifier: rpi
 tags: CentOS7
 title: How to Set Up ssh in CentOS7
@@ -20,5 +20,5 @@ You should now be able to connect to this machine via ssh on port 22 (the ssh de
 ```
 yes, master> ssh `hostname -f`
 ```
-
+#Christina: I used Putty to connect/verify
 The article cited at the top mentions, as does the sshd config file, how to disable passwords for ssh.  That's an excellent security move, but it requires you to know how to generate and share ssh keys (the alternative to passwords).

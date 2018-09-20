@@ -1,6 +1,6 @@
 created: 20180705211013715
 creator: rpi
-modified: 20180712020138965
+modified: 20180920200745883
 modifier: rpi
 title: RPi Class Outline
 type: text/vnd.tiddlywiki
@@ -37,3 +37,5 @@ type: text/vnd.tiddlywiki
 ### demonstrate use of pipes & filters
 ### demo use of basic Unix commands: grep, cat, bash (looping?), creating a custom cmd
 # final project show & tell
+
+[[User Management Exercises]]

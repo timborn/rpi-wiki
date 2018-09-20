@@ -1,0 +1,14 @@
+created: 20180920200752568
+creator: rpi
+modified: 20180920200807599
+modifier: rpi
+title: User Management Exercises
+type: text/vnd.tiddlywiki
+
+# (all from the command line) Create an account for Alice
+# Create a new group for xrayusers 
+# Create a dummy script /bin/telescope.sh and set permissions so it can ONLY be executed by xrayusers group
+# Test using Alice; add Alice to xrayusers group; test again
+# Create an account for Bob, and make sure he is also in the X-rayusers group.
+# Test & confirm
+# (extra credit) automate your test
