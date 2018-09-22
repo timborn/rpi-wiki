@@ -1,6 +1,6 @@
 created: 20180705211013715
 creator: rpi
-modified: 20180920200745883
+modified: 20180922151555738
 modifier: rpi
 title: RPi Class Outline
 type: text/vnd.tiddlywiki
@@ -38,4 +38,15 @@ type: text/vnd.tiddlywiki
 ### demo use of basic Unix commands: grep, cat, bash (looping?), creating a custom cmd
 # final project show & tell
 
-[[User Management Exercises]]
+---
+
+# [[RPi Class Day 1]]
+# [[RPi Class Day 2]]
+# [[RPi Class Day 3]]
+# [[RPi Class Day 4]]
+# [[RPi Class Day 5]]
+# [[RPi Class Day 6]]
+
+---
+* [[User Management Exercises]]
+* [[Service Management Exercises]]

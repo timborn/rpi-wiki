@@ -1,0 +1,16 @@
+created: 20180922151050043
+creator: rpi
+modified: 20180922153757021
+modifier: rpi
+title: RPi Class Day 1
+type: text/vnd.tiddlywiki
+
+# Review video of newbie & safety procedure
+# build RPi
+# install ssh & test
+# install VNC & test
+# (optional) set root password for when you lock yourself out. ;-)
+# homework - expand rootfs
+# yum update # at home!!
+
+time left?  shell scripting basics

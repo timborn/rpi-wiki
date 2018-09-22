@@ -1,5 +1,8 @@
 created: 20180705114537969
-modified: 20180705114621778
+creator: rpi
+modified: 20180922165534990
+modifier: rpi
+tags: CentOS7
 title: How To Expand The Filesystems on CentOS7
 type: text/vnd.tiddlywiki
 
@@ -8,7 +11,159 @@ search for 'expand'
 
 https://github.com/rharmonson/richtech/wiki/Using-CentOS-7.2.1511-Minimal-on-the-Raspberry-PI-3
 
-TODO: finish writing this one
+#TODO: finish writing this one
+#Tim, you can review but I think the TODO is finished
 
 NB the 'normal' and easy expand failed for me using 64GB SD card. 
 I hope it works on 32GB cards.
+
+!!! View all Disk Partitions in Linux
+[ace@rounders ~]$ sudo fdisk -l
+
+`Disk /dev/mmcblk0: 32.0 GB, 32010928128 bytes, 62521344 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x000b5988
+
+        Device Boot      Start         End      Blocks   Id  System
+/dev/mmcblk0p1   *        2048      587775      292864    c  W95 FAT32 (LBA)
+/dev/mmcblk0p2          587776     1587199      499712   82  Linux swap / Solaris
+/dev/mmcblk0p3         1587200     9009151     3710976   83  Linux`
+
+The Disk in this example turns out to be /dev/mmcblk0.
+
+!!! Expand Root Partition
+
+`[ace@rounders ~]$ sudo fdisk /dev/mmcblk0
+
+Welcome to fdisk (util-linux 2.23.2).
+
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Command (m for help): m
+# This is so you can reference back what the command actions mean in the rest of this article
+Command action
+   a   toggle a bootable flag
+   b   edit bsd disklabel
+   c   toggle the dos compatibility flag
+   d   delete a partition
+   g   create a new empty GPT partition table
+   G   create an IRIX (SGI) partition table
+   l   list known partition types
+   m   print this menu
+   n   add a new partition
+   o   create a new empty DOS partition table
+   p   print the partition table
+   q   quit without saving changes
+   s   create a new empty Sun disklabel
+   t   change a partition's system id
+   u   change display/entry units
+   v   verify the partition table
+   w   write table to disk and exit
+   x   extra functionality (experts only)`
+
+# List out the partitions
+`Command (m for help): p
+
+Disk /dev/mmcblk0: 32.0 GB, 32010928128 bytes, 62521344 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x000b5988
+
+        Device Boot      Start         End      Blocks   Id  System
+/dev/mmcblk0p1   *        2048      587775      292864    c  W95 FAT32 (LBA)
+/dev/mmcblk0p2          587776     1587199      499712   82  Linux swap / Solaris
+/dev/mmcblk0p3         1587200     9009151     3710976   83  Linux`
+
+# Delete Partition 3
+`Command (m for help): d
+Partition number (1-3, default 3): 
+Partition 3 is deleted`
+
+# Add a New Primary Partition
+`Command (m for help): n
+Partition type:
+   p   primary (2 primary, 0 extended, 2 free)
+   e   extended
+Select (default p): p
+Partition number (3,4, default 3): 
+First sector (1587200-62521343, default 1587200): 
+Using default value 1587200
+Last sector, +sectors or +size{K,M,G} (1587200-62521343, default 62521343): 
+Using default value 62521343
+Partition 3 of type Linux and of size 29.1 GiB is set
+
+Command (m for help): w
+The partition table has been altered!
+Calling ioctl() to re-read partition table.
+
+WARNING: Re-reading the partition table failed with error 16: Device or resource busy.
+The kernel still uses the old table. The new table will be used at
+the next reboot or after you run partprobe(8) or kpartx(8)
+Syncing disks.
+`
+# Reboot to Finish Creating New Partition
+[ace@rounders ~]$ reboot
+
+!!! Resize the New Partition
+# Disk partitions before resizing
+`[ace@rounders ~]$ sudo fdisk -l
+Disk /dev/mmcblk0: 32.0 GB, 32010928128 bytes, 62521344 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x000b5988
+
+        Device Boot      Start         End      Blocks   Id  System
+/dev/mmcblk0p1   *        2048      587775      292864    c  W95 FAT32 (LBA)
+/dev/mmcblk0p2          587776     1587199      499712   82  Linux swap / Solaris
+/dev/mmcblk0p3         1587200    62521343    30467072   83  Linux
+`
+# Resize the new partition
+`[ace@rounders ~]$ sudo resize2fs /dev/mmcblk0p3
+resize2fs 1.42.9 (28-Dec-2013)
+Filesystem at /dev/mmcblk0p3 is mounted on /; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 4
+The filesystem on /dev/mmcblk0p3 is now 7616768 blocks long.`
+
+# Disk partitions after resizing
+`[ace@rounders ~]$ sudo fdisk -l
+Disk /dev/mmcblk0: 32.0 GB, 32010928128 bytes, 62521344 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x000b5988
+
+        Device Boot      Start         End      Blocks   Id  System
+/dev/mmcblk0p1   *        2048      587775      292864    c  W95 FAT32 (LBA)
+/dev/mmcblk0p2          587776     1587199      499712   82  Linux swap / Solaris
+/dev/mmcblk0p3         1587200    62521343    30467072   83  Linux`
+
+# Check disk space after resizing
+`[ace@rounders ~]$ df
+Filesystem     1K-blocks    Used Available Use% Mounted on
+/dev/root       29933452 3295624  26584336  12% /
+devtmpfs          470112       0    470112   0% /dev
+tmpfs             474720       0    474720   0% /dev/shm
+tmpfs             474720   12908    461812   3% /run
+tmpfs             474720       0    474720   0% /sys/fs/cgroup
+/dev/mmcblk0p1    292696   44168    248528  16% /boot
+tmpfs              94948      28     94920   1% /run/user/1000
+tmpfs              94948      12     94936   1% /run/user/42
+`
+Voila!  Root has far more space than before the exercise.
+
+---
+
+I found a procedure for shrinking a filesystem here: https://access.redhat.com/articles/1196333
+
+Unfortunately you have to unmount the filesystem, so to undo what we just did for the rootfs we could need another machine.
+
+Also, the description doesn't give any guidance on how small one can make the filesystem, nor what happens if you choose too small a size (corrupt files?)
