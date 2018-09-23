@@ -1,6 +1,6 @@
 created: 20180922151223685
 creator: rpi
-modified: 20180922165623891
+modified: 20180923193036818
 modifier: rpi
 title: RPi Class Day 2
 type: text/vnd.tiddlywiki
@@ -14,6 +14,12 @@ Talk about base port + offsets (5900+N) for VNC
 
 # [[User Management Exercises]]
 # [[Service Management Exercises]]
-
+# man / info / locate / which / whereis
 ---
 Time left?  Let's look at the expand-rootfs example and see how to turn it into a shell script.
+
+---
+Homework:
+
+* read an edition of [[MagPi|https://www.raspberrypi.org/magpi/]]  & think about your final project
+* read Advanced Bash-Scripting Guide chapters 7 & 8, tests and operators

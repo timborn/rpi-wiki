@@ -1,0 +1,10 @@
+created: 20180923185822640
+creator: rpi
+modified: 20180923190105334
+modifier: rpi
+tags: CLI CentOS7
+title: Learn chmod
+type: text/vnd.tiddlywiki
+
+I needed it to update /etc/systemd/system/vncserver@:1.service.
+Good reference here:  http://linuxcommand.org/lc3_lts0090.php

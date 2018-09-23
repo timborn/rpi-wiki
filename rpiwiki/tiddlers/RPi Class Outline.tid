@@ -1,6 +1,6 @@
 created: 20180705211013715
 creator: rpi
-modified: 20180922151555738
+modified: 20180922201656776
 modifier: rpi
 title: RPi Class Outline
 type: text/vnd.tiddlywiki
@@ -22,6 +22,7 @@ type: text/vnd.tiddlywiki
 # pagers, more or less
 # date, and it's various forms
 # regex, sed, grep
+# job control
 # git, tiddlywiki?
 # how to find things?  man, info?, RHEL docs, yum search, yum info, apropos
 ## how to make sure man works on a new install?
