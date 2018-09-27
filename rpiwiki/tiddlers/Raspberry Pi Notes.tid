@@ -1,6 +1,6 @@
 created: 20180704114926866
 creator: rpi
-modified: 20180829154635185
+modified: 20180923220721971
 modifier: rpi
 tags: 
 title: Raspberry Pi Notes
@@ -37,6 +37,7 @@ type: text/vnd.tiddlywiki
 * [[How to Delete Unwanted Packages]]
 * [[Performance Tuning RPi]]
 * [[How To Monitor Your Logs]]
+* [[How To Boot CentOS 7 Into Command Line Or GUI Mode]]
 
 !Blog Posts
 * [[4th July 2018]]

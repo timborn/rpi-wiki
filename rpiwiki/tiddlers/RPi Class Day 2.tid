@@ -1,7 +1,8 @@
 created: 20180922151223685
 creator: rpi
-modified: 20180923193036818
+modified: 20180923224925885
 modifier: rpi
+tags: class
 title: RPi Class Day 2
 type: text/vnd.tiddlywiki
 
@@ -23,3 +24,4 @@ Homework:
 
 * read an edition of [[MagPi|https://www.raspberrypi.org/magpi/]]  & think about your final project
 * read Advanced Bash-Scripting Guide chapters 7 & 8, tests and operators
+* read RHEL7 System Administrator's Guide, Chapter 9 - Yum

@@ -1,6 +1,6 @@
 created: 20180704140054071
 creator: rpi
-modified: 20180920040536734
+modified: 20180926135933456
 modifier: rpi
 tags: CentOS7
 title: How to Set Up ssh in CentOS7
@@ -22,3 +22,6 @@ yes, master> ssh `hostname -f`
 ```
 #Christina: I used Putty to connect/verify
 The article cited at the top mentions, as does the sshd config file, how to disable passwords for ssh.  That's an excellent security move, but it requires you to know how to generate and share ssh keys (the alternative to passwords).
+
+
+#Leticia: To set Host Name form the UI. Select Application --- Settings -- Sharing -- you will see Computer Name --- Enter the name you would  like to use.

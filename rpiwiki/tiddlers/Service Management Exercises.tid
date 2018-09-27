@@ -1,6 +1,6 @@
 created: 20180923184651586
 creator: rpi
-modified: 20180923220113220
+modified: 20180923223011827
 modifier: rpi
 tags: CentOS7
 title: Service Management Exercises
@@ -42,3 +42,4 @@ While it's actually more than the exercise calls for, you get to see how to crea
 
 See Also: [[iperf3 example|https://support.cumulusnetworks.com/hc/en-us/articles/216509388-Throughput-Testing-and-Troubleshooting]] 
 
+Here is another example of a system service: [[How To Boot CentOS 7 Into Command Line Or GUI Mode]]

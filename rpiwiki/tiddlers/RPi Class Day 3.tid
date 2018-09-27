@@ -1,10 +1,11 @@
 created: 20180923183446003
 creator: rpi
-modified: 20180923183448513
+modified: 20180923224703613
 modifier: rpi
+tags: class
 title: RPi Class Day 3
 type: text/vnd.tiddlywiki
 
-* Software Management
-* File Permissions
+* [[Software Management Exercises]]
+* [[File Permission Exercises]]
 * Shell Scripting

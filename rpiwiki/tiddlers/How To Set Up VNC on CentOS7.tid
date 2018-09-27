@@ -1,6 +1,6 @@
 created: 20180704142934924
 creator: rpi
-modified: 20180923195559666
+modified: 20180927012942364
 modifier: rpi
 tags: CentOS7
 title: How To Set Up VNC on CentOS7
@@ -12,22 +12,28 @@ Compare to Remote Desktop Connection (RDC).
 There are various VNC servers, but it appears ~TigerVNC is available and supported by ~RedHat.  These notes are based on [[this article|https://www.tecmint.com/install-and-configure-vnc-server-in-centos-7/]]
 
 ```
-yes master> sudo yum install tigervnc-server tigervnc-server-applet
+# Install Tiger VNC software
+yes master>sudo yum install tigervnc-server tigervnc-server-applet
 
 # run this as the user you want to have remote access; sets password for VNC
-yes master> vncpasswd   
+yes master> vncpasswd  
 
+# Make a copy of a config file for each VNC user you're creating
 # NB the '1' changes per user
 # the backslash on the end of the line means the line continues; this is really one line
 yes master> sudo cp /lib/systemd/system/vncserver@.service \
                     /etc/systemd/system/vncserver@:1.service
 
-# edit /etc/systemd/system/vncserver@:1.service
+# edit the new settings file you just created using an editor like vi.  basically replacing <USER> with the username you want to grant remote access.  
+
+# Note: The file is owned by root and you'll need to either modify the permissions on the file or run vi under elevated privileges 
+
 # MattFoley: I had write issues using vi as the editor. I originally modified the permissions of this file using "sudo chmod o+w vncserver\@\:1.service" however I reverted that and just used "sudo vi" as my editor instead. 
 #Ray:  I had a similar issue.  I recommend learning "chmod".  A good reverence is here:  http://linuxcommand.org/lc3_lts0090.php
-# basically replacing <USER> with the username you want to grant remote access
 
-# restart daemons
+yes master> sudo vi /etc/systemd/system/vncserver@:1.service
+
+# restart daemons, start and enable the vncserver
 yes master> sudo systemctl daemon-reload
 yes master> sudo systemctl start vncserver@:1
 yes master> sudo systemctl enable vncserver@:1  # yes, both 'start' and 'enable'
@@ -36,15 +42,19 @@ yes master> systemctl status vncserver@:1   # should see it enabled now
 # by default the firewall is operational so you will need to allow port 590X through
 yes master> sudo firewall-cmd --add-port=5901/tcp
 
-# that only lasts until a reboot.  You can make it permanent thusly:
+# but that only lasts until a reboot.  You can make it permanent thusly:
 yes master> sudo firewall-cmd --add-port=5901/tcp --permanent
 
 # Enable screen sharing in Centos7; go to System Settings, then Sharing section on left nav, then enable screen sharing (enter a password that you'll use from laptop/mac to connect to RPi).
 
-# in mac browser, type vnc:// <enter> to open up screen share.  type in RPi name to connect.
-# MattFoley: Windows users can download a free vnc viewer client from various websites. I was unable to connect however, despite following the all the steps. Will try again another evening.
-#Christina: @Matt, I downloaded  the windows vnc viewer client from https://www.realvnc.com/en/connect/download/viewer/.  To connect, I had to use the IP address of the Pi.  To find it, type ip addr show in the terminal window.  Following inet is the ip address.  There are a few but the one that worked for me had numbers following bbrd that weren't all zeroes.  In the viewer, only put in the ip address:port.
+# test out VNC.  On your own laptop, in mac browser, type vnc:// <enter> to open up screen share.  type in RPi name to connect.
+# Matt: Windows users can download a free vnc viewer client from various websites. I was unable to connect however, despite following the all the steps. Will try again another evening.
+#Christina: @Matt, I downloaded  the windows vnc viewer client from https://www.realvnc.com/en/connect/download/viewer/.  To connect, I had to use the IP address of the Pi.  To find it, type ip addr show (or ifconfig) in the terminal window.  Following inet is the ip address.  There are a few but the one that worked for me had numbers following bbrd that weren't all zeroes.  In the viewer, only put in the ip address:port.
 #Ray:  I had to run "firewall-cmd --reload" to connect.
+#Christina: My system hung and I had to hard shutdown.  When I tried to connect via VNC again, I got an error about the connection being refused.  I tried to restart again but got an error saying "Job for vncserver@:1.service failed because a configured resource limit was exceeded. See "systemctl status vncserver@:1.service" and "journalctl -xe" for details."  I ended up needing to remove files from /tmp/.X11-uix/XI in order to start it back up.  It's a VNC bug. https://bugzilla.redhat.com/show_bug.cgi?id=1410164
+rm /tmp/.X11-unix/XI is the command
+# Folks who didn't execute vncpasswd as the VNC user also had a similar error message when trying to start up services.
+#Matt: I think the firewall-cmd --reload did it, thanks!
 ```
 
 Extra Credit: if you check the ports being used (sudo ss -tulpn | grep vnc) you will see ports 5801, 5901 and 6001.  5901 is what VNC uses, but it also opens up 6001 for X access.  What is 5801 all about?  It's a web interface that is supposed to download a java applet so you can run VNC inside your browser.  You installed this with tigernvc-server-applet.
