@@ -1,6 +1,6 @@
 created: 20180928214824989
 creator: rpi
-modified: 20180928215333875
+modified: 20180929203756042
 modifier: rpi
 title: File Permission Exercises
 type: text/vnd.tiddlywiki
@@ -8,46 +8,62 @@ type: text/vnd.tiddlywiki
 !Reading
 
 !Notes
-`ls -l 
+
+```
+ls -l 
 user / group / other  - rwxrwxrwx
 octal & symbolic   - 421421421
-symlinks, soft & hard`
+symlinks, soft & hard
+
+```
 
 !Exercises
 
-`echo echo welcome to oz > /tmp/oz
+```
+echo echo welcome to oz > /tmp/oz
 chmod +x /tmp/oz
 ls -l /tmp/oz    
-# note the number of links (one)`
+# note the number of links (one)
+```
 
-`ln /tmp/oz /tmp/kansas 
+```
+ln /tmp/oz /tmp/kansas 
 ls -l /tmp/kansas 
-/tmp/kansas`
+/tmp/kansas
+```
 
-`ln -s /tmp/oz /tmp/missouri
+```
+ln -s /tmp/oz /tmp/missouri
 ls -l /tmp/missouri 
-/tmp/missouri`
+/tmp/missouri
+```
 
 Look at how to change from GUI to CUI for an example of symlinks in use by the system
 
-`cd /tmp
+```
+cd /tmp
 mkdir foo
 chmod 400 foo
 ls -ld foo
 cd foo  
-# what happened and why?`
+# what happened and why?
+```
 
-`chmod 100 foo
+```
+chmod 100 foo
 ls -ld foo
 cd foo
 ls  
-# what happened and why?`
+# what happened and why?
+```
 
-`cd /tmp
+```
+cd /tmp
 chmod 500 foo
 ls -ld foo
 
 cd foo
 ls
 touch bar   
-# what happened and why? `
+# what happened and why? 
+```

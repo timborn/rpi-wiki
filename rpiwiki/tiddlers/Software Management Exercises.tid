@@ -1,13 +1,23 @@
 created: 20180923224835447
 creator: rpi
-modified: 20180923224858115
+modified: 20180929203345642
 modifier: rpi
 title: Software Management Exercises
 type: text/vnd.tiddlywiki
 
 !Reading
-RHEL7 System Administrator's Guide, Chapter 9 - Yum
+* RHEL7 System Administrator's Guide, Chapter 9 - Yum
 
 !Notes
 
 !Exercises
+
+# which packages on your system have updates available?
+# what changed recently?
+# search for iperf.  Is it installed?  Which repo is it in?
+# install iperf - how can you tell it is installed?
+# uninstall iperf - how can you tell it was removed?
+# what are all the files installed by iperf RPM?
+# show names of package groups
+# which groups are installed?
+# what are all the repos available?   
