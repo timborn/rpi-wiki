@@ -1,9 +1,11 @@
 created: 20180704114926866
 creator: rpi
-modified: 20181008105330190
+draft.of: Raspberry Pi Notes
+draft.title: Raspberry Pi Notes
+modified: 20181008105305101
 modifier: rpi
 tags: 
-title: Raspberry Pi Notes
+title: Draft of 'Raspberry Pi Notes'
 type: text/vnd.tiddlywiki
 
 !Topic Pages - Short Summaries and How Tos 
@@ -38,7 +40,6 @@ type: text/vnd.tiddlywiki
 * [[Performance Tuning RPi]]
 * [[How To Monitor Your Logs]]
 * [[How To Boot CentOS 7 Into Command Line Or GUI Mode]]
-* [[CentOS 7 Networking]]
 
 !Blog Posts
 * [[4th July 2018]]

@@ -1,0 +1,21 @@
+created: 20181008105406300
+creator: rpi
+modified: 20181008105801124
+modifier: rpi
+tags: CentOS7
+title: How To Set A Static IP in CentOS7
+type: text/vnd.tiddlywiki
+
+# Figure out the name of the interface (ifconfig or "ip a")
+# Edit /etc/sysconfig/network-scripts/ifcfg-INTERFACENAME
+
+```
+BOOTPROTO=static
+IPADDR=192.168.1.200
+NETMASK=255.255.255.0
+GATEWAY=192.168.1.1
+DNS1=1.0.0.1
+DNS2=1.1.1.1
+```
+
+#. sudo systemctl restart network
