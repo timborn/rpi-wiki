@@ -1,5 +1,7 @@
 created: 20180704145310200
-modified: 20180704152252620
+creator: rpi
+modified: 20181003171750383
+modifier: rpi
 title: How To Find and Install Software on CentOS7
 type: text/vnd.tiddlywiki
 
@@ -8,7 +10,16 @@ type: text/vnd.tiddlywiki
 bash: file: command not found...
 ```
 
-Now what?  Finding which RPM has 'file' will be challenging.  Try something easier.
+Now what?  Finding which RPM has 'file' will be challenging. 
+"yum search file" gives way too many answers.
+I cheated and went to another Linux box with file already installed:
+
+```
+yes, master> which file
+/bin/file
+yes, master> rpm -qf `which file`
+file-5.11-33.el7.x86_64
+```
 
 ```
 [timborn@localhost ~]$ man dialog
@@ -35,3 +46,6 @@ zenity.armv7hl : Display dialog boxes from shell scripts
 ```
 
 Sometime, but not always, the name of the RPM is close to the name of the command you are looking for.
+
+---
+See Also: [[Installing EPEL Repo for Raspberry Pi]]

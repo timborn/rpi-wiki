@@ -1,0 +1,32 @@
+created: 20181002111748367
+creator: rpi
+modified: 20181002112634318
+modifier: rpi
+tags: CentOS7
+title: Installing EPEL Repo for Raspberry Pi
+type: text/vnd.tiddlywiki
+
+EPEL - Extra Packages for Enterprise Linux 
+
+This is a popular repository of software that is outside the standard ones from Red Hat.
+It appears the epel repo is not officially supported for arm chips (e.g. Raspberry Pi), but someone was nice enough to set up a build stream to automatically build and package things for us.
+
+Clearly there is some risk here.  The biggest risk would seem the package you want doesn't actually work on RPi, since no one is testing these packages after they are rebuilt.
+
+The article that this is based on is here: https://stackoverflow.com/questions/35925066/epel-repository-for-arm7 
+
+```
+repo id                           repo name                               status
+base/7/armhfp                     CentOS-7 - Base                          7,372
+centos-kernel/armhfp              CentOS Kernels for armhfp                   24
+epel                              Epel rebuild for armhfp                 18,600
+extras/7/armhfp                   CentOS-7 - Extras                          321
+updates/7/armhfp                  CentOS-7 - Updates                       1,034
+repolist: 27,351
+```
+
+If you want to see the full list of available packages, you might use something like
+
+```
+yum --disablerepo=* --enablerepo=epel list
+```
