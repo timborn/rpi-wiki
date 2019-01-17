@@ -1,0 +1,20 @@
+created: 20190115173449613
+creator: rpi
+modified: 20190115173901482
+modifier: rpi
+title: How To Find Your RPi  On Your Network
+type: text/vnd.tiddlywiki
+
+In class we have a pretty smart gateway.  When it assigns an IP address to your machine (DHCP) it also notes the name of your machine and adds it to DNS, so if your machine is name dweezle, on our class network you should be able to get to it using dweezle.local.
+
+At home things may be different.  You can usually log into your router and often find a web interface showing assigned IP addresses.
+
+Alternatively iff you are on your home network you can run a scan to find all machines on your network.  NEVER, EVER try this at work.  
+
+Assuming you have installed nmap package, and that your network is 192.168.1.X/24:
+
+```
+$ sudo nmap -sL 192.168.1.0/24
+```
+
+Transpose as necessary for MSWindows.
