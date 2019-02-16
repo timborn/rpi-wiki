@@ -1,6 +1,6 @@
 created: 20180704142934924
 creator: rpi
-modified: 20180927012942364
+modified: 20190210194025151
 modifier: rpi
 tags: CentOS7
 title: How To Set Up VNC on CentOS7
@@ -46,6 +46,19 @@ yes master> sudo firewall-cmd --add-port=5901/tcp
 yes master> sudo firewall-cmd --add-port=5901/tcp --permanent
 
 # Enable screen sharing in Centos7; go to System Settings, then Sharing section on left nav, then enable screen sharing (enter a password that you'll use from laptop/mac to connect to RPi).
+#Chris: I didn't do this (since I was already headless), and ended up getting a similar (I think) result by editing ~/.vnc/xstartup to look like this (from https://wiki.centos.org/HowTos/VNC-Server )
+#!/bin/sh
+# Add the following line to ensure you always have an xterm available.
+( while true ; do xterm ; done ) &
+# Uncomment the following two lines for normal desktop:
+unset SESSION_MANAGER
+exec /etc/X11/xinit/xinitrc
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+xsetroot -solid grey
+vncconfig -iconic &
+xterm -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+twm &
 
 # test out VNC.  On your own laptop, in mac browser, type vnc:// <enter> to open up screen share.  type in RPi name to connect.
 # Matt: Windows users can download a free vnc viewer client from various websites. I was unable to connect however, despite following the all the steps. Will try again another evening.

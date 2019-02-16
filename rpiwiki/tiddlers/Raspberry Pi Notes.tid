@@ -1,6 +1,6 @@
 created: 20180704114926866
 creator: rpi
-modified: 20190115173444321
+modified: 20190210182958078
 modifier: rpi
 tags: 
 title: Raspberry Pi Notes
@@ -39,6 +39,8 @@ type: text/vnd.tiddlywiki
 * [[How To Monitor Your Logs]]
 * [[How To Boot CentOS 7 Into Command Line Or GUI Mode]]
 * [[How To Find Your RPi  On Your Network]]
+* [[How to add a wifi connection over ssh]]
+* [[SSH to the Pi by static IP or by name]]
 
 !Blog Posts
 * [[4th July 2018]]

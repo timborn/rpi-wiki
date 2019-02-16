@@ -1,6 +1,6 @@
 created: 20181008105406300
 creator: rpi
-modified: 20181008105801124
+modified: 20190211222147346
 modifier: rpi
 tags: CentOS7
 title: How To Set A Static IP in CentOS7
@@ -10,12 +10,13 @@ type: text/vnd.tiddlywiki
 # Edit /etc/sysconfig/network-scripts/ifcfg-INTERFACENAME
 
 ```
+DEVICE=eth0
 BOOTPROTO=static
-IPADDR=192.168.1.200
+IPADDR=192.168.2.2
 NETMASK=255.255.255.0
-GATEWAY=192.168.1.1
-DNS1=1.0.0.1
-DNS2=1.1.1.1
+GATEWAY=192.168.2.1
+DNS1=192.168.2.1
+DNS2=8.8.8.8
 ```
 
-#. sudo systemctl restart network
+# sudo systemctl restart network
