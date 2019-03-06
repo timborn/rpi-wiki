@@ -1,0 +1,20 @@
+created: 20190305224442042
+creator: rpi
+modified: 20190305230138628
+modifier: rpi
+tags: Raspbian
+title: How To Configure VNC For A Mac
+type: text/vnd.tiddlywiki
+
+Problem: connecting to VNC server on RPi from a Mac gets you this message: 
+
+sudo vi /root/.vnc/config.d/vncserver-x11
+
+add this line:
+Authentication=VncAuth
+
+sudo vncpasswd -service
+
+sudo vncserver-x11 -service -reload
+
+https://www.reddit.com/r/raspberry_pi/comments/665rkm/setting_vnc_authentication_scheme_via_console/

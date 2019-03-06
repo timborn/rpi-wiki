@@ -1,6 +1,6 @@
 created: 20180923220737649
 creator: rpi
-modified: 20180923221152567
+modified: 20190304141439793
 modifier: rpi
 tags: CentOS7
 title: How To Boot CentOS 7 Into Command Line Or GUI Mode
@@ -11,3 +11,7 @@ https://wpguru.co.uk/2016/11/how-to-boot-centos-7-into-command-line-or-gui-mode/
 Turns out, this is just another system service.
 
 yes, master> sudo systemctl set-default multi-user.target
+
+If you want to change the default back to GUI:
+
+yes, master> sudo systemctl set-default graphical.target
