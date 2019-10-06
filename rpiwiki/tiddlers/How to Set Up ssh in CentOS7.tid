@@ -1,6 +1,6 @@
 created: 20180704140054071
 creator: rpi
-modified: 20180820140452308
+modified: 20190205142650827
 modifier: rpi
 tags: CentOS7
 title: How to Set Up ssh in CentOS7
@@ -20,5 +20,11 @@ You should now be able to connect to this machine via ssh on port 22 (the ssh de
 ```
 yes, master> ssh `hostname -f`
 ```
+#Replace 'hostname-f' with "your pi name".local, in order to work with the DNS server in the classroom. If you don't include the .local, ssh will try to connect to "your pi name" off the internet. 
+
+#Christina: I used Putty to connect/verify
 
 The article cited at the top mentions, as does the sshd config file, how to disable passwords for ssh.  That's an excellent security move, but it requires you to know how to generate and share ssh keys (the alternative to passwords).
+
+
+#Leticia: To set Host Name form the UI. Select Application --- Settings -- Sharing -- you will see Computer Name --- Enter the name you would  like to use.

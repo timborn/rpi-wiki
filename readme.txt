@@ -1,3 +1,12 @@
+Fri Apr  5 13:45:05 MST 2019
+----------------------------
+This solution depends on having tiddlywiki server available.  On the mac you can install this using
+
+$ brew install node
+$ npm install -g tiddlywiki
+
+See Also: https://tiddlywiki.com Installing TiddlyWiki on Node.js
+
 Wed Jul  4 06:36:03 CDT 2018
 ----------------------------
 Trying to figure out how best to save notes. 

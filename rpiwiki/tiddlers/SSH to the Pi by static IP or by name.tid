@@ -1,0 +1,110 @@
+created: 20190210163543296
+creator: rpi
+modified: 20190212020534755
+modifier: rpi
+tags: 
+title: SSH to the Pi by static IP or by name
+type: text/vnd.tiddlywiki
+
+Problem: the Pi uses DHCP by default, so could get a new IP address periodically, and I don't want to have to find the new one to ssh into it by IP.
+
+''Possible solutions''
+
+* Assign a static IP. Still need to ssh by IP, but at least the IP won't change. Downside: need to change some settings in your router. https://www.techrepublic.com/article/how-to-configure-a-static-ip-address-in-centos-7/
+* Assign a static IP, then add a DNS entry to your router to map that IP to a name. (My router lets me reserve that IP to a MAC address, but doesn't let me add a local DNS entry to map it to a hostname.)
+* Use mDNS so your Pi will respond to a .local hostname
+
+''Static IP''
+
+# Find your gateway IP (e.g. "ipconfig -all" on a Windows machine) - usually 192.168.2.1.
+# Figure out what IP you'll use on your local network. Usually the router has an IP of 192.168.2.1 and subnet mask of 255.255.255.0, so your choices are 192.168.2.2 through 192.168.2.255. You'll need to exclude your chosen IP from the DHCP range so your router doesn't try to assign it to some other device, or add a permanent lease for this IP; this step is specific to your router.
+# On the Pi, edit your ifcfg file as shown here: https://www.techrepublic.com/article/how-to-configure-a-static-ip-address-in-centos-7/ . Set IPADDR to the static IP you want your Pi to use. Set GATEWAY to your router IP from the first step. You can use the three DNS IPs shown in the article or change if you like. Reboot the Pi. (I couldn't get the change to take effect by restarting networking without rebooting.)
+# You should see the Pi join the network on the static IP on your router, and you should be able to ssh to the static IP. Depending on your router, you might need to add the IP as a permanent lease at this step.
+
+''mDNS''
+
+mDNS lets your Pi respond to `hostname.local` on your network instead of needing to access it by IP. 
+
+1. Verify a hostname is set: 
+
+```
+[chris@enronhubbard ~]$ hostnamectl status
+   Static hostname: enronhubbard
+   Pretty hostname: EnronHubbard
+```
+2. Verify that avahi is running. This seems to be there by default with CentOS 7. 
+
+```
+[chris@enronhubbard ~]$ systemctl status avahi-daemon.service
+● avahi-daemon.service - Avahi mDNS/DNS-SD Stack
+   Loaded: loaded (/usr/lib/systemd/system/avahi-daemon.service; enabled; vendor preset: enabled)
+   Active: active (running) since Wed 1969-12-31 18:00:10 CST; 49 years 1 months ago
+ Main PID: 261 (avahi-daemon)
+   Status: "avahi-daemon 0.6.31 starting up."
+   CGroup: /system.slice/avahi-daemon.service
+           ├─261 avahi-daemon: running [enronhubbard.local]
+           └─268 avahi-daemon: chroot helper
+
+Dec 31 18:00:21 enronhubbard avahi-daemon[261]: Registering new address record for 192.168.2.113 on eth0.IPv4.
+Dec 31 18:00:23 enronhubbard avahi-daemon[261]: Joining mDNS multicast group on interface wlan0.IPv4 with address 192....2.5.
+Dec 31 18:00:23 enronhubbard avahi-daemon[261]: New relevant interface wlan0.IPv4 for mDNS.
+Dec 31 18:00:23 enronhubbard avahi-daemon[261]: Registering new address record for 192.168.2.5 on wlan0.IPv4.
+Dec 31 18:00:23 enronhubbard avahi-daemon[261]: Registering new address record for fe80::43d:6b30:4a57:3e8d on eth0.*.
+Dec 31 18:00:24 enronhubbard avahi-daemon[261]: Registering new address record for fe80::4206:cbaf:3806:b99a on wlan0.*.
+Feb 10 10:26:25 enronhubbard avahi-daemon[261]: Withdrawing address record for 192.168.2.113 on eth0.
+Feb 10 10:26:25 enronhubbard avahi-daemon[261]: Leaving mDNS multicast group on interface eth0.IPv4 with address 192.....113.
+Feb 10 10:26:25 enronhubbard avahi-daemon[261]: Interface eth0.IPv4 no longer relevant for mDNS.
+Feb 10 10:26:25 enronhubbard avahi-daemon[261]: Withdrawing address record for fe80::43d:6b30:4a57:3e8d on eth0.
+Hint: Some lines were ellipsized, use -l to show in full.
+```
+
+3. Open a firewall port. (mDNS needs port 5353 open.)
+
+```
+[chris@enronhubbard ~]$ sudo firewall-cmd --zone=public --permanent --add-service=mdns
+[sudo] password for chris:
+success
+```
+
+4. Edit the file /etc/nsswitch.conf - update the hosts line to include mdns_minimal. The order matters. Mine is below:
+
+```
+hosts:      files mdns_minimal [NOTFOUND=return] dns myhostname
+```
+
+To open nano to do the editing, execute `sudo nano -w /etc/nsswitch.conf`. 
+
+After making your changes, use ctrl+O to Write Out. You'll be prompted to change the file name/type. To just keep the file name the same, which is what you want to do, just hit enter. Then, use ctrl+X to Exit. 
+
+Sidebar for those interested: If you don't throw the sudo and -w in the command, you won't be able to write to the file -- it'll be read only.  
+
+5. Open a new tab/window of your terminal and try to ping your Pi hostname. If it doesn't respond, try pinging `hostname.local`. If it still doesn't work, try rebooting the Pi. (I don't remember if I had to.)
+
+```
+C:\Users\chris>ping enronhubbard
+
+Pinging enronhubbard.local [fe80::4206:cbaf:3806:b99a%5] with 32 bytes of data:
+Reply from fe80::4206:cbaf:3806:b99a%5: time=9ms
+Reply from fe80::4206:cbaf:3806:b99a%5: time=1ms
+Reply from fe80::4206:cbaf:3806:b99a%5: time=1ms
+Reply from fe80::4206:cbaf:3806:b99a%5: time=2ms
+
+Ping statistics for fe80::4206:cbaf:3806:b99a%5:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 9ms, Average = 3ms
+
+```
+
+//Things to check if this doesn't work//
+
+* Windows 10 seems to include mDNS support. If you're running an older version, you might need to install Apple Bonjour.
+* Try using mdns4_minimal instead of mdns_minimal in nsswitch.conf to force IPv4
+
+//Refs//
+
+* http://blog.uguu.waw.pl/2015/05/21/mdns-netbsd-linux-osx/
+* https://wiki.archlinux.org/index.php/avahi
+* http://www.anastis.gr/setting-hostname-avahi-mdns/
+
+

@@ -1,6 +1,6 @@
 created: 20180704114926866
 creator: rpi
-modified: 20180821225530089
+modified: 20190210182958078
 modifier: rpi
 tags: 
 title: Raspberry Pi Notes
@@ -34,6 +34,13 @@ type: text/vnd.tiddlywiki
 * [[How To Configure dnsmasq for DNS, DHCP]]
 * [[How To Configure dnsmasq as an AdBlocker]]
 * [[How To Backup Your Raspberry Pi]]
+* [[How to Delete Unwanted Packages]]
+* [[Performance Tuning RPi]]
+* [[How To Monitor Your Logs]]
+* [[How To Boot CentOS 7 Into Command Line Or GUI Mode]]
+* [[How To Find Your RPi  On Your Network]]
+* [[How to add a wifi connection over ssh]]
+* [[SSH to the Pi by static IP or by name]]
 
 !Blog Posts
 * [[4th July 2018]]

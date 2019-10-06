@@ -1,6 +1,6 @@
 # start up TiddlyWiki server
 WIKI=rpiwiki
-MYIP="192.168.0.51"
+MYIP="192.168.60.253"
 PORT=8080
 CLASSIP=$$( ifconfig|grep 192| awk '{print $$2}' )
 
@@ -34,4 +34,4 @@ backup:	# how does this worK?
 	tiddlywiki $(WIKI) --build index
 
 ssh: 
-	ssh bitnami@192.168.0.51
+	ssh bitnami@$(MYIP)

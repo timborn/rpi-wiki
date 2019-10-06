@@ -1,0 +1,85 @@
+created: 20190209164621502
+creator: rpi
+modified: 20190209172550405
+modifier: rpi
+tags: [[Raspberry Pi Notes]]
+title: How to add a wifi connection over ssh
+type: text/vnd.tiddlywiki
+
+I didn't want to connect monitor & keyboard to the Pi at home, but needed to get on my home wifi network.
+
+Starting point: I could ssh to the Pi.
+I had connected to my phone hotspot while the Pi was connected to a monitor & keyboard at work, and could ssh to it from my phone using Terminus (for Android). Could also have connected an Ethernet cable from my home router.
+
+First - if your router has MAC filtering, turn that off temporarily, or add the pi's wlan MAC to it. To find the pi's wlan MAC:
+
+```
+[chris@enronhubbard ~]$ ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.2.113  netmask 255.255.255.0  broadcast 192.168.2.255
+        inet6 fe80::43d:6b30:4a57:3e8d  prefixlen 64  scopeid 0x20<link>
+        ether b8:27:eb:fa:6f:89  txqueuelen 1000  (Ethernet)
+        RX packets 2538  bytes 313952 (306.5 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 719  bytes 86654 (84.6 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.2.115  netmask 255.255.255.0  broadcast 192.168.2.255
+        inet6 fe80::4206:cbaf:3806:b99a  prefixlen 64  scopeid 0x20<link>
+        ether b8:27:eb:af:3a:dc  txqueuelen 1000  (Ethernet)
+        RX packets 1243  bytes 162581 (158.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 42  bytes 7001 (6.8 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+```
+Under wlan0, the MAC address is b8:27:eb:af_3a:dc 
+
+Next, tried nmtui - wouldn't connect (i.e. the pi wouldn't appear in my router's connected devices list)
+
+Tried some wpa_supplicant commands - same result.
+
+What worked: https://docs.ubuntu.com/core/en/stacks/network/network-manager/docs/configure-wifi-connections
+
+```
+[chris@enronhubbard ~]$ nmcli d
+DEVICE  TYPE      STATE         CONNECTION
+eth0    ethernet  connected     Wired connection 1
+wlan0   wifi      disconnected  --
+lo      loopback  unmanaged     --
+[chris@enronhubbard ~]$ nmcli r wifi on
+[chris@enronhubbard ~]$ nmcli d
+DEVICE  TYPE      STATE         CONNECTION
+eth0    ethernet  connected     Wired connection 1
+wlan0   wifi      disconnected  --
+lo      loopback  unmanaged     --
+[chris@enronhubbard ~]$ nmcli d wifi list
+IN-USE  SSID                         MODE   CHAN  RATE        SIGNAL  BARS  SECURITY
+        Guest-slower                 Infra  11    195 Mbit/s  100     ▂▄▆█  WPA2
+        For Whom the Belkin Tolls    Infra  11    195 Mbit/s  100     ▂▄▆█  WPA2
+        Ulysses S. Bandwidth         Infra  153   405 Mbit/s  100     ▂▄▆█  WPA2
+        Guest-faster                 Infra  153   405 Mbit/s  100     ▂▄▆█  WPA2
+        NETGEAR97                    Infra  6     195 Mbit/s  65      ▂▄▆_  WPA2
+[chris@enronhubbard ~]$ sudo nmcli d wifi connect "Ulysses S. Bandwidth" password notmyrealpasskey
+[sudo] password for chris:
+Device 'wlan0' successfully activated with '068593ee-1a3d-4ad9-b24f-fff764f08be9'.
+[chris@enronhubbard ~]$ nmcli d
+DEVICE  TYPE      STATE      CONNECTION
+eth0    ethernet  connected  Wired connection 1
+wlan0   wifi      connected  Ulysses S. Bandwidth 1
+lo      loopback  unmanaged  --
+
+```
+
+Afterwards, looked in nmtui at the new connection, and my mistake was putting the gateway MAC address in the device ID field instead of the Pi's wlan adapter MAC address. nmcli was easier anyway.
+
+It was also helpful to know that the Pi would connect to both the Ethernet port AND a wifi connection at the same time, so I could keep connected by ssh over the former while working on the latter.

@@ -1,7 +1,19 @@
 created: 20180704190410772
-modified: 20180704190417870
+creator: rpi
+modified: 20181008105234271
+modifier: rpi
 tags: CentOS7
 title: How To See Your Firewall Settings in CentOS7
 type: text/vnd.tiddlywiki
 
-TODO: write me
+NB iptables has been superseded by firewalld in ~CentOS7.  
+Note the use of firewall-cmd in [[How To Set Up VNC on CentOS7]].
+
+"On Red Hat Enterprise Linux 7, the firewall is provided by the firewalld service, which is automatically enabled during the installation of Red Hat Enterprise Linux."
+
+Details on using firewalld may be found at [[Red Hat Enterprise Linux 7 Security Guide| https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/sec-using_firewalls]]
+
+TODO: finish this.  iptables had a save/restore option so you could dump the settings and put them back again.  What does firewalld give us?
+
+!See Also
+- https://firewalld.org 

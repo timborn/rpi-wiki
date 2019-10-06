@@ -1,7 +1,8 @@
 created: 20180705211013715
 creator: rpi
-modified: 20180712020138965
+modified: 20180923224500151
 modifier: rpi
+tags: class
 title: RPi Class Outline
 type: text/vnd.tiddlywiki
 
@@ -22,6 +23,7 @@ type: text/vnd.tiddlywiki
 # pagers, more or less
 # date, and it's various forms
 # regex, sed, grep
+# job control
 # git, tiddlywiki?
 # how to find things?  man, info?, RHEL docs, yum search, yum info, apropos
 ## how to make sure man works on a new install?
@@ -37,3 +39,16 @@ type: text/vnd.tiddlywiki
 ### demonstrate use of pipes & filters
 ### demo use of basic Unix commands: grep, cat, bash (looping?), creating a custom cmd
 # final project show & tell
+
+---
+
+# [[RPi Class Day 1]]
+# [[RPi Class Day 2]]
+# [[RPi Class Day 3]]
+# [[RPi Class Day 4]]
+# [[RPi Class Day 5]]
+# [[RPi Class Day 6]]
+
+---
+* [[User Management Exercises]]
+* [[Service Management Exercises]]

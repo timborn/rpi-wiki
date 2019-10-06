@@ -1,0 +1,29 @@
+created: 20180922151223685
+creator: rpi
+modified: 20180930145405493
+modifier: rpi
+tags: class
+title: RPi Class Day 2
+type: text/vnd.tiddlywiki
+
+In [[How To Set Up VNC on CentOS7]] we install tiger-vnc and we enable desktop sharing.
+How are these the same and how are they different?
+Talk about base port + offsets (5900+N) for VNC
+
+* sudo ss -tulpn | grep 590.  # shows we have TWO different VNC servers camped out on 5900 & 5901
+* netstat -ntlp | grep 590.    # sameo, sameo
+
+# [[User Management Exercises]]
+# [[Service Management Exercises]]
+# man / info / locate / which / whereis
+---
+Time left?  Let's look at the expand-rootfs example and see how to turn it into a shell script.
+
+---
+Homework:
+
+* read an edition of [[MagPi|https://www.raspberrypi.org/magpi/]]  & think about your final project
+* read Advanced Bash-Scripting Guide chapters 7 & 8, tests and operators
+* read RHEL7 System Administrator's Guide, Chapter 9 - Yum
+
+See Also: [[RPi Class Outline]]
