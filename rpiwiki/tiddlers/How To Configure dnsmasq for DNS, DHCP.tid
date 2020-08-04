@@ -1,12 +1,16 @@
 created: 20180819230844003
 creator: rpi
-modified: 20180821230052685
+modified: 20200623215639003
 modifier: rpi
 tags: Raspbian
 title: How To Configure dnsmasq for DNS, DHCP
 type: text/vnd.tiddlywiki
 
 Based on this article: http://raspberryconnect.com/network/item/333-raspberry-pi-hotspot-access-point-dhcpcd-method
+
+NB as of June 2020 the location of the article changed to: https://www.raspberryconnect.com/projects/65-raspberrypi-hotspot-accesspoints/168-raspberry-pi-hotspot-access-point-dhcpcd-method.
+I have cached a copy of the article adjacent to this wiki in git (article name "Raspberry Connect - Raspberry Pi - Hotspot_Access Point dhcpcd method.pdf")
+
 
 Work in progress.  Here are the changes I made to /etc/dnsmasq.conf on the Gateway for the following configuration.
 
