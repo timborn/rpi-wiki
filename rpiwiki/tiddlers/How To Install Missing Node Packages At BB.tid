@@ -1,0 +1,14 @@
+created: 20200807144751021
+creator: rpi
+modified: 20200807145040194
+modifier: rpi
+tags: Node-Red
+title: How To Install Missing Node Packages At BB
+type: text/vnd.tiddlywiki
+
+In some environments the cached copy of node packages that NPM looks at may be incomplete, so there is usually a procedure for adding the missing package(s) to that corp repo.
+
+I found devshell to be a delight.  
+Among other things it includes the tooling to add missing packages.
+
+TODO capture sample output

@@ -1,6 +1,6 @@
 created: 20200804212923270
 creator: rpi
-modified: 20200804213009431
+modified: 20200807144735644
 modifier: rpi
 tags: Node-Red
 title: Node-Red Notes
@@ -8,6 +8,26 @@ type: text/vnd.tiddlywiki
 
 !Where Do I Begin?
 
-What is 'node-red'?  
-Why should I care?
-How do I install node-red?
+!!What is 'node-red'?  
+
+//"Low-code programming for event-driven applications"//
+
+[[flow-base programming|]]
+
+//"..a browser-based flow editor that makes it easy to wire together flows using the wide range of nodes in the palette. Flows can be then deployed to the runtime in a single-click."//
+
+It is probably unlike any programming you have done before.
+Do I have your interest yet?
+
+Start with the node-red website: [[https://nodered.org/|https://nodered.org/]].
+
+
+!!How do I install node-red?
+# [[Installing Node-Red On A Raspberry Pi]]
+# [[Installing Node-Red On MacOS]]
+
+!!Node-Red Workshop
+* [[Node-Red Workshop Working Agreement]]
+
+!Things We Have Learned
+* [[How To Install Missing Node Packages At BB]]
