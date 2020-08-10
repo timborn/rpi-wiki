@@ -1,6 +1,6 @@
 created: 20200804212923270
 creator: rpi
-modified: 20200807144735644
+modified: 20200809201001936
 modifier: rpi
 tags: Node-Red
 title: Node-Red Notes
@@ -31,3 +31,4 @@ Start with the node-red website: [[https://nodered.org/|https://nodered.org/]].
 
 !Things We Have Learned
 * [[How To Install Missing Node Packages At BB]]
+* [[Tutorial: A Node-RED dashboard using node-red-dashboard|http://developers.sensetecnic.com/article/a-node-red-dashboard-using-node-red-dashboard/]] - includes pointers for graphing multiple lines on a chart and how to create your own UI widget
