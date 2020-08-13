@@ -1,0 +1,12 @@
+created: 20200812223200784
+creator: rpi
+modified: 20200812223343006
+modifier: rpi
+tags: Node-Red
+title: How To Log All MQTT Messages To MySQL
+type: text/vnd.tiddlywiki
+
+I //really// like this solution!
+
+Once you start using MQTT you realize that sometimes you have too much data or you want to keep more data than you can reasonably use in the dashboard widgets.
+Assuming you have ~MySQL installed [TODO: write up ~MySQL in K8S], this solution works really well: https://flows.nodered.org/flow/59fe2502dd82ae9b8a55b949a48e3d89

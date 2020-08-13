@@ -1,6 +1,6 @@
 created: 20200804212923270
 creator: rpi
-modified: 20200812143840411
+modified: 20200812223153537
 modifier: rpi
 tags: Node-Red
 title: Node-Red Notes
@@ -34,3 +34,5 @@ Start with the node-red website: [[https://nodered.org/|https://nodered.org/]].
 * [[Tutorial: A Node-RED dashboard using node-red-dashboard|http://developers.sensetecnic.com/article/a-node-red-dashboard-using-node-red-dashboard/]] - includes pointers for graphing multiple lines on a chart and how to create your own UI widget
 * [[Debugging Node-Red]]
 * [[Where Does Node-Red Keep Passwords?]]
+* [[My Node-Red Gets Slower And Slower Over Time]]
+* [[How To Log All MQTT Messages To MySQL]]
