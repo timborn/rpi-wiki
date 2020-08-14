@@ -1,0 +1,38 @@
+created: 20200814231420096
+creator: rpi
+modified: 20200814232956476
+modifier: rpi
+tags: MQTT Node-Red
+title: How To Install Mosquitto Locally
+type: text/vnd.tiddlywiki
+
+I run a local MQTT broker.
+I chose 'mosquitto' for no particular reason than I'm lazy.
+
+https://hub.helm.sh/charts/halkeye/mosquitto
+
+In my environment I want everything in a container, preferably running in Kubernetes.
+This mosquitto solution is even better than that.  
+It comes with it's own Helm charts.
+
+My environment: 
+
+* ~MacOS
+* Docker Desktop
+* ... with Kubernetes enabled
+
+```
+$ helm install mosquitto halkeye/mosquitto --version 0.2.0
+```
+
+Now get yourself an MQTT client.
+I used [[MQTT.fx|https://mqttfx.jensd.de]].
+Aim it at `mqtt://localhost:1883`
+
+NB depending on how your Kubernetes is set up you may need to use a bit of port-forwarding trickery so the MQTT endpoint from the container appears as if native to your host machine.
+
+That will make accessing you MQTT broker from e.g. ~IoT devices much easier.
+
+```
+$ kubectl port-forward --namespace default svc/mosquitto-1594599837 1883:1883
+```
