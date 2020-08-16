@@ -1,6 +1,6 @@
 created: 20200804212923270
 creator: rpi
-modified: 20200814231138389
+modified: 20200816214243115
 modifier: rpi
 tags: Node-Red
 title: Node-Red Notes
@@ -36,3 +36,5 @@ Start with the node-red website: [[https://nodered.org/|https://nodered.org/]].
 * [[Where Does Node-Red Keep Passwords?]]
 * [[My Node-Red Gets Slower And Slower Over Time]]
 * [[MQTT Notes]]
+* [[Node-Red Cookbook|https://cookbook.nodered.org/]]
+* [[A Note On Resiliency|https://xkcd.com/2054/]] from xkcd
