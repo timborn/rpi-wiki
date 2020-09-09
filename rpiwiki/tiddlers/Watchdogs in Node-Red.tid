@@ -1,0 +1,19 @@
+created: 20200831234522271
+creator: rpi
+modified: 20200830224008272
+modifier: rpi
+title: Watchdogs in Node-Red
+type: text/vnd.tiddlywiki
+
+A watchdog is an //independent// process that watches to make sure the subject process advances.
+When lack of progress is detected, the watchdog will restart the subject.
+
+!!node-red-contrib-timeout
+[[node-red-contrib-timeout|https://flows.nodered.org/node/node-red-contrib-timeout]]
+
+examples: https://tech.scargill.net/node-red-contrib-timeout/
+
+!!Raspberry Pi
+It turns out there is a hardware solution built into the Raspberry Pi.  Why knew?
+
+[[RPi Hardware Watchdog|https://www.raspberrypi.org/forums/viewtopic.php?t=210974]]
