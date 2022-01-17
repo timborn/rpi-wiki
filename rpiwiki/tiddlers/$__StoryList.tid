@@ -1,6 +1,6 @@
-created: 20200623215638999
-list: GettingStarted [[Raspberry Pi Notes]] [[How to Set Up ssh in Raspbian]] [[How To Configure dnsmasq for DNS, DHCP]]
-modified: 20200623215638999
+created: 20220117151408150
+list: GettingStarted [[Raspberry Pi Notes]] [[How To See Which Version Of Hardware You Are Running]] [[SSH to the Pi by static IP or by name]] [[How to Set Up ssh in Raspbian]]
+modified: 20220117151408150
 title: $:/StoryList
 type: text/vnd.tiddlywiki
 

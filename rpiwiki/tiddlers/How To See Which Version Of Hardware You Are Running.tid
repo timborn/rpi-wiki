@@ -1,0 +1,21 @@
+created: 20220117151011321
+modified: 20220117151408155
+title: How To See Which Version Of Hardware You Are Running
+type: text/vnd.tiddlywiki
+
+Turns out they have added hardware identification at the end of /proc/cpuinfo
+
+
+```
+timborn@dns-server:~$ cat /proc/cpuinfo | tail
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x0
+CPU part	: 0xd03
+CPU revision	: 4
+
+Hardware	: BCM2835
+Revision	: a020d3
+Serial		: 00000000ce4d4df0
+Model		: Raspberry Pi 3 Model B Plus Rev 1.3
+```
