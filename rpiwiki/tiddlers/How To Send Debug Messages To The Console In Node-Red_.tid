@@ -1,0 +1,22 @@
+created: 20200811152908882
+creator: rpi
+modified: 20200811152951541
+modifier: rpi
+tags: Node-Red
+title: How To Send Debug Messages To The Console In Node-Red?
+type: text/vnd.tiddlywiki
+
+```
+node.warn("your_variable="+your_variable);
+
+Recently I discovered a alternative method useful for inspecting objects (and arrays):
+
+node.warn(["your_variable=",your_variable]);
+You will get a single nice expandable entry into your debug window for as many variables from any kind you like.
+
+Or as an object:
+
+node.warn({"your_variable":your_variable,"msg":msg});
+```
+
+The full article is here: https://discourse.nodered.org/t/debugging-function/20831

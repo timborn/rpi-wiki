@@ -1,0 +1,14 @@
+created: 20200812155852140
+creator: rpi
+modified: 20200812160201884
+modifier: rpi
+tags: Node-Red
+title: My Node-Red Gets Slower And Slower Over Time
+type: text/vnd.tiddlywiki
+
+In my case the strip chart was holding 168 hours of data and each datapoint was being gathered every 2 seconds.
+
+As the number of datapoints to plot increases, node-red gets less responsive.
+Consider the //suggestion// in the node-red GUI of only keeping the last 1,000 datapoints, or learn how to aggregate a large amount of data into a more manageable summary.
+
+https://discourse.nodered.org/t/increasingly-slow-and-unresponsive-dashboard/18523

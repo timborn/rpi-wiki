@@ -1,0 +1,69 @@
+created: 20200811162335331
+creator: rpi
+modified: 20200811162750767
+modifier: rpi
+title: How To Create A Service Using systemd On Rpi
+type: text/vnd.tiddlywiki
+
+The full article is here:
+
+https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/#:~:text=The%20third%20method%20to%20run,shutdown%20or%20reboot%20the%20system).
+
+The summary is this: I wanted my temperature and humidity code to run when the RPi boots up, without anyone having to login.  
+I also wanted it to restart, if there were any problems.
+
+The service file is pretty basic and looks like this:
+
+```
+timborn@rudy:~/temp-sensor/examples $ cat temp-sensor.service 
+[Unit]
+Description=Publishes Temperature and Humidity to MQTT
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /home/timborn/temp-sensor/examples/sensors_to_mqtt2.py > /home/timborn/temp-sensor/examples/sensor.log 2>&1
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+After editing the service file, it's pretty simple:
+
+```
+$ make install
+$ make enable       # runs on reboot
+$ make start        # let's go!
+```
+
+The relevant Makefile looks like this:
+
+```
+timborn@rudy:~/temp-sensor/examples $ cat Makefile 
+default:
+	python3 sensors_to_mqtt2.py
+
+start:
+	sudo systemctl start temp-sensor.service
+
+stop:
+	sudo systemctl stop temp-sensor.service
+
+enable:
+	sudo systemctl enable temp-sensor.service
+
+disable:
+	sudo systemctl disable temp-sensor.service
+
+status:
+	sudo systemctl status temp-sensor.service
+
+# you only need this after editing the service file
+install:  
+	sudo cp temp-sensor.service /lib/systemd/system/.
+	sudo systemctl daemon-reload
+
+logs:
+	journalctl -u temp-sensor.service
+```

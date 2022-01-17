@@ -1,5 +1,7 @@
 created: 20180704165001757
-modified: 20180704173732985
+creator: rpi
+modified: 20200811162330997
+modifier: rpi
 tags: CentOS7
 title: What is systemd?
 type: text/vnd.tiddlywiki
@@ -19,3 +21,5 @@ No more cron?  No more syslog?
 "...systemd tracks processes using the Linux kernel's cgroups subsystem instead of using process identifiers (PIDs); thus, daemons cannot "escape" systemd"
 
 TODO: finish me
+
+See Also: [[How To Create A Service Using systemd On Rpi]]

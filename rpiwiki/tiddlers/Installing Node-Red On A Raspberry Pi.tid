@@ -1,0 +1,11 @@
+created: 20200810184834605
+creator: rpi
+modified: 20200810184934342
+modifier: rpi
+tags: Raspbian [[Raspberry Pi Notes]] Node-Red
+title: Installing Node-Red On A Raspberry Pi
+type: text/vnd.tiddlywiki
+
+While it appears node-red is included in Raspbian (it came preloaded on my RPi4), the notes from the node-red folks indicate their preferred method for installing:
+
+https://nodered.org/docs/getting-started/raspberrypi 
