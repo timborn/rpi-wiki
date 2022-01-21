@@ -1,0 +1,27 @@
+created: 20220121202038446
+modified: 20220121214416830
+title: How To Use VNC on Raspbian 11 and MacOS
+type: text/vnd.tiddlywiki
+
+On Raspbian 11 (and most versions of Raspbian) you can just use the GUI to enable VNC.
+On the start menu it is called "Raspberry Pi Configuration".
+On the tab "Interfaces" just enable VNC and reboot.
+
+On the mac, you //used to// be able to just use [[vnc://radar.local]] in a browser, and that would open up Screen Sharing application.
+Now it throws an error:
+
+<<<
+The software on the remote computer appears to be incompatible with this version of Screen Sharing.
+<<<
+
+It appears Raspbian is now called "Raspberry Pi OS", and RealVNC is the standard VNC installed on RPi now.
+Once you enable VNC and reboot, there is an icon in upper right corner of desktop.
+That icon opens the VNC configuration details.
+You need two changes to make this work with OSX:
+
+# encryption: prefer off
+# authentication: VNC password
+
+Once you switch from Unix password to VNC password, don't forget to navigate to "users and permissions" in VNC config and set the password.
+
+Now [[vnc://radar.local]] works as expected.

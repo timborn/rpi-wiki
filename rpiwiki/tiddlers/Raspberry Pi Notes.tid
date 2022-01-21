@@ -1,6 +1,6 @@
 created: 20180704114926866
 creator: rpi
-modified: 20220117151003724
+modified: 20220121202007925
 modifier: rpi
 tags: 
 title: Raspberry Pi Notes
@@ -13,7 +13,7 @@ type: text/vnd.tiddlywiki
 * [[Raspberry Pi Spec Summaries]]
 * [[RPi Media Center]]
 * [[Breaking Into Your RPi]]
-* [[Learning to Live with SELinux]]
+* [[Learning to Live with SELinux]][[How to Install CentOS7 on RPi]]
 * [[Firewalls]]
 * [[Regular Expressions, sed, grep]]
 * [[Set Up Squid on CentOS7]]
@@ -22,6 +22,7 @@ type: text/vnd.tiddlywiki
 * [[How to Set Up ssh in Raspbian]]
 * [[How To Tell What Services Are Running On CentOS7?]]
 * [[How To Set Up VNC on CentOS7]]
+* [[How To Use VNC on Raspbian 11 and MacOS]]
 * [[How To Generate Man Pages]]
 * [[How To Find and Install Software on CentOS7]]
 * [[What is systemd?]]
