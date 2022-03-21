@@ -1,6 +1,6 @@
 created: 20180704114926866
 creator: rpi
-modified: 20220121202007925
+modified: 20220321214742534
 modifier: rpi
 tags: 
 title: Raspberry Pi Notes
@@ -43,6 +43,7 @@ type: text/vnd.tiddlywiki
 * [[How to add a wifi connection over ssh]]
 * [[SSH to the Pi by static IP or by name]]
 * [[How To See Which Version Of Hardware You Are Running]]
+*[[RPi Watchdog]]
 
 !Blog Posts
 * [[4th July 2018]]

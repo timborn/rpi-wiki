@@ -1,0 +1,29 @@
+created: 20220321214749793
+modified: 20220321215434091
+title: RPi Watchdog
+type: text/vnd.tiddlywiki
+
+RPi has a hardware watchdog.
+You just need to enable the hardware and install & start the service.
+Then, when your system hangs, it will restart itself.
+
+You will see the watchdog restarts WHERE?
+
+https://diode.io/raspberry%20pi/running-forever-with-the-raspberry-pi-hardware-watchdog-20202/
+
+# append "dtparam=watchdog=on" to /boot/config.txt
+# install software - apt-get install watchdog
+# append some settings to /etc/watchdog.conf
+## watchdog-device=/dev/watchdog
+## watchdog-timeout=15
+## max-load=24
+##i nterface=wlan0
+# make sure service is set to run on restart
+## systemctl enable watchdog
+## systemctl start watchdog
+## systemctl status watchdog
+# reboot
+
+The wlan0 line is only needed if you depend on wifi.  
+Sometimes a machine will stop communicating, but won't hang. so watchdog can't tell there is a problem.
+That line causes watchdog to make sure wlan0 keeps operating.
