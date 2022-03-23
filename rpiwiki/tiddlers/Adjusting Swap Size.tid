@@ -1,0 +1,14 @@
+created: 20220323162552361
+modified: 20220323163819350
+title: Adjusting Swap Size
+type: text/vnd.tiddlywiki
+
+Useful after fixing to boot off USB drive [[How To Boot Off USB Device]].
+
+The default size is 100MB which, except when it has to be a RAM disk, is pretty small.
+Rule of thumb: 2x RAM.
+
+Edit /etc/dphys-swapfile and comment out fixed 100MB size (or adjust).
+Alternative is to enable "auto size calc".
+
+That's it.

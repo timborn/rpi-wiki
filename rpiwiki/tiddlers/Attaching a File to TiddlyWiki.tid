@@ -1,0 +1,11 @@
+created: 20220323194809549
+modified: 20220323195008109
+title: Attaching a File to TiddlyWiki
+type: text/vnd.tiddlywiki
+
+In general, drag and drop will attach the file to ~TiddlyWiki.
+Great for images, but kind of rotten for PDFs.
+
+Alternatively, create a folder called pdfs (WHERE?), drop the files there and link to them using something like this:  http://tb5.tiddlyspot.com/#external-links-forced
+
+ISSUE: pdfs is relative to where the wiki server is running.  Is that above, below, or IN the rpiwiki folder?  I can't work that out.

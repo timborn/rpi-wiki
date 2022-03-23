@@ -1,0 +1,11 @@
+created: 20220323162403542
+modified: 20220323200220401
+title: How To Boot Off USB Device
+type: text/vnd.tiddlywiki
+
+I used the external USB drive for RPi (USB Powered!) and it worked well.
+
+* Original article: https://www.makeuseof.com/tag/make-raspberry-pi-3-boot-usb/
+* Cached copy: [ext[How to Make Raspberry Pi 3 Boot From USB|pdfs/How to Make Raspberry Pi 3 Boot From USB.pdf]]
+
+See Also: [[Adjusting Swap Size]] - you will want to do this once your swap moves from (shared) RAM to USB disk.

@@ -1,7 +1,7 @@
 caption: Step 1<br>Syncing
 created: 20180819230731840
 creator: rpi
-modified: 20200804181905198
+modified: 20220323194736934
 modifier: rpi
 tags: $:/tags/GettingStarted
 title: GettingStarted
@@ -10,10 +10,9 @@ type: text/vnd.tiddlywiki
 ''Hello, Node-Red Workshop!''
 
 * Start Here: [[Node-Red Notes]]
-
 * Start Here: [[Linux on AWS Notes]]
-
-* Start Here: [[Raspberry Pi Notes|Raspberry Pi Notes]]
+* Start Here: [[Raspberry Pi Notes]]
+* Start Here: [[TiddlyWiki Notes]]
 
 Visit https://tiddlywiki.com/ to find out more about ~TiddlyWiki and what it can do.
 
