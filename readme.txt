@@ -8,6 +8,8 @@ Trying to figure out how to use relative paths so I can link to pdfs/my.pdf inst
 pdf in the twiki proper, but I can't work out which location that pdfs/ folder should be.
 Perhaps related to the out of date twiki?
 
+# it appears I am running tiddlywiki using Node.js, so this is the upgrade path:
+https://tiddlywiki.com/static/Upgrading%2520TiddlyWiki%2520on%2520Node.js.html
 
 Fri Apr  5 13:45:05 MST 2019
 ----------------------------
