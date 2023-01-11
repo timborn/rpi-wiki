@@ -1,0 +1,9 @@
+created: 20230111170752272
+modified: 20230111172215139
+title: Hamster Software Notes - Mac
+type: text/vnd.tiddlywiki
+
+230111 - after an update using brew, ~GridTracker v1.22.1226 would hang on startup at the point of loading Contributor Contributions.  Brew doesn't provide a way to go back in versions, so I worked out the URL that brew used to download ~GridTracker-1.22.1226-mac-x64.zip.  Looked around there and found the path for v1.22.1204, the immediately previous version.  Downloaded and unzipped, and it only contains the precompiled mac app, so I dragged that into Applications and did the security dance and it worked just fine.
+
+Opened a bug report with GridTracker folks:
+https://gitlab.com/gridtracker.org/gridtracker/-/issues/180
