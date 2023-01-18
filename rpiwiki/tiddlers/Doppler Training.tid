@@ -1,0 +1,37 @@
+created: 20230113210955260
+modified: 20230118181900524
+title: Doppler Training
+type: text/vnd.tiddlywiki
+
+January 2023 - WVARC purchased a doppler direction finder to track down repeater interference.
+
+https://dopsys.com/doppler-files/files/TargetTrack3226.zip
+
+NB it only runs on MSWin, and it wants MSWin XP or Win7.
+I installed on Crossover.
+
+First error was XXX.  After much searching I worked out it might be asking for dotNet so I installed dotNet 2.0 and got further along.  After //much// iterating I worked out a combination that allowed me to install the software:
+
+* win7 32-bits (it didn't like 64-bits)
+* dotNet 4.8 for one package
+* dotNet 3.5 SP 1 for SQL server dependency
+* all the other dependencies that two versions of dotNet pull in
+
+Program installs and runs.  I was walking through the demo (https://dopsys.com/demos/) and it crapped out with '~UnspecifiedError calling waveOutOpen' when I tried to play Training Package 3.
+
+Wine Configuration / Audio / Output Device: Built-in Output (was (System Default)).
+That seemed to fix things.
+
+Half way through send demo I get 'out of memory' but it doesn't seem to stop the program.
+
+After the OOM errors got in the way, after shutting down and restarting ~TargetTrack I get an error 'Duplicate Site - A site with 10.0.0.100 already exists'.  Even completely shutting down and restarting Crossover does not get rid of this error.
+
+In ~TargetTracker Data / Purge Database / Purge All Records, then Data / Import the canned demo you were trying to watch.
+
+Unable to get through 2nd demo (~DopplerDoug) without OOM.
+
+230118 - was able to xfer ~CrossOver bottle to Timex and it came up just fine.  
+Re-ran all the demos.  
+No OOM this time.
+Looks like I need to buy a license now.  
+Maybe a way to use ~CrossOver for VARA and Winlink?

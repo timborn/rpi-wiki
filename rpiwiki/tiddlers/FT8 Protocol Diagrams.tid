@@ -1,0 +1,63 @@
+created: 20230118211758222
+modified: 20230118220741358
+title: FT8 Protocol Diagrams
+type: text/vnd.tiddlywiki
+
+plantuml
+
+! You Answer A CQ
+source:
+
+```
+@startuml
+Alice -> ANY: CQ $CALLSIGN $GRID
+Bob --> Alice: $CALLSIGN $MYCALL $MYGRID
+
+Alice -> Bob: $MYCALL $CALLSIGN $SIGREPORT
+Alice <-- Bob: $CALLSIGN $MYCALL R-$MYSIGREPORT
+
+Alice -> Bob: $MYCALL $CALLSIGN RRR
+Alice <-- Bob: $CALLSIGN $MYCALL 73
+@enduml
+```
+
+[img[FT8-normal.png]]
+
+! You Initiate A CQ
+
+source:
+
+```
+@startuml
+You -> ANY: CQ $MYCALL $GRID
+Alice --> You: $MYCALL $CALLSIGN $GRID
+
+You -> Alice: $CALLSIGN $MYCALL $MYSIGREPORT
+You <-- Alice: $MYCALL $CALLSIGN R-$SIGREPORT
+
+You -> Alice: $CALLSIGN $MYCALL RRR
+You <-- Alice: $MYCALLSIGN $CALLSIGN 73
+@enduml
+```
+
+[img[FT8-you-initiate-CQ.png]]
+
+! Compressed Conversation
+when you are in a hurry i.e. band conditions are not staying up long enough to conduct a normal conversation
+
+source:
+
+TODO needs more work!
+
+```
+@startuml
+Alice -> ANY: CQ $CALLSIGN $GRID
+Bob --> Alice: $CALLSIGN $MYCALL $MYGRID
+
+Alice -> Bob: $MYCALL $CALLSIGN $SIGREPORT
+Alice <-- Bob: $CALLSIGN $MYCALL R-$MYSIGREPORT
+
+Alice -> Bob: $MYCALL $CALLSIGN RRR
+Alice <-- Bob: $CALLSIGN $MYCALL 73
+@enduml
+```
