@@ -1,5 +1,5 @@
 created: 20230118184020753
-modified: 20230118195355262
+modified: 20230118234611923
 title: INSTALLING RMS EXPRESS ON MAC WITH CROSSOVER (WINE)
 type: text/vnd.tiddlywiki
 
@@ -9,3 +9,13 @@ I downloaded and installed the pre-canned bottle.
 Looks like Win XP 32-bits.
 Neither Winlink Express nor VARA will run.
 At least VARA gives a "serious error" msg.
+
+Followed the more detailed DIY instructions using WinXP 32-bit as the base, but when I installed Winlink_Express_install_1-7-4-0 it complained that WinXP is too old.
+Started over with Win10 32-bits as a base and discovered Microsoft Visual Basic 6 Runtime Service Pack 6 does not want to install on Win10.  
+Forced it in.
+Winlink Express installed, but every time I ran it, it complained of Yet Another Missing Dependency: dotNet 4.0, dotNet 4.6.  
+FINALLY got Winlink Express 1.7.4.0 to come up.  Progress!
+
+Now for VARA.
+Found latest VARA HF v4.7.2 at https://rosmodem.wordpress.com/
+NB this appears to be throttled unless you pay a license.
