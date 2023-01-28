@@ -1,0 +1,23 @@
+created: 20230125003406101
+modified: 20230125012407590
+title: NBEMS Exercise 230124
+type: text/vnd.tiddlywiki
+
+Using ARA repeater 449.525 MHz -offset 100Hz tone.
+
+Last week we sent CSV files around.  
+The CSV file with the list of ARA repeaters was a hit.
+This week more CSV files and maybe an image using FLAMP?
+I have the map of ARA repeaters, but FLAMP suggests it is very large (>500KB).
+Many minutes depending on which protocol I use.
+I have descaled the image a few times, but by the time I get the size about right, the image is almost unusable.
+
+I also have a snoopy image (10KB) to noodle around with.
+
+My xmit is way wide on the waterfall again.  
+Mic gain is not the answer.
+
+Two tries, but my CSV didn't get through.
+Did not try the image files.
+
+Micah works with two handitalkies, one for voice, one for digital, and he has to stand outside on his balcony to make this work.
