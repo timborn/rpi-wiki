@@ -1,5 +1,5 @@
 created: 20230111170752272
-modified: 20230111172215139
+modified: 20230130234829619
 title: Hamster Software Notes - Mac
 type: text/vnd.tiddlywiki
 
@@ -7,3 +7,5 @@ type: text/vnd.tiddlywiki
 
 Opened a bug report with GridTracker folks:
 https://gitlab.com/gridtracker.org/gridtracker/-/issues/180
+
+Ended up being unreproducible.

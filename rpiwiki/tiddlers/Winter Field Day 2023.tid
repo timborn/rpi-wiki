@@ -1,0 +1,103 @@
+created: 20230128181627814
+modified: 20230129194258697
+title: Winter Field Day 2023
+type: text/vnd.tiddlywiki
+
+Worked from home on house power, so I think my exchange is ''1H AZ'' (one operator, from home, Arizona)
+
+''NB'' Before starting, set aside your normal logbook file (merge back later).
+You will need to report field day stuff separately.
+
+Official Rules: https://winterfieldday.com/rules.php
+
+FT8/FT4 is disallowed this year!
+
+Section abbreviations: http://www.arrl.org/section-abbreviations
+
+Perhaps I will try JS8Call.  
+What a time to get thrown into the deep end!
+
+It appears when you reply in JS8Call you jump over the the TX freq?
+Is that the correct way?
+
+//"You do not have to reply on the same frequency offset as the caller. But, if you’re calling another station
+off their frequency, you need to include their callsign at the beginning of the the message so it is
+directed to them and will show up in their yellow directed activity window."//
+
+But later we see advice that would put replay on same freq as TX:
+
+//"For replying to a station’s CQ, double click their call in the call activity window, then either choose a
+directed command or type a message to them"//
+
+- [[JS8Call Guide|https://www.delta25.de/JS8-2021-11/JS8Call_Guide.pdf]]
+
+I climbed the JS8Call learning curve and made a few contacts.
+My special code for this field day is ''1H AZ'' - single radio at home, [[ARRL section|http://www.arrl.org/section-abbreviations]] Arizona.
+
+The logfile is ADIF format, found at $HOME/Library/Application Support/JS8Call/js8call_log.adi.
+
+As Winter Field Day requires Cabrillo format for the log files and both JS8Call and WSJT-X generate ADIF files, I needed to convert them.
+Was able to use http://adif2cabrillo.com/index.php but it is a rather awkward site, but it seems to work.
+
+The WFD rules are real specific, so I had to make some hand-edits to Cabrillo file:
+
+* Each line in the log must end with a carriage return and line feed.  unix2dos
+* Added most of the CATEGORY-* meta tags by hand
+* Did NOT calculate or include CLAIMED-SCORE
+
+Do not forget to merge this adif with your "normal" adif (after backing it up, of course).
+
+Interesting JS8Call msg:
+
+
+```
+APRS::SMSGTE:@6306733408 what time is dinner?
+```
+
+After MUCH screwing around and hand-editing and reading the Cabrillo spec, I ended up with a logfile ARRL would accept. 
+Note the website I used to convert ended up being nearly useless, and it's version 2.0, which is now deprecated anyway.
+ARRL copied the logfile back with their additions as follows:
+
+```
+START-OF-LOG: 3.0
+CONTEST: WFD
+CATEGORY: 1H . 
+CATEGORY-POWER: QRP
+CATEGORY-BAND: ALL
+LOCATION: AZ
+EMAIL: Timothy.D.Born@gmail.com
+ARRL-SECTION: AZ
+CALLSIGN: N7TDB
+OPERATORS: N7TDB
+CATEGORY-OPERATOR: SINGLE-OP
+CATEGORY-STATION: FIXED
+CATEGORY-TRANSMITTER: ONE
+X-CONTEST: wfd
+X-CATEGORY-BAND: ALL
+X-CATEGORY-POWER: LOW
+HQ-CAT: 1H
+HQ-CATEGORY: 1H
+HQ-POTA: NO
+HQ-UUID: 6cbd06ae-fd2c-4220-ab65-25928dadd3d0
+HQ-REPORTED-QSOS: 6
+HQ-FROM: Timothy.D.Born@gmail.com
+HQ-SUBJECT: N7TDB
+HQ-DATE-RECEIVED: 2023-01-29 19:40:04 GMT
+HQ-DATE-SENT: 2023-01-29 19:40:04 GMT
+HQ-LOG-DEADLINE: 2023-02-28 23:59:59 GMT
+HQ-QUESTIONS: Sec: AZ, Xmtr: 1, Pwr: QRP, Categ: H, POTA: N, NoncomPwr: N, Outdoor: N, Away: N, TempAnt: N, SatQSO: N, SatCall: , Mobile: N
+HQ-BONUS-NONCOMMPOWER-PTS: 0
+HQ-BONUS-OUTSIDE-PTS: 0
+HQ-BONUS-REMOTE-PTS: 0
+HQ-BONUS-ANTSETUP-PTS: 0
+HQ-BONUS-SATQSO-PTS: 0
+HQ-BONUS-SATQSO-CALL: 
+HQ-BONUS-MOBILE-PTS: 0
+QSO: 7080 DG 2023-01-29 1516 N7TDB 1H AZ KD6XU 1H WTX
+QSO: 7080 DG 2023-01-29 1533 N7TDB 1H AZ AA3CM 3O AZ
+QSO: 14080 DG 2023-01-29 1647 N7TDB 1H AZ KB0US 1H ID
+QSO: 14080 DG 2023-01-29 1804 N7TDB 1H AZ KG7SPL 3O MT
+QSO: 14080 DG 2023-01-29 1808 N7TDB 1H AZ KA4BAY 2I NFL
+QSO: 14080 DG 2023-01-29 1813 N7TDB 1H AZ W7PCT 1H OR
+END-OF-LOG:
+```
