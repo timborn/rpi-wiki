@@ -36,3 +36,7 @@ backup:	# how does this worK?
 
 ssh: 
 	ssh bitnami@$(MYIP)
+
+ugh:
+	# when there is a tiddler with a gratuitous change in the way
+	mv rpiwiki/tiddlers/\$$__StoryList_1.tid /tmp/.
