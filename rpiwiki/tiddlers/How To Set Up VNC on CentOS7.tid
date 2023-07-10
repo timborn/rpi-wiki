@@ -1,6 +1,6 @@
 created: 20180704142934924
 creator: rpi
-modified: 20190210194025151
+modified: 20230704120906785
 modifier: rpi
 tags: CentOS7
 title: How To Set Up VNC on CentOS7
@@ -76,4 +76,7 @@ How to get this to work properly?
 
 Extra Extra Credit - if you can get the java applet to work, figure out how to run it over TLS (https).  TODO: Please tell me how.
 
-See Also: [[How To See Your Firewall Settings in CentOS7]]
+See Also: 
+
+* [[How To See Your Firewall Settings in CentOS7]]
+* [[How To Configure VNC For A Mac]]
