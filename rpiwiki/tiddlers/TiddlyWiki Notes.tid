@@ -1,7 +1,11 @@
 created: 20220323194743599
-modified: 20230202183555299
+modified: 20230716004216418
 title: TiddlyWiki Notes
 type: text/vnd.tiddlywiki
 
 * [[ Attaching a File to TiddlyWiki]]
 * [[Hard Line Breaks]]
+*comment out sections of a wiki `<!-- this is a comment -->`
+* a transclusion is like a #include, in that it in-lines another tiddler, and looks like this: `{{Surface Go 2 GPS}}`
+* you can display what would normally be wiki markup by wrapping it in single backticks
+* you can disable CamelCaseAsALink like this: `~FooBar`
