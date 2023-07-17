@@ -1,13 +1,14 @@
 created: 20230715174439512
-modified: 20230716015516711
+modified: 20230716201900686
 tags: 
 title: Surface Go 2 GPS
 type: text/vnd.tiddlywiki
 
-''TL;DR'' - evaluated ~SensorToNetwork, "GPS Satellite" and GPS2Time.  
+''TL;DR'' - evaluated ~SensorToNetwork, "GPS Satellite", GPS2Time.
 None of these work as expected.
 The best I can do is get accurate time and manually use that to set time.
-I will need to work out the Maidenhead square somehow, as well.
+
+JS8Call Utilities will get grid square from GPS and set it in JS8Call, so that's at least something.
 
 To use the GPS to set the clock and know location turned out to be harder then expected.  
 The GPS device appears in the hardware list, and you do NOT need a SIM card or cell service.  
@@ -54,3 +55,14 @@ Some of them sort of worked, but when I probed deeper, it was getting location i
 ... Surface device does not support access to the NMEA data stream via a COM port ...
 <<<
 - [[cite|https://answers.microsoft.com/en-us/surface/forum/all/surface-go-3-lte-gps/5520a186-21c1-4a26-aa20-43482577829d]]
+
+
+<<<
+JS8Call Utilities - 
+If you have a GPS connected to your computer JS8Call Utilities will allow you to send your maidenhead grid to JS8Call to set its locator ...
+<<<
+Pleasantly surprised that this worked.
+So I have a way to auto-fill grid square for JS8Call.
+Too bad this isn't a little more general purpose.
+
+There is a beta version of [[JS8Call Utilities|https://m0iax.com/wp-content/uploads/2021/03/JS8CallUtils_v2_TiimeSync.zip]] that adds the ability to set the system clock off the GPS, but I was unable to get that feature to work.
