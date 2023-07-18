@@ -1,0 +1,28 @@
+created: 20230717212311210
+modified: 20230718172936983
+title: Winlink Express Notes
+type: text/vnd.tiddlywiki
+
+[["Winlink/VARA HF Settings IC-705 and Icom Remote software"|https://m0iax.com/2021/03/09/winlink-vara-hf-settings-ic-705-and-icom-remote-software/]]
+
+Opened Winlink, selected "Open Session: Vara HF Radio-only", then pressed Open Session and another window opens with the config settings for Vara HF.
+Talk about hidden!
+
+It insists on using a COM port for the radio.
+Using wifi, I don't see a COM port available.
+Perhaps this is what Icom RSBA1 v2 does for us?
+Gives us virtual COM ports for the radio over wifi?
+
+Mark M0IAX confirms RSBA1 v2 is the secret sauce that exposes COM ports for IC-705 over wifi.
+
+TODO: since wfview can control IC-705 over wifi, perhaps it can expose COM ports for it as well?
+
+Change tactics.
+Downloaded the USB driver from ICOM.
+Yes, you need USB drivers from ICOM when using MSWin.
+Install the drivers FIRST, BEFORE connecting the radio with a USB cable, or you risk having it auto install the wrong drivers, and you are screwed.
+
+Done in the correct order, when USB cable is then attached, a pair of COM ports appear.
+The first one save CI-V, which I think is the control port.
+I used that for Vara HF and it seemed to work (dummy load, can't really tell).
+Feels like progress!

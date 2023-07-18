@@ -1,9 +1,10 @@
 created: 20230713215240710
-modified: 20230716203119606
+modified: 20230718172349550
 title: Winlink Express
 type: text/vnd.tiddlywiki
 
-230713 - after banging my head against the wall to try to get Pat Winlink to run on a mac, I gave up and ordered a Surface Go 2 (Julian's recommendation).
+!230713
+after banging my head against the wall to try to get Pat Winlink to run on a mac, I gave up and ordered a Surface Go 2 (Julian's recommendation).
 
 * Surface Go 2
 * hardened case
@@ -14,7 +15,8 @@ type: text/vnd.tiddlywiki
 * IC-705
 * lots of luck
 
-230714 - Surface Go 2 arrived.  Booted up.  Checked serial number with Microsoft to see if it was reported stolen.  Apparently still under warranty until November 7, 2023.
+!230714
+Surface Go 2 arrived.  Booted up.  Checked serial number with Microsoft to see if it was reported stolen.  Apparently still under warranty until November 7, 2023.
 
 Ordered Kensington case and keyboard.
 
@@ -22,7 +24,7 @@ Now to flip from WIn 10 S to Win 10 Home.
 Wait!  What?
 It appears to have Win 10 Pro already installed.
 
-!!Saturday/Sunday 230715 - 16
+!Saturday/Sunday 230715-16
 
 Quickly learned that while the resolution is excellent, the screen size is so small that most use of my finger for e.g. picking an item from a list ... my finger is massive, covering several items.  
 A pen works much better, so I ordered a [[$20 digital pen|https://www.amazon.com/dp/B07Y9QSK8D?psc=1&smid=A33GJBW8GJC2V3]] that should fit in the Kensington case holder.
@@ -32,7 +34,7 @@ My existing pen works, but it's shaped like a carpenters pencil.
 Following [[this list|https://oh8stn.org/blog/2021/10/10/microsoft-surface-go-2-faq-ham-radio-laptop/]] on Julian's blog, I installed:
 
 * [[Winlink Express v1.7.8.0|https://downloads.winlink.org/User%20Programs/]]
-** TODO: still need to configure this somehow
+** TODO: still need to configure this somehow. [[Winlink Express Notes]]
 * [[VARA HF v4.7.7|https://rosmodem.wordpress.com/]]
 * VARA FM v4.2.9
 * VARA Chat 1.3.5
@@ -41,14 +43,30 @@ Following [[this list|https://oh8stn.org/blog/2021/10/10/microsoft-surface-go-2-
 * [[flrig|http://www.w1hkj.com/files/flrig/]] v2.0.02
 * [[flmsg|http://www.w1hkj.com/files/flmsg/]] v4.0.22
 * [[flamp|http://www.w1hkj.com/files/flamp/]] v2.2.07
-* [[WSJT-X|https://www.physics.princeton.edu/pulsar/K1JT/]] - Princeton server down on Saturday
+* [[WSJT-X|https://www.physics.princeton.edu/pulsar/K1JT/]] - Princeton server down on Saturday, Sunday, Monday, ...
 * [[JS8Call|https://js8call.com/]] v2.2.0
 * [[JS8Call Utilities|https://m0iax.com/downloadfiles/]] dated November 2020 - sets grid square from GPS in JS8Call
 * [[ION2G SELCAL & ALE|https://ion2g.app/]]        v0.9.8.1
 * [[wfview|https://wfview.org/]] v1.64
+** [[wfview Notes]]
+* ''TODO: ''add APRS HF
 
+!230717
+Hung a dummy load on IC-705 and put it on the network and was successful using wfview for remote control in just a few minutes.
+Very slick, but when happens if I want to do this in the field?  
+Something will have to change, because right now the IC-705 is looking for a wifi access point to connect to.
 
-!!Icom RSBA1 v2
+See Also: [[wfview Notes]]
+
+Worked on configuring Winlink.
+See [[Winlink Express Notes]]
+
+Also plugged in USB port to my ~LiFePO4 battery and the PD port works!
+Estimate 2 hrs for a full charge.
+
+Dear Microsoft: why did you put on that weird proprietary charging port instead of a 2nd USB-C port?
+
+!Icom RSBA1 v2
 <<<
 Icom RSBA1 v2 and Icom Remote Utility
 The Icom remote Utility is the critical part of wireless data and rig control with the Icom IC-705. It creates the virtual audio interfaces, Wireless comm ports, and manages the connection to the RSBA1 Server, running on the Icom IC-705. 
@@ -63,7 +81,7 @@ REALLY not clear why I need this, so I will hold off for now.
 <<<
 
 
-!!GPS
+!GPS
 
 The whole area of messing with GPS rates it's own section: [[Surface Go 2 GPS]].
 
