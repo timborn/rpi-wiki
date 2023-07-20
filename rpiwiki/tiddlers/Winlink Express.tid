@@ -1,18 +1,18 @@
 created: 20230713215240710
-modified: 20230718172349550
+modified: 20230718213627765
 title: Winlink Express
 type: text/vnd.tiddlywiki
 
 !230713
 after banging my head against the wall to try to get Pat Winlink to run on a mac, I gave up and ordered a Surface Go 2 (Julian's recommendation).
 
-* Surface Go 2
-* hardened case
+* ✅ Surface Go 2
+* ✅ hardened case
 * [[keyboard|https://www.bhphotovideo.com/c/product/1559421-REG/microsoft_kcs_00084_surface_go_type_cover.html?sts=pi]]
-* [[pen|https://www.amazon.com/gp/product/B07Y9QSK8D]] for my fat fingers on tiny screen
-* charging via USB-C in truck 
+*✅ [[pen|https://www.amazon.com/gp/product/B07Y9QSK8D]] for my fat fingers on tiny screen
+* ✅ charging via USB-C in truck 
 * IC AH-705 tuner & 23.5' "random" wire antenna
-* IC-705
+* ✅ IC-705
 * lots of luck
 
 !230714
@@ -65,6 +65,11 @@ Also plugged in USB port to my ~LiFePO4 battery and the PD port works!
 Estimate 2 hrs for a full charge.
 
 Dear Microsoft: why did you put on that weird proprietary charging port instead of a 2nd USB-C port?
+
+!230718
+Mark M0IAK confirmed that RSBA1 provides the missing COM ports for IC-705 over wifi.
+
+Tried to configure fldigi so I could use it this evening for NBEMS-AZ, but fldigi doesn't bring up the on-screen keyboard when entering data, so I need the keyboard.
 
 !Icom RSBA1 v2
 <<<

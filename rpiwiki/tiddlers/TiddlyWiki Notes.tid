@@ -1,5 +1,5 @@
 created: 20220323194743599
-modified: 20230718172349560
+modified: 20230718213627767
 title: TiddlyWiki Notes
 type: text/vnd.tiddlywiki
 
@@ -10,3 +10,4 @@ type: text/vnd.tiddlywiki
 * you can display what would normally be wiki markup by wrapping it in single backticks
 * you can disable CamelCaseAsALink like this: `~FooBar`
 * insert a picture you have uploaded inside this wiki like this `[img[wfview.jpg]]`
+* special characters from mac keyboard: command-control-space ✅
