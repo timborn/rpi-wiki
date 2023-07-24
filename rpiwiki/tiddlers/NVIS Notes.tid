@@ -1,0 +1,25 @@
+created: 20230720134444635
+modified: 20230720153018311
+title: NVIS Notes
+type: text/vnd.tiddlywiki
+
+Near Vertical Incidence Skywave - NVIS
+
+An antenna arrangement and radio frequency designed to cover a smallish (~400m) radius.  
+The opposite of DX.
+
+One of the key factors is the frequancy.
+You need a frequency that will bounce off the F-layer.
+
+As the frequency will vary with time of day, solar conditions and other factors.
+
+
+The most reliable frequencies for NVIS communications are between 1.8 MHz (160m) and 8 MHz (above 40m).
+As a practical matter for a ham, that basically reduces to 80/40m, which explains the Colorado NVIS antenna with two elements.
+
+
+<<<
+The foF2 page shows a map similar to the MUF map, except that it displays the Critical Frequency (foF2). This one is simpler: it's the highest frequency that you can use for NVIS (skywave communication "in your own backyard"). When foF2 gets up to 7MHz and above then 40 meters "goes short" and can be used for local contacts; if it goes down below 3MHz then 80 meters "goes long" and local stations disappear but far-away ones can still be reachable.
+<<<
+
+- https://prop.kc2g.com/about/
