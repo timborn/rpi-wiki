@@ -1,9 +1,9 @@
 created: 20230717205305245
-modified: 20230718172349562
+modified: 20230724223717697
 title: wfview Notes
 type: text/vnd.tiddlywiki
 
-230717 
+!230717 
 
 Pleasantly surprised to find I can get a remote control of IC-705 over wifi using wfview from both R2D2 and Red (the surface go 2).
 
@@ -11,3 +11,7 @@ I followed [[notes from M0IAX|https://m0iax.com/2021/02/28/ic-705-setup-for-oper
 Cool!
 
 [img[wfview.jpg]]
+
+!230724
+
+''TODO:'' how can I control squelch using wfview?  That background noise is really annoying!

@@ -1,5 +1,5 @@
 created: 20230713215240710
-modified: 20230724154742015
+modified: 20230725163528504
 title: Winlink Express
 type: text/vnd.tiddlywiki
 
@@ -43,7 +43,7 @@ Following [[this list|https://oh8stn.org/blog/2021/10/10/microsoft-surface-go-2-
 * [[flrig|http://www.w1hkj.com/files/flrig/]] v2.0.02
 * [[flmsg|http://www.w1hkj.com/files/flmsg/]] v4.0.22
 * [[flamp|http://www.w1hkj.com/files/flamp/]] v2.2.07
-* [[WSJT-X|https://www.physics.princeton.edu/pulsar/K1JT/]] - Princeton server down on Saturday, Sunday, Monday, ...
+* [[WSJT-X|https://www.physics.princeton.edu/pulsar/K1JT/]] v2.6.1
 * [[JS8Call|https://js8call.com/]] v2.2.0
 * [[JS8Call Utilities|https://m0iax.com/downloadfiles/]] dated November 2020 - sets grid square from GPS in JS8Call
 * [[ION2G SELCAL & ALE|https://ion2g.app/]]        v0.9.8.1
