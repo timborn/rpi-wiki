@@ -1,5 +1,5 @@
 created: 20230713215240710
-modified: 20230725163528504
+modified: 20230725164433523
 title: Winlink Express
 type: text/vnd.tiddlywiki
 
@@ -70,6 +70,27 @@ Dear Microsoft: why did you put on that weird proprietary charging port instead 
 Mark M0IAK confirmed that RSBA1 provides the missing COM ports for IC-705 over wifi.
 
 Tried to configure fldigi so I could use it this evening for NBEMS-AZ, but fldigi doesn't bring up the on-screen keyboard when entering data, so I need the keyboard.
+
+!270724
+Not having a suitably convenient HF antenna indoors (the heat is scorching!) I tried Vara FM.
+Found a site nearby (K7ARC) but it's listed as WIDE not NARROW.
+I assumed (incorrectly) that NARROW is 1200 bps and WIDE is 9600, and when I looked up specs for IC-705 I found ppl saying the radio is unable to support 9600, which seems odd given how new it is, and it has built in radio interface.
+
+''TODO:'' what does WIDE and NARROW mean in Vara-speak?
+
+I was able to ping K7ARC once I learned that in Vara FM you have to //manually// tune the freq.
+Vara HF has CAT control.
+
+I then sent a //radio only// msg via K7ARC and it went.
+While connected, a msg addressed to me (from me) arrived over the radio.
+Somehow I had sent a msg using telnet that was tagged Radio Only, so it was just waiting for me (waiting where?)
+
+Exchanged email with Paul KQ7V.
+
+Found a nice map of winlink sites filtered by protocols: https://winlink.org/RMSChannels.
+
+How to use packet? 
+That appears to be popular in AZ.
 
 !Icom RSBA1 v2
 <<<
