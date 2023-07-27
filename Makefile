@@ -2,8 +2,9 @@
 WIKI=rpiwiki
 PORT=8080
 CLASSIP=$$( ifconfig|grep 192| awk '{print $$2}' )
-# MYIP="192.168.60.253"
-MYIP=$(CLASSIP)
+# R2D2 has two nics, so I need to disambiguate
+MYIP="192.168.1.243"
+# MYIP=$(CLASSIP)
 
 def:
 	@echo "Targets:"

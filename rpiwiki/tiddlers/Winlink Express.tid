@@ -1,5 +1,7 @@
 created: 20230713215240710
-modified: 20230725164433523
+creator: rpi
+modified: 20230727211243566
+modifier: rpi
 title: Winlink Express
 type: text/vnd.tiddlywiki
 
@@ -50,6 +52,7 @@ Following [[this list|https://oh8stn.org/blog/2021/10/10/microsoft-surface-go-2-
 * [[wfview|https://wfview.org/]] v1.64
 ** [[wfview Notes]]
 * ''TODO: ''add APRS HF
+* [[VarAC|https://www.varac-hamradio.com/]] - AX.25 bcast msgs + Vara P2P email, recommended by https://emcomm-training.org/
 
 !230717
 Hung a dummy load on IC-705 and put it on the network and was successful using wfview for remote control in just a few minutes.
@@ -91,6 +94,12 @@ Found a nice map of winlink sites filtered by protocols: https://winlink.org/RMS
 
 How to use packet? 
 That appears to be popular in AZ.
+
+!230727
+Watching emcomm training videos from https://emcomm-training.org/ .
+They also have Winlink Thursday training exercises, which are fun.
+
+This group mentioned (recommends?) VarAC, which appears to be broadcast msgs using AX.25 + P2P email using the Vara modem.
 
 !Icom RSBA1 v2
 <<<
