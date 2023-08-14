@@ -1,0 +1,25 @@
+created: 20230813143516345
+creator: rpi
+modified: 20230813185126073
+modifier: rpi
+title: Building An L/C Meter
+type: text/vnd.tiddlywiki
+
+!230813 
+
+I want an L/C meter so I can build a 110nF loading coil for EFHW and get on 80m so I can use 80m when grouse hunting for winlink msgs.
+
+Looking at L/C meters, building one seems doable.
+I found plans using an Arduino or a 328, which suits me, and the code is NOT BASCOM, so I can modify it easier.
+
+* http://w8bh.net/LC_Meter.pdf
+* https://github.com/bhall66/LC-meter
+
+I will make mods to suit my display choices, but I should be able to bread board this and work at it bit by bit and get something working.
+
+Kerry Wong has a much simpler solution (but is it accurate?). 
+Code will need more hacking though.
+
+* http://www.kerrywong.com/2010/10/16/avr-lc-meter-with-frequency-measurement/
+
+
