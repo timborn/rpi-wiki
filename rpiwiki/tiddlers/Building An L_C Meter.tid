@@ -1,6 +1,6 @@
 created: 20230813143516345
 creator: rpi
-modified: 20230813185126073
+modified: 20230815002348944
 modifier: rpi
 title: Building An L/C Meter
 type: text/vnd.tiddlywiki
@@ -22,4 +22,33 @@ Code will need more hacking though.
 
 * http://www.kerrywong.com/2010/10/16/avr-lc-meter-with-frequency-measurement/
 
+!230814
 
+Starting with Kerry Wong, the simple design.
+Due blink test passed.
+Added I2C to 1602 and verified I have output [[Arduino With 1602 Display Using I2C]].
+
+Found dependency on Frequency Counter library from Peter Welter-Platz:
+https://www2.khm.de/index.php/lab/interfaces-advanced/arduino-frequency-counter-library/index.html
+
+After resolving missing Frequency Counter library I am able to compile and download the L/C code.  
+Now I need some hardware to test with.
+I think the frequency counter is the easiest thing.
+Also need some buttons, I think.
+
+I have it sort of working now. 
+Need a signal generator to test.
+See [[Signal Generator Using Ardiuno]].
+
+The Frequency Counter portion of Kerry Wong's design uses LM339, which I do not have.  
+I have LM311, but I couldn't work out how to transpose directly, so I found another set of plans for an Arduino Frequency Counter using LM311.
+Once I can build that, perhaps I can then add the L/C portion of the code & circuit.
+
+* https://www.ee-diary.com/2022/07/high-frequency-counter-with-arduino.html
+
+[img[Arduino with LM311 frequency counter circuit diagram.jpg]]
+
+The pinout for that chip is wrong.
+Pin #1 is top left, when viewed from above.
+Which is correct, the pin numbers or the pin positions?
+Appears to be pin numbers are correct.
