@@ -1,12 +1,13 @@
 created: 20230111170651707
 creator: rpi
-modified: 20230813143510277
+modified: 20230819165343011
 modifier: rpi
 title: Hamster Notes
 type: text/vnd.tiddlywiki
 
 Amateur Radio Notes (Hamster) - there are so many things to keep track of.
 
+* [[VarAC Notes]]
 * [[Building An L/C Meter]]
 * [[NVIS Notes]]
 * [[Winlink]]
