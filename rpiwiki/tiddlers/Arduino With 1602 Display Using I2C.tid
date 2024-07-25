@@ -1,0 +1,30 @@
+created: 20230814143213615
+creator: rpi
+modified: 20230814144754833
+modifier: rpi
+title: Arduino With 1602 Display Using I2C
+type: text/vnd.tiddlywiki
+
+Lifted from https://www.hackster.io/Hack-star-Arduino/learn-to-use-lcd-1602-i2c-parallel-with-arduino-uno-f73f07
+
+[img[1602_I2C_Wiring.jpg]]
+
+```
+// Demo 1602 Display using I2C
+#include <Wire.h> 
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
+
+void setup()
+{
+  lcd.init();                      
+  lcd.backlight();
+  lcd.setCursor(0,0);
+  lcd.print("Hello, world!");
+}
+
+void loop()
+{
+}
+```

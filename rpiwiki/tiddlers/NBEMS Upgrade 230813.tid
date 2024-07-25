@@ -1,0 +1,55 @@
+created: 20230813133217310
+creator: rpi
+modified: 20230813140927059
+modifier: rpi
+title: NBEMS Upgrade 230813
+type: text/vnd.tiddlywiki
+
+Paul sent out a note that upgrading versions of fldigi & friends would get us Thor 32/44/56 to experiment with.
+
+https://groups.io/g/linuxham/topic/100703613
+
+```
+From: nbems@groups.io <nbems@groups.io> on behalf of Dave <w1hkj@bellsouth.net>
+Sent: Saturday, August 12, 2023 8:57:25 AM
+Subject: [nbems] NBEMS matched test suite posted
+ 
+fldigi-4.1.27.08_setup.exe
+flamp-2.2.08.07_setup.exe
+flmsg-4.0.22.02_setup.exe
+
+with integrated support for three new THOR modes:
+
+  THOR 32:
+    . IFKP
+    . symlen = 256;
+    . doublespaced = 1;
+    . samplerate = 8000;
+    . baud ~= 30;
+    . rsid: 56 / 2119
+    . interleave depth 10
+    . viterbi polynomial 0x6d / 0x4f
+
+  THOR 44:
+    . IFKP
+    . symlen = 256;
+    . doublespaced = 1;
+    . samplerate = 11025;
+    . baud ~= 40;
+    . rsid: 56 / 2156
+    . interleave depth 10
+
+  THOR56
+    . IFKP
+    . symlen = 290;
+    . doublespaced = 1;
+    . samplerate = 16000;
+    . baud ~= 50;
+    . rsid: 56 / 2157
+    . interleave depth 10
+    . viterbi polynomial 0x6d / 0x4f
+
+These modes satisfy FCC part 7 rules requiring < 300 Baud, < 1000 Hz bandwidth on HF for US amateurs.  They should give very good performance on MF NVIS communications.
+
+73, David, W1HKJ
+```

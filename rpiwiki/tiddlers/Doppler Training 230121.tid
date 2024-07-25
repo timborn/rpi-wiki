@@ -1,0 +1,44 @@
+created: 20230121160127554
+modified: 20230121204812918
+title: Doppler Training 230121
+type: text/vnd.tiddlywiki
+
+Good Shepard church
+
+wifi: Shepahard_5G / Pa$$w0rD
+NB I needed to add the router (100.70.0.1) as my first DNS in the list to get DNS to work.
+
+Formal training.
+Requires (almost any) narrow band FM receiver.
+
+LOB is Line Of Bearing.
+Accuracy of about 2.5 degrees.
+Try to not take a bearing while taking a turn.
+The signal being tracked has to have a carrier, therefore no SSB.
+
+MPT User Interface (or android app) are intended for homing in on a signal (rather than triangulate).
+MPT can also change settings on DDF7001.
+
+Do NOT transmit anywhere near this thing, even when it is turned off.
+The front end is so sensitive you will cook it, //even when it is turned off//.
+
+10.0.0.100 is STATIC IP for the direction finder hardware, therefore your laptop needs a static IP e.g. 10.0.0.1/255.0.0.0 (why didn't they say 255.255.255.0?)
+Default port is 2102.
+
+Doug mentioned there is a complete software description somewhere on their website.
+
+~TargetTrack / Map (the map pane) / New Great Maps - allows you to pull in new open source map.
+
+Bugs: dough@dopsys.com
+
+Wayne Cooper KF7VHT wcooper91@cox.net was at my table.
+He might be an interesting partner.
+
+To lock out PTT on Yaesu VX-6R:
+
+* F/W
+* 0 (SET)
+* DIAL to Set Mode Item 35: LOCK
+* choose PTT
+* press PTT to save changes
+* to activate, press & hold LK key for 2 seconds.  Look for lock icon on the screen.

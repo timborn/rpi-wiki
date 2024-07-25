@@ -1,0 +1,26 @@
+created: 20230130000416141
+modified: 20230130002530587
+title: Sky Loop Antennas
+type: text/vnd.tiddlywiki
+
+230129 - Ron Taylor came over to talk about my idea of buying a 5-band vertical, but instead he talked me into trying a sky loop.
+Basically a horizontal loop of wire, one full wave-length long.
+He suggested feeding it with ladder line 450 Ohms to a balanced tuner.
+A balanced tuner should have the balun inside.
+
+He also suggested the tuner be one of the ones that only presents at most 2:1 SWR to the radio when tuning, or I could cook the QDX.
+
+A ground rod by the window with a ground lead into the shack and a 6ga wire from that ground rod to the house ground rod.
+
+If the design is for 80m, General class can use 3.525-3.6 MHz for digital and 3.8-4.0 for voice.
+Need Extra class to use full spectrum.
+Palomar Engineers suggests //1005 / freq in MHz = length in feet//, therefore
+
+* 1005 / 3.5 = 287
+* 1005 / 3.525 = 285
+* 1005 / 3.6 = 279
+* 1005 / 3.8 = 264.5
+* 1005 / 4 = 251.25
+
+That explains why Palomar sells 288' for an 80m loop.
+

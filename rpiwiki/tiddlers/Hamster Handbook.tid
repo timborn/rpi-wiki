@@ -1,0 +1,11 @@
+created: 20230128180308521
+modified: 20230128181118762
+title: Hamster Handbook
+type: text/vnd.tiddlywiki
+
+The Hamster Handbook is a more formal version of my notes.
+
+
+$ git clone git@github.com:timborn/hamster-handbook.git
+
+Once installed, inside ~IntelliJ if you open the adoc file, besides seeing the rendered pane you get two options at the top of the adoc file for "PDF" and "HTML".

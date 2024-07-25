@@ -1,0 +1,26 @@
+created: 20230119191429515
+modified: 20230202183012624
+tags: CrossOver
+title: Installing JTAlert On CrossOver
+type: text/vnd.tiddlywiki
+
+I gave up on JTAlert as it is very MSWin.
+Now [[Using JT-Bridge for Notifications]]
+
+---
+
+https://hamapps.com/
+
+New bottle, Win10 32-bits.
+
+Installed windowsdesktop-runtime-6.0.13-win-x86.exe as a prerequite.
+
+Installed JTAlert.2.60.4.Install.exe
+
+It opens and appears to run.
+The help file clearly indicates JTAlert has to run on same machine as WSJT-X, even though the connection is via a UDP multicast.
+Seems like we should be able to hack this to work over the LAN.
+
+JTAlert comes with a selftest of sorts: "NET Framework Check (X86)".
+This throws a "serious error" with no details as to what the problem is.
+Probably more missing MS dependencies, if past is any guide.

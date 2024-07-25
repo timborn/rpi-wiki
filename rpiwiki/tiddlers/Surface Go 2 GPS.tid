@@ -1,0 +1,68 @@
+created: 20230715174439512
+modified: 20230716201900686
+tags: 
+title: Surface Go 2 GPS
+type: text/vnd.tiddlywiki
+
+''TL;DR'' - evaluated ~SensorToNetwork, "GPS Satellite", GPS2Time.
+None of these work as expected.
+The best I can do is get accurate time and manually use that to set time.
+
+JS8Call Utilities will get grid square from GPS and set it in JS8Call, so that's at least something.
+
+To use the GPS to set the clock and know location turned out to be harder then expected.  
+The GPS device appears in the hardware list, and you do NOT need a SIM card or cell service.  
+It is a USB device, so no COM port for it.
+I ended up installing "GPS Satellite" from the app store, and it just works.
+You get accurate time & location, but it isn't linked to system clock or any software.
+
+I also installed "~SensorsToNetwork" hoping it would expose the GPS as a TCP endpoint so I could connect it to Winlink Express.
+Some MSWin security thing is blocking the software from setting up TCP/IP Server or using UDP Broadcast.
+
+''TODO:'' figure out how to get TCP/IP server of GPS to work so Winlink can bind to it.
+
+Both ~SensorsToNetwork and "GPS Satellite" needed me to allow permissions.
+Settings / Location / enable location for this device, enable apps to access location, then for each app in list, enable that specific app.
+
+"GPS Satellite" is largely redundant, a subset of ~SensorsToNetworks (and it has annoying ads), so I would pick SensorsToNetwork over "GPS Satellite", especially if I can get the latter to set up a TCP/IP server w/ NMEA sentences to connect to Winink Express.
+If that Winlink Express connection happens, it appears you _might_ get both Maidenhead and time set for you.
+
+Julian recommends [[GPS2Time|https://vk4adc.com/web/index.php/software-projects/55-vk4adc-utils/181-gps2time]] to use GPS to set system clock.
+
+After installing GPS2Time, it demands a serial port for the GPS.
+The GPS is internal, and I haven't yet found a COM port for it (it's a USB device).
+Perhaps this explains why Julian thinks "Icom RSBA1" is "critical"?
+Perhaps that bit of software exposes the built-in GPS??
+Seems weird to pay ICOM $120 to expose MS built-in hardware so I can run free software.
+
+''TODO:'' WTF w/ GPS2Time??
+
+''TODO:'' what is the COM port for built-in GPS?  Clearly it works, as other software (~SensorsToNetwork) can use it, but I can't find a COM port nor does MS security allow me to set up TCP server to expose those NMEA sentences.
+
+
+<<<
+... your GPS units do not create a virtual COM port. Instead, these units connect solely to the computer's operating system using Windows Location Services. This is usually the case on PCs that are running the Windows 10 operating system. These GPS units require a third party application (such as "Serial Splitter" https://www.serial-splitter.com/ ) to create a virtual COM port ...
+<<<
+- [[cite|https://answers.microsoft.com/en-us/surface/forum/all/surface-pro-lte-routing-the-internal-gps-to/550815c2-496e-4b6f-8f4f-27f31d2a38e3]] ''$140!!!!''
+
+Installed [[GPSReverse|https://www.gpssensordrivers.com/]] which seemed like a good fit.
+Problem is, it presents a list of 24 different internal devices it can connect to, none of which is obviously GPS.
+I tried a few, but could never get it to work.
+Some of them sort of worked, but when I probed deeper, it was getting location information from wifi connection.
+
+
+<<<
+... Surface device does not support access to the NMEA data stream via a COM port ...
+<<<
+- [[cite|https://answers.microsoft.com/en-us/surface/forum/all/surface-go-3-lte-gps/5520a186-21c1-4a26-aa20-43482577829d]]
+
+
+<<<
+JS8Call Utilities - 
+If you have a GPS connected to your computer JS8Call Utilities will allow you to send your maidenhead grid to JS8Call to set its locator ...
+<<<
+Pleasantly surprised that this worked.
+So I have a way to auto-fill grid square for JS8Call.
+Too bad this isn't a little more general purpose.
+
+There is a beta version of [[JS8Call Utilities|https://m0iax.com/wp-content/uploads/2021/03/JS8CallUtils_v2_TiimeSync.zip]] that adds the ability to set the system clock off the GPS, but I was unable to get that feature to work.

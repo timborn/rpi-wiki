@@ -1,14 +1,16 @@
 caption: Step 1<br>Syncing
 created: 20180819230731840
 creator: rpi
-modified: 20230111170643483
+modified: 20230813132449664
 modifier: rpi
 tags: $:/tags/GettingStarted
 title: GettingStarted
 type: text/vnd.tiddlywiki
 
-''Hello, Node-Red Workshop!''
+''Hello, Hamster!''
 
+* Start Here: [[Hamster Notes]]
+* Start Here: [[Shared Space For Red]]
 * Start Here: [[Hamster Notes]]
 * Start Here: [[Node-Red Notes]]
 * Start Here: [[Linux on AWS Notes]]

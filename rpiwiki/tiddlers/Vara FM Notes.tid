@@ -1,0 +1,11 @@
+created: 20230724233608436
+modified: 20230724234221292
+title: Vara FM Notes
+type: text/vnd.tiddlywiki
+
+Unlike VARA HF, VARA FM requires that you set the frequency by hand.
+
+I was able to ping K7ARC-10 on 441.300 MHz using Vara FM even though the directory shows that station as WIDE not NARROW.
+
+I thought WIDE & NARROW referred to 9600/1200 baud.  
+Perhaps it really is the FM width?

@@ -1,0 +1,16 @@
+created: 20230814180504817
+creator: rpi
+modified: 20230814183911996
+modifier: rpi
+title: Signal Generator Using Ardiuno
+type: text/vnd.tiddlywiki
+
+Started with [[Simple Waveform Generator with Arduino Due|https://docs.arduino.cc/tutorials/due/simple-waveform-generator]] before I realized my Duemilanova board is not a Due.
+The Due has a 12-bit DAC, so these plans will not work.
+
+Used the bare bones signal generator from ~UofI: 
+https://courses.engr.illinois.edu/ece110/su2017/content/labs/Modules/ArduinoAsSignalGenerator.pdf
+
+This works, but when I measure the frequency (using my L/C/Freq meter) the frequency varies constantly between 88-115 KHz.
+Which end is at fault?  Flakey generator or bad freq counter?
+

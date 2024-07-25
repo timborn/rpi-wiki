@@ -1,0 +1,142 @@
+created: 20230704122014167
+modified: 20230704222130240
+title: Pat Winlink
+type: text/vnd.tiddlywiki
+
+Winlink ("Global Radio Email") is software that allows email messages between ham radios and also gateways to the internet.
+Winlink only runs on MSWindows.
+Winlink Express appears to be the most widely used version out there.
+
+[[Pat|https://getpat.io/]] is software that mimics functionality of Winlink, but runs on many platforms and also has a command line interface.
+
+I already have an account with Winlink.  
+See keepass.
+
+!Nomenclature
+
+There are many moving parts and it's confusing to know how they all relate.
+Which parts are mandatory?
+Which optional?
+Which are alternatives of each other?
+
+!! ARDOP
+
+Amateur Radio Digital Open Protocol (ARDOP)
+
+Open digital  protocol for amateur radio.
+It is a variation of the WINMOR protocol.
+It is an alternative to PACTOR.
+ARDOP, in contrast with PACTOR, does not require a hardware modem.
+
+Unable to find ARDOP for mac.
+Found ARDOPC source here: https://github.com/hamarituc/ardop.git.
+The sources do NOT compile cleanly on the mac.
+They look like they are set up for Linux.
+
+[[K6ETA|http://k6eta.com/mac]] says pat runs fine natively on the mac.
+The Pat website says pat "has built in support for ardop".
+
+ARDOP Spec 0.3.1 https://www.winlink.org/sites/default/files/downloads/_ardop_specification.pdf
+
+!! WINMOR
+
+protocol ....
+
+The author (Rick Muething, KN6KB) refers to it as "now retired".
+Same author worked on ARDOP, so it appears ARDOP is the successor to WINMOR?
+
+!! PACTOR 
+
+Packet Radio + AMTOR = PACTOR
+PACTOR is "an operating mode" primarily used as a transmission protocol with Winlink.
+It appears PACTOR requires a (proprietary, expensive) hardware modem.
+
+!! ARQ & FEC
+ARQ (connected) operation insures error free data delivery between two connected stations. 
+FEC (Forward Error Correction) may be used for broadcast (multicast) applications. 
+
+* FEC - Forward Error Correction
+* [[ARQ - Automatic Repeat Request|https://en.wikipedia.org/wiki/Automatic_repeat_request]]
+
+!! VARA
+//"...VARA is not open sourced and is written/controlled and licensed by Jose..."// EA5HVK?
+
+!! Modes
+I scanned the rmslist in pat to find a list of modes, with ardop being just one of many.
+
+* ARDOP 2000    (ardop)
+ * ARDOP 500     
+ * Packet 1200     (ax25)
+ * Packet 2400   
+ * Packet 4800   
+ * Packet 9600   
+ * Pactor 1,2         (pactor)
+ * Pactor 1,2,3  
+ * Pactor 1,2,3,4
+ * Pactor 3      
+ * Pactor 3,4    
+ * Robust Packet 
+ * VARA                (varahf)
+ * VARA 2750     
+ * VARA 500      
+ * VARA FM           (varafm)
+ * VARA FM WIDE  
+ * WINMOR 1600
+
+
+! Installation 
+
+I downloaded v0.15.0 from https://github.com/la5nta/pat/releases.
+Sources are in [[github\https://github.com/la5nta/pat]].
+Installs to /usr/local/bin (on mac) and you run it from the command line (pat).
+NB there is an //optional// [[Pat web GUI|https://github.com/la5nta/pat/wiki/The-web-GUI]].
+Before you start using the GUI you'll first have to configure via the command-line.
+
+!! Configuation
+
+/Users/${user}/Library/Application Support/pat.
+The file is json.
+Use "pat configure" to edit configuration.
+You need your callsign, grid locator and winlink password.
+As the web GUI runs on port 8080 by default (and conflicts with other things I have running) I changed mine to run on port 8888.
+
+!Pat GUI
+Pretty slick!
+
+[img[Pat GUI.png]]
+
+! Winlink & Friends On Wine
+
+After slamming my head against the wall repeatedly, was unable to find a way to run ARDOP or VARA (FM) on mac.
+Trying the instructions from http://k6eta.com/mac/installing-rms-express-on-mac-free-wine-option, using wine on stinky (I have Crossover on another machine if I need it).
+
+Apparently 32-bits is an issue (among many) on modern macs, so 
+
+* wine: Bad CPU type in executable
+* export WINARCH=win64
+* ln -s /usr/local/bin/wine64 /usr/local/bin/wine   # link to the 64-bit version of wine
+* wine: could not exec the wine loader
+* export WINE=/usr/local/bin/wine64    # solves the wineloader complaint for winetricks
+
+Got winetricks to run once, then it started throwing "wine: could not exec the wine loader".
+The export of WINE= got past the winetricks not running, but installing e.g. DOTNET3.5SP1 silently fails.  
+Is it possible the service packs are 32-bits?
+
+After chasing my tail using the winetricks gui, I discovered you can load the required DLLs using just the command line:
+
+$ winetricks dotnet35sp1 vb6run
+
+The DOTNET DLL appears to have loaded OK, but vb6run throws an error, complaining about 32-bits.
+
+! Winlink May Run On Other Platforms (Someday)
+230704 I saw this announcement on Winlink site suggesting Winlink may be getting ported to multiple platforms:
+
+<<<
+Paclink-Open-Source is an open project of the Winlink Development Team intended to modernize common Winlink code and prepare for future ports to non-Windows platforms.
+
+<<<
+
+! Other Winlink Features
+
+* [[Webmail|https://webmail.winlink.org:446/]]
+* [[Open Message Viewer|https://www.winlink.org/node/1112]]

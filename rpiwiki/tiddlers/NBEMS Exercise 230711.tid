@@ -1,0 +1,20 @@
+created: 20230712005836846
+modified: 20230712015622802
+title: NBEMS Exercise 230711
+type: text/vnd.tiddlywiki
+
+ARA Shaw Butte 449.525 -100
+
+See Also google spaces for NBEMS.
+
+* Paul KQ7V
+
+Tried Olivia-16/1k which Paul said was REALLY slow.
+Tried 8PSK1200F but it was not reliable.
+Dropping to 8PSK1000F works great.
+
+KC7OFX chimed in that he had loaded fldigi but was having trouble configuring it, and wanted to know what protocol we were using.
+I explained RSID to him.
+
+He runs linux and he had fldigi working before but his new machine is giving him fits.
+He can't recall all the setting he had on his working system.

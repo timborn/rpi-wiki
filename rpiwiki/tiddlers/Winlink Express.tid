@@ -1,0 +1,125 @@
+created: 20230713215240710
+creator: rpi
+modified: 20230727211243566
+modifier: rpi
+title: Winlink Express
+type: text/vnd.tiddlywiki
+
+!230713
+after banging my head against the wall to try to get Pat Winlink to run on a mac, I gave up and ordered a Surface Go 2 (Julian's recommendation).
+
+* ✅ Surface Go 2
+*   ✅hardened case
+*   ✅ [[keyboard|https://www.bhphotovideo.com/c/product/1559421-REG/microsoft_kcs_00084_surface_go_type_cover.html?sts=pi]]
+*✅ [[pen|https://www.amazon.com/gp/product/B07Y9QSK8D]] for my fat fingers on tiny screen
+* ✅ charging via USB-C in truck 
+* IC AH-705 tuner & 23.5' "random" wire antenna
+* ✅ IC-705
+* lots of luck
+
+!230714
+Surface Go 2 arrived.  Booted up.  Checked serial number with Microsoft to see if it was reported stolen.  Apparently still under warranty until November 7, 2023.
+
+Ordered Kensington case and keyboard.
+
+Now to flip from WIn 10 S to Win 10 Home.
+Wait!  What?
+It appears to have Win 10 Pro already installed.
+
+!Saturday/Sunday 230715-16
+
+Quickly learned that while the resolution is excellent, the screen size is so small that most use of my finger for e.g. picking an item from a list ... my finger is massive, covering several items.  
+A pen works much better, so I ordered a [[$20 digital pen|https://www.amazon.com/dp/B07Y9QSK8D?psc=1&smid=A33GJBW8GJC2V3]] that should fit in the Kensington case holder.
+My existing pen works, but it's shaped like a carpenters pencil.
+
+
+Following [[this list|https://oh8stn.org/blog/2021/10/10/microsoft-surface-go-2-faq-ham-radio-laptop/]] on Julian's blog, I installed:
+
+* [[Winlink Express v1.7.8.0|https://downloads.winlink.org/User%20Programs/]]
+** TODO: still need to configure this somehow. [[Winlink Express Notes]]
+* [[VARA HF v4.7.7|https://rosmodem.wordpress.com/]]
+* VARA FM v4.2.9
+* VARA Chat 1.3.5
+* GPS software to set time & location.  PITA.  See section below.
+* [[fldigi|http://www.w1hkj.com/files/fldigi/]] v4.1.26 (includes flarq)
+* [[flrig|http://www.w1hkj.com/files/flrig/]] v2.0.02
+* [[flmsg|http://www.w1hkj.com/files/flmsg/]] v4.0.22
+* [[flamp|http://www.w1hkj.com/files/flamp/]] v2.2.07
+* [[WSJT-X|https://www.physics.princeton.edu/pulsar/K1JT/]] v2.6.1
+* [[JS8Call|https://js8call.com/]] v2.2.0
+* [[JS8Call Utilities|https://m0iax.com/downloadfiles/]] dated November 2020 - sets grid square from GPS in JS8Call
+* [[ION2G SELCAL & ALE|https://ion2g.app/]]        v0.9.8.1
+* [[wfview|https://wfview.org/]] v1.64
+** [[wfview Notes]]
+* ''TODO: ''add APRS HF
+* [[VarAC|https://www.varac-hamradio.com/]] - AX.25 bcast msgs + Vara P2P email, recommended by https://emcomm-training.org/
+
+!230717
+Hung a dummy load on IC-705 and put it on the network and was successful using wfview for remote control in just a few minutes.
+Very slick, but when happens if I want to do this in the field?  
+Something will have to change, because right now the IC-705 is looking for a wifi access point to connect to.
+
+See Also: [[wfview Notes]]
+
+Worked on configuring Winlink.
+See [[Winlink Express Notes]]
+
+Also plugged in USB port to my ~LiFePO4 battery and the PD port works!
+Estimate 2 hrs for a full charge.
+
+Dear Microsoft: why did you put on that weird proprietary charging port instead of a 2nd USB-C port?
+
+!230718
+Mark M0IAK confirmed that RSBA1 provides the missing COM ports for IC-705 over wifi.
+
+Tried to configure fldigi so I could use it this evening for NBEMS-AZ, but fldigi doesn't bring up the on-screen keyboard when entering data, so I need the keyboard.
+
+!270724
+Not having a suitably convenient HF antenna indoors (the heat is scorching!) I tried Vara FM.
+Found a site nearby (K7ARC) but it's listed as WIDE not NARROW.
+I assumed (incorrectly) that NARROW is 1200 bps and WIDE is 9600, and when I looked up specs for IC-705 I found ppl saying the radio is unable to support 9600, which seems odd given how new it is, and it has built in radio interface.
+
+''TODO:'' what does WIDE and NARROW mean in Vara-speak?
+
+I was able to ping K7ARC once I learned that in Vara FM you have to //manually// tune the freq.
+Vara HF has CAT control.
+
+I then sent a //radio only// msg via K7ARC and it went.
+While connected, a msg addressed to me (from me) arrived over the radio.
+Somehow I had sent a msg using telnet that was tagged Radio Only, so it was just waiting for me (waiting where?)
+
+Exchanged email with Paul KQ7V.
+
+Found a nice map of winlink sites filtered by protocols: https://winlink.org/RMSChannels.
+
+How to use packet? 
+That appears to be popular in AZ.
+
+!230727
+Watching emcomm training videos from https://emcomm-training.org/ .
+They also have Winlink Thursday training exercises, which are fun.
+
+This group mentioned (recommends?) VarAC, which appears to be broadcast msgs using AX.25 + P2P email using the Vara modem.
+
+!Icom RSBA1 v2
+<<<
+Icom RSBA1 v2 and Icom Remote Utility
+The Icom remote Utility is the critical part of wireless data and rig control with the Icom IC-705. It creates the virtual audio interfaces, Wireless comm ports, and manages the connection to the RSBA1 Server, running on the Icom IC-705. 
+<<<
+[[Icom RSBA1 v2|https://www.gigaparts.com/rs-ba1-v2-22-ip-remote-control-software.html]] - $120
+
+REALLY not clear why I need this, so I will hold off for now.
+
+
+<<<
+... and alternative to RSBA1 v2 is [[WFView|https://wfview.org/]] 
+<<<
+
+
+!GPS
+
+The whole area of messing with GPS rates it's own section: [[Surface Go 2 GPS]].
+
+<!-- if I had wanted to transclude this section instead:
+{{Surface Go 2 GPS}}
+-->
