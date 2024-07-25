@@ -1,0 +1,22 @@
+created: 20240725162147505
+modified: 20240725163157135
+title: Details of LuckFox Pico Mini B
+type: text/vnd.tiddlywiki
+
+~LuckFox Pico Mini B RV1103 Linux Development Board (128MB)
+
+
+[img[LuckFox Pico Mini B.jpg]]
+
+* Cortex A7 at 1.2GHz
+* RISC-V
+* NPU: 0.5TOPS, supports int4, int8 and int16.
+* ISP Input: 4M at 30fps (Max)
+* Memory: 64 MB DDR2
+* Default Storage: Mini B - SPI NAND FLASH (128MB)
+* USB: 2.0 Host/Device.
+* Camera: MIPI CSI 2-lane
+* GPIO: 17x GPIO pins
+* an SD card slot under the USB-C connector
+* runs Linux, including a version of Ubuntu
+

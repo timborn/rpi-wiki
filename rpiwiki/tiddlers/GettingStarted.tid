@@ -1,7 +1,7 @@
 caption: Step 1<br>Syncing
 created: 20180819230731840
 creator: rpi
-modified: 20230813132449664
+modified: 20240725161456518
 modifier: rpi
 tags: $:/tags/GettingStarted
 title: GettingStarted
@@ -9,6 +9,7 @@ type: text/vnd.tiddlywiki
 
 ''Hello, Hamster!''
 
+* Start Here: [[Bare Metal RPi]]
 * Start Here: [[Hamster Notes]]
 * Start Here: [[Shared Space For Red]]
 * Start Here: [[Hamster Notes]]

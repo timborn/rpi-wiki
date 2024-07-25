@@ -1,0 +1,69 @@
+created: 20240725161503713
+modified: 20240725234536327
+title: Bare Metal RPi
+type: text/vnd.tiddlywiki
+
+240725 - I came across a tiny, cheap, powerful computer that runs Linux.  
+I am interested in having it boot directly into forth, thinking it would be blindingly fast, vast space and fit in a pocket with room to spare.
+
+! ~LuckFox Pico Mini B
+*[[AliExpress|https://www.aliexpress.us/item/3256805989649655.html?spm=a2g0o.order_list.order_list_main.4.21ef1802OeImhV&gatewayAdapt=glo2usa]]
+* [[Details of LuckFox Pico Mini B]]
+
+That would be the ultimate goal.
+I realized I need a way to get this machine to boot to a stable, initialized state before I could put forth on it.
+To that end I started researching Bare Metal RPi so I can see an example of how to get the hardware in a sane state, then I can put forth on bare metal RPi.
+Applying that analogy I may be able to get forth to work correctly on the ~LuckFox.  
+Maybe.
+
+! Bare Metal RPi
+
+* [[Raspberry Pi Bare Metal Tutorial|https://www.valvers.com/open-software/raspberry-pi/bare-metal-programming-in-c/]]
+* [[githug support for Rpi Bare Metal Tutorial|https://github.com/BrianSidebotham/arm-tutorial-rpi]]
+* [[Cambridge Tutorial on Bare Metal Pi|https://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/os/index.html]]
+* [[ARM Instruction Reference|http://infocenter.arm.com/help/topic/com.arm.doc.qrc0001l/QRC0001_UAL.pdf]]
+* [[ARM Spec of Cortex A7|http://docs-api-peg.northeurope.cloudapp.azure.com/assets/ddi0464/f/DDI0464F_cortex_a7_mpcore_r0p5_trm.pdf]]
+* [[GCC ARM Options|https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html]]
+* [[GCC Link Options|http://gcc.gnu.org/onlinedocs/gcc/Link-Options.html]]
+* [[Circle C++ Bare Metal Environment for RPi|https://github.com/rsta2/circle]]
+* [[Newlib C Library Documentation|https://sourceware.org/newlib/libc.html]]
+* [[RPi Datasheets and Schematics|https://datasheets.raspberrypi.com/]]
+* [[ARM1176JZF-S Technical Reference Manual|https://developer.arm.com/documentation/ddi0301/h/]]
+* [[github for RPi, including firmware and bug lists|https://github.com/raspberrypi]]
+
+
+!!Notes
+
+* The Bare Metal RPi tutorial assumes you are building on Linux on an x86.  That is a key assumption.
+* Know which chip is on your board!
+** RPi 1, RPi 1B+ use Broadcom ''[[BCM2835|https://www.raspberrypi.org/app/uploads/2012/02/BCM2835-ARM-Peripherals.pdf]]'' SOC which includes GPU and ARM
+** RPi 2 uses ''BMC2836''
+** RPi 2B 1.2 uses ''[[BMC2837|https://web.stanford.edu/class/cs140e/docs/BCM2837-ARM-Peripherals.pdf]]''
+* initial boot sequence is:
+** GPU takes control, initializes hardware, loads ''bootcode.bin'' from first partition on FAT-formated SD card
+** ''bootcode.bin'' searches for and loads ''start.elf'' and ''config.txt ''
+** ''start.elf'' file contains the code that runs on the GPU to provide most of the requirements of OpenGL, etc.
+** ''bootcode.bin'' loads ''kernel.img'' at 0x8000 and starts ARM executing at 0x8000.  This is the first time we see ARM code
+** NB the ARM core is running in kernel mode, which means we are only using physical address, no MMU.  
+
+''THEREFORE'' I should be able to leverage ''bootcode.bin'', ''start.elf ''and ''config.txt'' suitably selected to match my hardware and compile something for ARM that assumes no OS, physical addresses, starting at 0x8000.
+
+The latest Raspberry-Pi firmware is available on [[GitHub|https://github.com/raspberrypi/firmware]]. 
+The bootloader is located under the [[boot sub-directory|https://github.com/raspberrypi/firmware/tree/master/boot]].
+
+Start with blinking lights, then consider porting forth.  
+
+//Q: which version of forth to port?
+//
+
+!Bare Metal Forth on RPi
+
+* [[pijForthOS|https://github.com/organix/pijFORTHos]] - bare metal ARM forth on RPi
+* [[List of Forth Ports on github|https://forth-standard.org/systems]] including several for ARM
+* [[jonesforth-arm|https://github.com/M2IHP13-admin/JonesForth-arm]]
+
+pijForthOS contains a folder called [[annexia|https://github.com/organix/pijFORTHos/tree/master/annexia]] with an //extremely// readable source for forth on x86 using a Linux process as it's "machine".
+
+pijForthOS has a forth.S which uses, among other things, the SWI instruction, which is a software interrupt //to the operating system//.
+That works on Linux, but not on bare metal!
+jonesforth-arm has a near identical version of forth.S that does not appear to use SWI, which may be a better choice for bare metal forth on RPi (and possibly the ~LuckFox chip).
