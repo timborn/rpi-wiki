@@ -1,5 +1,5 @@
 created: 20240725162147505
-modified: 20240725163157135
+modified: 20240726221026451
 title: Details of LuckFox Pico Mini B
 type: text/vnd.tiddlywiki
 
@@ -19,4 +19,10 @@ type: text/vnd.tiddlywiki
 * GPIO: 17x GPIO pins
 * an SD card slot under the USB-C connector
 * runs Linux, including a version of Ubuntu
+* based on the Rockchip RV1103 chip (SOC?)
 
+[img[Luckfox-Pico-Mini-B-pinout.jpg]]
+
+* [[Quick Start|https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-quick-start/]]
+* [[Rockchip RV1103 Data Sheet|http://file.whycan.com/files/members/9058/Rockchip%20RV1103%20Datasheet%20V1.1-20220427.pdf]]
+* [[LuckFox Pico SDK|https://github.com/LuckfoxTECH/luckfox-pico]]

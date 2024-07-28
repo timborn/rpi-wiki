@@ -1,5 +1,5 @@
 created: 20240725161503713
-modified: 20240725234536327
+modified: 20240727143116550
 title: Bare Metal RPi
 type: text/vnd.tiddlywiki
 
@@ -29,24 +29,32 @@ Maybe.
 * [[Newlib C Library Documentation|https://sourceware.org/newlib/libc.html]]
 * [[RPi Datasheets and Schematics|https://datasheets.raspberrypi.com/]]
 * [[ARM1176JZF-S Technical Reference Manual|https://developer.arm.com/documentation/ddi0301/h/]]
+* [[BCM2385 ARM Peripherals|http://www.raspberrypi.org/wp-content/uploads/2012/02/BCM2835-ARM-Peripherals.pdf]]
+* [[BCM2835/6/7 Documentation, including errata|https://www.raspberrypi.com/documentation/computers/processors.html]] from Raspberry Pi folks.
+* [[ARMv6 Architecture Reference Manual|http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0406c/index.html]]
 * [[github for RPi, including firmware and bug lists|https://github.com/raspberrypi]]
-
+* [[Raspberry Pi Firmware Mailboxes information|https://github.com/raspberrypi/firmware/wiki/Accessing-mailboxes]]
+* [[VideoCoreIv-AG100 3D Architecture Reference|http://www.broadcom.com/docs/support/videocore/VideoCoreIV-AG100-R.pdf]]
+* [[Android Graphics Driver Source Code for VideoCoreIV|https://docs.broadcom.com/docs-and-downloads/docs/support/videocore/Brcm_Android_ICS_Graphics_Stack.tar.gz]]
 
 !!Notes
 
 * The Bare Metal RPi tutorial assumes you are building on Linux on an x86.  That is a key assumption.
 * Know which chip is on your board!
 ** RPi 1, RPi 1B+ use Broadcom ''[[BCM2835|https://www.raspberrypi.org/app/uploads/2012/02/BCM2835-ARM-Peripherals.pdf]]'' SOC which includes GPU and ARM
-** RPi 2 uses ''BMC2836''
-** RPi 2B 1.2 uses ''[[BMC2837|https://web.stanford.edu/class/cs140e/docs/BCM2837-ARM-Peripherals.pdf]]''
+** RPi 2 uses ''BCM2836''
+** RPi 2B 1.2 uses ''[[BCM2837|https://web.stanford.edu/class/cs140e/docs/BCM2837-ARM-Peripherals.pdf]]''
 * initial boot sequence is:
 ** GPU takes control, initializes hardware, loads ''bootcode.bin'' from first partition on FAT-formated SD card
 ** ''bootcode.bin'' searches for and loads ''start.elf'' and ''config.txt ''
 ** ''start.elf'' file contains the code that runs on the GPU to provide most of the requirements of OpenGL, etc.
 ** ''bootcode.bin'' loads ''kernel.img'' at 0x8000 and starts ARM executing at 0x8000.  This is the first time we see ARM code
-** NB the ARM core is running in kernel mode, which means we are only using physical address, no MMU.  
+** NB the ARM core is running in kernel (supervisor? system??) mode, which means we are only using physical address, no MMU.  
 
 ''THEREFORE'' I should be able to leverage ''bootcode.bin'', ''start.elf ''and ''config.txt'' suitably selected to match my hardware and compile something for ARM that assumes no OS, physical addresses, starting at 0x8000.
+
+"The split between ARM and GPU memory is selected by installing one of the supplied
+''start*.elf'' files as ''start.elf'' in the FAT32 boot partition of the SD card. The minimum amount of memory which can be given to the GPU is 32MB" - BCM2835 ARM Peripherals, p. 6
 
 The latest Raspberry-Pi firmware is available on [[GitHub|https://github.com/raspberrypi/firmware]]. 
 The bootloader is located under the [[boot sub-directory|https://github.com/raspberrypi/firmware/tree/master/boot]].
