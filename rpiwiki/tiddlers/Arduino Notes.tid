@@ -1,5 +1,5 @@
 created: 20240729223356990
-modified: 20240729230421539
+modified: 20240729234112350
 title: Arduino Notes
 type: text/vnd.tiddlywiki
 
@@ -17,3 +17,19 @@ I installed  USB Host Library Rev. 2.0 v1.7.0 from Oleg et al.
 In the documentation from Oleg I found USBHidBootKbd.ino, which //looks// like it may be a simple keyboard routine.  
 Compiled, downloaded, set serial monitor to 115200 (I could see the code expected that) and got "Start. OSC did not start", which indicated a failure in USB.Init().
 Possibly something to do with not identifying my board correctly so the pins all lined up?
+
+The docs suggest the first thing to try is to use an external power supply.
+When I provide +5V/1A I am unable to use the USB serial console for some reason.
+
+BTW When I plugged in the [[SparkFun USB to Serial Interface]] to the mac, the mac immediately recognized it, even though it wasn't connected to anything.  
+This looks promising.
+
+The docs for the Arduino //UNO// say the USB and external power can both be plugged in, and the ckt will pick external power.
+BUT it also says it wants something more like 7V input.
+
+Having difficulty getting external power AND USB serial console to both work at the same time.
+I did observe that USB.Init() appeared to work sometimes.
+I was expecting that as I type keys on external keyboard I would see something on the serial console.
+
+TODO: figure out how to get the [[SparkFun USB to Serial Interface]] to work on this sketch and rework it so all the print statements go to my serial port instead.
+

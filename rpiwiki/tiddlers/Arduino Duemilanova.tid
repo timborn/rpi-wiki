@@ -1,0 +1,22 @@
+created: 20240729232951406
+modified: 20240729233509915
+title: Arduino Duemilanova
+type: text/vnd.tiddlywiki
+
+
+[img[Arduino Duemilanove.jpg]]
+
+* [[Arduino Duemilanove documentation|https://docs.arduino.cc/retired/boards/arduino-duemilanove/]]
+
+
+```
+Power
+The Arduino Duemilanove can be powered via the USB connection or with an external power supply. The power source is selected automatically.
+
+External (non-USB) power can come either from an AC-to-DC adapter (wall-wart) or battery. The adapter can be connected by plugging a 2.1mm center-positive plug into the board's power jack. Leads from a battery can be inserted in the Gnd and Vin pin headers of the POWER connector.
+
+The board can operate on an external supply of 6 to 20 volts. If supplied with less than 7V, however, the 5V pin may supply less than five volts and the board may be unstable. If using more than 12V, the voltage regulator may overheat and damage the board. The recommended range is 7 to 12 volts.
+```
+
+When I used 5.0V, the USB was in charge.
+When I upped it to 7.0V, I can see the arduino + [[USB Host Shield]] draws about 260 mW at idle.
