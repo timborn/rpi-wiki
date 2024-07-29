@@ -1,5 +1,5 @@
 created: 20240725161503713
-modified: 20240727143116550
+modified: 20240729113215122
 title: Bare Metal RPi
 type: text/vnd.tiddlywiki
 
@@ -9,6 +9,7 @@ I am interested in having it boot directly into forth, thinking it would be blin
 ! ~LuckFox Pico Mini B
 *[[AliExpress|https://www.aliexpress.us/item/3256805989649655.html?spm=a2g0o.order_list.order_list_main.4.21ef1802OeImhV&gatewayAdapt=glo2usa]]
 * [[Details of LuckFox Pico Mini B]]
+* [[Ubuntu Container with SDK for LuckFox Pico Development]]
 
 That would be the ultimate goal.
 I realized I need a way to get this machine to boot to a stable, initialized state before I could put forth on it.
@@ -36,6 +37,10 @@ Maybe.
 * [[Raspberry Pi Firmware Mailboxes information|https://github.com/raspberrypi/firmware/wiki/Accessing-mailboxes]]
 * [[VideoCoreIv-AG100 3D Architecture Reference|http://www.broadcom.com/docs/support/videocore/VideoCoreIV-AG100-R.pdf]]
 * [[Android Graphics Driver Source Code for VideoCoreIV|https://docs.broadcom.com/docs-and-downloads/docs/support/videocore/Brcm_Android_ICS_Graphics_Stack.tar.gz]]
+* [[Downloadable Images for LuckFox Pico Mini B|https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS]]
+* [[SD Card Burning Software|https://files.luckfox.com/wiki/Luckfox-Pico/Software/SocToolKit.zip]] from ~LuckFox (MSWin).  Also loads SPI RAM filesystem on pico  mini B.
+* [[upgrade tool|https://files.luckfox.com/wiki/Core3566/upgrade_tool_v2.17.zip]] from ~LuckFox for burning flash RAM (only) on Linux.  Applicable to ~LuckFox Pico Mini B.
+* [[upgrade tool for mac|https://files.luckfox.com/wiki/Luckfox-Pico/Software/upgrade_tool_v2.25_for_mac.zip]].  Same as above, but for Mac.
 
 !!Notes
 
