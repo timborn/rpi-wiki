@@ -1,0 +1,10 @@
+created: 20240729224021674
+modified: 20240729224826556
+title: USB Host Shield
+type: text/vnd.tiddlywiki
+
+[img[Arduino USB Host Shield.jpg]]
+[img[USB Host Shield - generic.jpeg]]
+
+* [[Arduino USB Host Shield|https://docs.arduino.cc/retired/shields/arduino-usb-host-shield/]]
+* Use [[USB Host Library Rev. 2.0|https://github.com/felis/USB_Host_Shield_2.0]] v1.7.0 from Oleg et al

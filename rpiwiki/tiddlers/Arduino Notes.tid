@@ -1,0 +1,19 @@
+created: 20240729223356990
+modified: 20240729230421539
+title: Arduino Notes
+type: text/vnd.tiddlywiki
+
+! 240729
+
+I have an [[Arduino Duemilanova]] and have received a [[USB Host Shield]] (~AliExpress).  
+I wanted to make a CW keyer for George using a keyboard attached to an Arduino.
+All I have are USB keyboards, so this seemed the easiest route.
+
+Just to verify, I took all updates for boards and libraries in Arduino IDE, then I ran the generic blinky and verified I can still compile and download correctly.
+Now make the USB host work with an attached keyboard.
+
+I installed  USB Host Library Rev. 2.0 v1.7.0 from Oleg et al.
+
+In the documentation from Oleg I found USBHidBootKbd.ino, which //looks// like it may be a simple keyboard routine.  
+Compiled, downloaded, set serial monitor to 115200 (I could see the code expected that) and got "Start. OSC did not start", which indicated a failure in USB.Init().
+Possibly something to do with not identifying my board correctly so the pins all lined up?
