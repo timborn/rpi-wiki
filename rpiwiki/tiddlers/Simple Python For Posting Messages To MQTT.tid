@@ -1,0 +1,46 @@
+created: 20240804192246024
+modified: 20240804194921224
+title: Simple Python For Posting Messages To MQTT
+type: text/vnd.tiddlywiki
+
+MQTT has changed when 5.x came out.
+Additionally [[mosquitto|https://mosquitto.org/]] also changed, including defaulting to ONLY accept connections from localhost.
+I had to make a trivial mosquitto.conf file to accept connections to R2D2.local from anywhere, including from R2D2.
+
+Trivial moquitto.conf, so port 1883 is open on all interfaces:
+
+```
+listener 1883
+allow_anonymous true
+```
+
+Start mosquitto in one window on R2D2.
+
+```
+mosquitto -c ~/mosquitto.conf
+```
+
+Here's some simple python for posting a message to the mosquitto server.
+
+
+```
+TODO copy code here
+```
+
+Simple bash for posting a message to mosquitto server:
+
+```
+$ mosquitto_pub -h R2D2.local -t 'my/topic' -m "this is a message"
+```
+
+Here is how to verify your posted messages are showing up.
+
+```
+$ mosquitto_sub -t 'my/topic'  # specific topic
+
+$ mosquitto_sub -t '#'     # EVERYTHING
+```
+
+NB it seems to work best if you post JSON.
+Additionally, make sure you tag every message with something that identifies the machine that sent the messsage.
+Things get confusing fast when messages are showing up and we don't know who sent them.

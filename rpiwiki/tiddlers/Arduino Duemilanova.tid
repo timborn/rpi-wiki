@@ -1,5 +1,5 @@
 created: 20240729232951406
-modified: 20240729233509915
+modified: 20240730170854017
 title: Arduino Duemilanova
 type: text/vnd.tiddlywiki
 
@@ -7,7 +7,10 @@ type: text/vnd.tiddlywiki
 [img[Arduino Duemilanove.jpg]]
 
 * [[Arduino Duemilanove documentation|https://docs.arduino.cc/retired/boards/arduino-duemilanove/]]
-
+* [[Arduino Hardware ARM Cores Code|https://github.com/arduino/ArduinoCore-avr]]
+* [[ArduinoCore API|https://github.com/arduino/ArduinoCore-API]] - what all Arduino should follow
+* [[Arduino Duemilanova Schematic|https://www.arduino.cc/en/uploads/Main/arduino-duemilanove-schematic.pdf?_gl=1*nsnxs0*_gcl_au*NDgxNzI5NjkzLjE3MjIyOTE1MDg.*FPAU*NDgxNzI5NjkzLjE3MjIyOTE1MDg.*_ga*NzIxOTcxNzEwLjE3MjIyOTE1MDU.*_ga_NEXN8H46L5*MTcyMjM1ODQxNC40LjEuMTcyMjM1ODQzNC4wLjAuODM5OTY3Mjcz*_fplc*bkVyZCUyQmp4RlRweVlPd2ZDM3ZZa3hnUXBiU2FLckRpJTJGNTVmem9jUFE2c0Ywc2ZrRlFvMGY2Q29Sd1JHV0RmeW5HWmpaM3FmRyUyQlRtNlFrUkt0JTJGYzJucURZcXRhekRwVjNCSFpBJTJGZlo1ODBhY2xpaTg1dE5IQjU5ejBlWTVTdyUzRCUzRA..]] ([[see also|https://docs.arduino.cc/retired/boards/arduino-duemilanove/]]
+* [[Arduino-Duemilanove-Pinout.jpg]]
 
 ```
 Power
