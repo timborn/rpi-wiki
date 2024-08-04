@@ -1,6 +1,6 @@
 created: 20240804192246024
-modified: 20240804194921224
-title: Simple Python For Posting Messages To MQTT
+modified: 20240804195135080
+title: Simple Python and Bash For Posting Messages To MQTT
 type: text/vnd.tiddlywiki
 
 MQTT has changed when 5.x came out.
