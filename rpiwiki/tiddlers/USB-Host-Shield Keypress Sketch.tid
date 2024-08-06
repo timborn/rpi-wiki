@@ -1,0 +1,72 @@
+created: 20240805124036302
+modified: 20240805124114599
+title: USB-Host-Shield Keypress Sketch
+type: text/vnd.tiddlywiki
+
+Show every keypress so you can code for those special keys.
+
+```
+#include <hidboot.h>
+#include <usbhub.h>
+
+// Satisfy the IDE, which needs to see the include statment in the ino too.
+#ifdef dobogusinclude
+#include <spi4teensy3.h>
+#endif
+#include <SPI.h>
+
+char keyasc;
+int keycode;
+boolean iskeypressed;
+
+class KeyboardInput : public KeyboardReportParser
+{
+ protected:
+    void OnKeyDown  (uint8_t mod, uint8_t key);
+    void OnKeyPressed(uint8_t key);
+};
+
+void KeyboardInput::OnKeyDown(uint8_t mod, uint8_t key)
+{
+  uint8_t c = OemToAscii(mod, key);
+  if (c)
+    OnKeyPressed(c);
+};
+
+void KeyboardInput::OnKeyPressed(uint8_t key)
+{
+keyasc = (char) key;
+keycode = (int)key;
+iskeypressed = true; 
+};
+
+USB     Usb;
+HIDBoot<USB_HID_PROTOCOL_KEYBOARD>    HidKeyboard(&Usb);
+KeyboardInput Prs;
+
+void setup()
+{
+Serial.begin( 115200 );
+#if !defined(__MIPSEL__)
+  while (!Serial); 
+#endif
+  Serial.println("Start");
+
+  if (Usb.Init() == -1)
+    Serial.println("OSC did not start.");
+
+  delay( 200 );
+
+  HidKeyboard.SetReportParser(0, &Prs);
+}
+
+void loop()
+{
+Usb.Task();
+if(iskeypressed){
+Serial.println(keyasc);
+Serial.println(keycode);
+iskeypressed = false;  
+}
+}
+```

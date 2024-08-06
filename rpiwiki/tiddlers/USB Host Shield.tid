@@ -1,5 +1,5 @@
 created: 20240729224021674
-modified: 20240801222125040
+modified: 20240805124120328
 title: USB Host Shield
 type: text/vnd.tiddlywiki
 
@@ -9,6 +9,7 @@ type: text/vnd.tiddlywiki
 * [[Arduino USB Host Shield|https://docs.arduino.cc/retired/shields/arduino-usb-host-shield/]]
 * Use [[USB Host Library Rev. 2.0|https://github.com/felis/USB_Host_Shield_2.0]] v1.7.0 from Oleg et al
 * See my sketch USB-Host-Shield-Keyboard.ino for a small working example (after you solder three bridges!)
+* [[USB-Host-Shield Keypress Sketch]] - when you want to see what each key is doing
 
 [[How to connect a USB Keyboard to an Arduino Uno using the USB Host Shield|https://www.youtube.com/watch?v=EpXxh4k4NW8]] - ~YouTube video that appears to be using the same USB Host Shield.
 ''HE SAYS WE HAVE TO HIT THREE (3!) SOLDER BRIDGES FOR 5V!''

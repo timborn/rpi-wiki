@@ -1,7 +1,7 @@
 caption: Step 1<br>Syncing
 created: 20180819230731840
 creator: rpi
-modified: 20240729223350021
+modified: 20240806160831786
 modifier: rpi
 tags: $:/tags/GettingStarted
 title: GettingStarted
@@ -9,6 +9,9 @@ type: text/vnd.tiddlywiki
 
 ''Hello, Hamster!''
 
+* Start Here: [[ESP32 Notes]]
+* Start Here: [[Forth Notes]]
+* Start Here: [[MQTT Notes]]
 * Start Here: [[Arduino Notes]]
 * Start Here: [[Bare Metal RPi]]
 * Start Here: [[Hamster Notes]]

@@ -1,0 +1,17 @@
+created: 20240806160056643
+modified: 20240806180121883
+title: Forth Notes
+type: text/vnd.tiddlywiki
+
+* [[Bare Metal RPi]] - forth running directly on a Raspberry Pi
+* [[FlashForth|https://arduino-forth.com/article/FlashFORTH_forthSurArduino]] - bare metal forth for AVR Arduinos.  Needs burner as it overwrites the bootloader.
+* [[ESP32Forth|https://www.forth.org/svfig/kk/01-2019-Ting.pdf]] - Dr. Ting's Forth for ESP32.  Uses Arduino sketches, written in C, gives direct access to hardware.
+* [[Forth for ESP32|https://wokwi.com/projects/382723801102069761]] by Brad Nelson.  Also in C, and appears to use Arduino IDE.  Many version scattered all over the net.  This appears to be the definitive version (Brad Nelson's website).  Found [[v7.0.6 here|https://esp32forth.appspot.com/ESP32forth.html]].
+* [[ESP32 Forth Libs|https://github.com/MPETREMANN11/ESP32forth]] - pretty nice set of libraries for ESP32 Forth (Nelson version)
+* [[ESP32 Forth Projects|https://esp32forth.forth2020.org/]] - long list of projects people have built using ESP32 forth.  Also includes install instructions.  Appears to use Nelson's version of ESP32 Forth, and it has more current links than I have found elsewhere.
+* [[ESP32FORTH-CHEATSHEET.pdf]]
+* [[ESP32 Forth Add-ons|https://github.com/PeterForth/espforth-addons]]
+* [[forth Lessons|https://wiki.laptop.org/go/Forth_Lessons]] from OLPC
+
+I found a [[website|https://esp32forth.forth2020.org/documents]] that says Dr. Ting's ESP32 Forth and Nelson's ESP32 Forth are the same, but Nelson started working on it at v7.0, so anything with a version below 7 is Dr. Ting.
+That would make all those references above much more useful, as I can mix & match ideas.

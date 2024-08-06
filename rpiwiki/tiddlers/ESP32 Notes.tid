@@ -1,0 +1,11 @@
+created: 20240806160838239
+modified: 20240806161251314
+title: ESP32 Notes
+type: text/vnd.tiddlywiki
+
+I did some research at one point and made a note on the board which versions are worth a look: S3 & C6.
+
+When I compare the ESP32 board to [[LuckFox Pico Mini B|Details of LuckFox Pico Mini B]] I'm drawn to ESP32 for the network connectivity (wifi & bluetooth).
+The ~LuckFox chip has zippo for connectivity.
+
+* [[ESP32-C6 dev board|https://www.waveshare.com/product/esp32-c6-zero.htm]] about $10 ($5 on Ali Express)

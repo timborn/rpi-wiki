@@ -1,5 +1,5 @@
 created: 20240804192246024
-modified: 20240804195135080
+modified: 20240804213556605
 title: Simple Python and Bash For Posting Messages To MQTT
 type: text/vnd.tiddlywiki
 
@@ -24,7 +24,22 @@ Here's some simple python for posting a message to the mosquitto server.
 
 
 ```
-TODO copy code here
+# publish something to MQTT broker on R2D2
+# assumes mosquitto is running on R2D2 port 1883
+# assume MQTT v5 and paho API v2
+
+import paho.mqtt.client as mqtt
+broker="R2D2.local"
+port=1883
+
+# https://eclipse.dev/paho/files/paho.mqtt.python/html/client.html#paho.mqtt.client.Client.on_publish
+def on_publish(client,userdata,mid,result, props):
+    print("data published \n")
+    pass
+client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+client.on_publish = on_publish                     # assign function to callback
+client.connect(broker,port)                        # establish connection
+ret= client.publish("house/bulb1","on")            # publish
 ```
 
 Simple bash for posting a message to mosquitto server:
