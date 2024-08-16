@@ -1,0 +1,15 @@
+created: 20240816163231844
+modified: 20240816164236008
+title: FlashForth Notes
+type: text/vnd.tiddlywiki
+
+240816 I am installing ~FlashForth on  Arduino Nano (probably a clone from Tayda), which uses 328P chip.
+
+I cloned FF thus:
+
+```
+$ git clone https://github.com/oh2aun/flashforth.git
+```
+There already exists a binary in hex/ that looks good: 328-16MHz-38400.hex
+
+The [[notes|https://flashforth.com/atmega.html]] indicate the extended 
