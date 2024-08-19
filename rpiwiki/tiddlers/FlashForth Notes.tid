@@ -1,9 +1,10 @@
 created: 20240816163231844
-modified: 20240816164236008
+modified: 20240816202054640
 title: FlashForth Notes
 type: text/vnd.tiddlywiki
 
-240816 I am installing ~FlashForth on  Arduino Nano (probably a clone from Tayda), which uses 328P chip.
+!240816 
+I am installing ~FlashForth on  [[Arduino Nano]] (probably a clone from Tayda), which uses 328P chip.
 
 I cloned FF thus:
 
@@ -12,4 +13,102 @@ $ git clone https://github.com/oh2aun/flashforth.git
 ```
 There already exists a binary in hex/ that looks good: 328-16MHz-38400.hex
 
-The [[notes|https://flashforth.com/atmega.html]] indicate the extended 
+The [[notes|https://flashforth.com/atmega.html]] indicate the extended fuses need special attention:
+
+```
+Program the chip with avrdude or some other tool using fuses: extended(see below) high(0xdf) low(0xff). The extended fuse should be set to the highest Brown-Out-Detection level your design can use. Without BOD in use there has been some eeprom corruption observed at address zero of the eeprom. For 5 volt (Arduino) boards the extended fuse should be 0xfc for the 328 and 2560. For the 32u4 it should be 0xf8.
+```
+
+extended = 0xfc
+
+A little later on we see the avrdude command line with the fuse settings:
+
+```
+... -U efuse:w:0xff:m -U hfuse:w:0xdf:m -U lfuse:w:0xff:m
+```
+
+What happened to extended = 0xfc?
+
+In the end I got mostly confused on fuse bits and opted NOT to change any of them, just burning a copy of ~FlashForth.
+
+```
+$ avrdude -p m328pb -c usbtiny -e -U flash:w:328-16MHz-38400.hex:i 
+```
+```
+Timex:hex timborn$ avrdude -p m328pb -c usbtiny -e -U flash:w:328-16MHz-38400.hex:i 
+avrdude: AVR device initialized and ready to accept instructions
+avrdude: device signature = 0x1e9516 (probably m328pb)
+avrdude: erasing chip
+
+avrdude: processing -U flash:w:328-16MHz-38400.hex:i
+avrdude: reading input file 328-16MHz-38400.hex for flash
+         with 8426 bytes in 2 sections within [0, 0x7f67]
+         using 67 pages and 150 pad bytes
+avrdude: writing 8426 bytes flash ...
+Writing | ################################################## | 100% 11.67 s 
+avrdude: 8426 bytes of flash written
+avrdude: verifying flash memory against 328-16MHz-38400.hex
+Reading | ################################################## | 100% 7.89 s 
+avrdude: 8426 bytes of flash verified
+
+avrdude done.  Thank you.
+```
+
+OK, NOW HOW TO DO I CONNECT TO THIS THING?
+Presumably the 38400 is a baud rate, suggesting serial I/O, but is that serial over the USB port?
+
+Used Arduino IDE and opened a serial terminal with 38,400 baud and it works!
+
+!!How To Read Fuse Bits
+
+We will read the default fuse value first.
+To do that, you need to run the following command.
+This creates three files, one for each of the three fuse bytes.
+
+```
+avrdude -c usbtiny -p m328pb -U lfuse:r:low_fuse_val.txt:h -U hfuse:r:high_fuse_val.txt:h -U efuse:r:ext_fuse_val.txt:h
+```
+
+
+
+For the record, original nano knockoff shows fd / da / ff for ext/hi/low.
+
+!!All About Fuse Bits 
+
+Here's everything you need to know about fuse bits on a Atmel AVR 328P from the [[328P Datasheet|https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf]].  Refer to section 27.2.
+
+NB MSB is bit 7, LSB is bit 0.
+
+[img[Table 27-4.jpg]]
+[img[Table 27-5.jpg]]
+OK, someone explain to me why we have TWO tables for the single extended byte, and the bits do not agree?
+
+[img[Table 27-7.jpg]]
+[img[Table 27-6.jpg]]
+
+ASSUMING you use 0xfc for the extended bits, then the extended bits are enabling (zero) brownout level 0 & 1, which based on table 28-5 appears to be basically enable brownout on a 5V device.
+
+High bits 0xdf enable serial programing and downloading.
+They also set BOOTSIZE=256 words, which means the bootloader, if there is one, fits between 0x3F00 and 0x3FFF.
+Consequently the program flash area expands to fill the space not used by the bootloader.
+
+Low bits 0xff leave everything unprogrammed.
+
+''TODO'': what is the signature of the chip on the Nano knockoff?
+
+```
+avrdude: Device signature = 0x1e9516 (probably m328pb)
+avrdude: Expected signature for ATmega328P is 1E 95 0F
+```
+Based on the label on the chip, I confirm MEGA328PB.
+[[Differences betweenn 328P and 328PB|https://www.pololu.com/file/0J1464/Atmel-42559-Differences-between-ATmega328P-and-ATmega328PB_ApplicationNote_AT15007.pdf]]
+Short story: full backward compatibility, so anything compiled for 328P will work on 328PB.
+
+''TODO'': how do I find what serial port USBTinyIUSP is using?
+Adafruit answers this for us:
+
+```
+Why is there no Serial/COM/port (or /dev/ttyXX device) ?
+USBtiny is not a USB-Serial device, it is its own USB protocol which is understood by Avrdude. You will not see a COM port or Serial port created when you plug it in.
+```
+
