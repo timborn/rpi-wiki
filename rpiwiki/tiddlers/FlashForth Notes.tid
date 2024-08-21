@@ -1,5 +1,6 @@
 created: 20240816163231844
-modified: 20240816202054640
+modified: 20240821164806178
+tags: Arduino Forth
 title: FlashForth Notes
 type: text/vnd.tiddlywiki
 
@@ -83,6 +84,8 @@ NB MSB is bit 7, LSB is bit 0.
 [img[Table 27-5.jpg]]
 OK, someone explain to me why we have TWO tables for the single extended byte, and the bits do not agree?
 
+[img[Table 28-5.jpg]]
+
 [img[Table 27-7.jpg]]
 [img[Table 27-6.jpg]]
 
@@ -112,3 +115,71 @@ Why is there no Serial/COM/port (or /dev/ttyXX device) ?
 USBtiny is not a USB-Serial device, it is its own USB protocol which is understood by Avrdude. You will not see a COM port or Serial port created when you plug it in.
 ```
 
+!280819
+
+I was finally able to get ff-shell3.py to work, but I had to hack the code for Python3:
+
+```
+(fsh> ) Timex:shell timborn$ git diff ff-shell3.py
+diff --git a/shell/ff-shell3.py b/shell/ff-shell3.py
+index 6577af9..c96c104 100755
+--- a/shell/ff-shell3.py
++++ b/shell/ff-shell3.py
+@@ -63,7 +63,8 @@ cmd_dictionary = {
+ 
+ class Config(object):
+   def __init__(self):
+-    self.serial_port  = '/dev/ttyACM0'
++    # self.serial_port  = '/dev/ttyACM0'
++    self.serial_port  = '/dev/tty.usbserial-1410'
+     self.rate = '38400'
+     self.hw = False
+     self.sw = False
+@@ -116,7 +117,8 @@ def parse_arg(config):
+   parser = argparse.ArgumentParser(description="Small shell for FlashForth.")
+            #epilog="""End-of-line flow control with a 1 second timeout is always active.""")
+   parser.add_argument("--port", "-p", action="store",
+-         type=str, default="/dev/ttyACM0", help="Serial port name, default = /dev/ttyACM0")
++         # type=str, default="/dev/ttyACM0", help="Serial port name, default = /dev/ttyACM0")
++         type=str, default="/dev/tty.usbserial-1410", help="Serial port name, default = /dev/tty.usbserial-1410")
+   parser.add_argument("--hw", action="store_true",
+          default=False, help="Serial port RTS/CTS enable")
+   parser.add_argument("--sw", action="store_true",
+@@ -153,10 +155,12 @@ def main():
+  
+   # readline.parse_and_bind("tab: complete")
+   histfn = os.path.join(os.path.expanduser("~"), ".ff.history")
++  # e = None  # Declare 'e' here TDB hack
+   try:
+     readline.set_history_length(500)
+     readline.read_history_file(histfn)
+-  except(IOError, e):
++  # except(IOError, e):
++  except Exception as e:
+     print(e)
+     pass
+   atexit.register(readline.write_history_file, histfn)
+```
+
+I was able to 
+
+```
+#help
+#pwd
+#cd ..
+#send case.fs
+#send case-test.fs
+```
+
+Works great.
+Even better: ''the words I loaded persist over power out!''
+
+Pattern: there is an idiom for marking a group of words (presumably coming from a file) such that they can be rolled back, so as you iterate over changing the words, every time you load them, the first thing it does is try to wipe out previous version.
+This should keep from using all available space for no good reason.
+
+Assuming filename case.fs with words related to case statements, the opening lines are:
+
+```
+-case
+marker -case
+```

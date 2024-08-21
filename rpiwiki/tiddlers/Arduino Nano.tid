@@ -1,5 +1,6 @@
 created: 20240816194734371
-modified: 20240816195239344
+modified: 20240821170408094
+tags: Arduino
 title: Arduino Nano
 type: text/vnd.tiddlywiki
 
@@ -7,3 +8,4 @@ type: text/vnd.tiddlywiki
 
 [img[Arduino Nano Specs.jpg]]
 
+[img[Arduino-Nano-Pinout.png]]

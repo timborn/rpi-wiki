@@ -1,0 +1,182 @@
+created: 20240729223356990
+modified: 20240821164705249
+tags: Arduino
+title: Arduino Adding External Keyboard
+type: text/vnd.tiddlywiki
+
+* [[SoftwareSerial Documentation|https://docs.arduino.cc/learn/built-in-libraries/software-serial/]]
+
+! 240729
+
+I have an [[Arduino Duemilanova]] and have received a [[USB Host Shield]] (~AliExpress).  
+I wanted to make a CW keyer for George using a keyboard attached to an Arduino.
+All I have are USB keyboards, so this seemed the easiest route.
+
+Just to verify, I took all updates for boards and libraries in Arduino IDE, then I ran the generic blinky and verified I can still compile and download correctly.
+Now make the USB host work with an attached keyboard.
+
+I installed  USB Host Library Rev. 2.0 v1.7.0 from Oleg et al.
+
+In the documentation from Oleg I found ~USBHidBootKbd.ino, which //looks// like it may be a simple keyboard routine.  
+Compiled, downloaded, set serial monitor to 115200 (I could see the code expected that) and got "Start. OSC did not start", which indicated a failure in USB.Init().
+Possibly something to do with not identifying my board correctly so the pins all lined up?
+
+The docs suggest the first thing to try is to use an external power supply.
+When I provide +5V/1A I am unable to use the USB serial console for some reason.
+
+BTW When I plugged in the [[SparkFun USB to Serial Interface]] to the mac, the mac immediately recognized it, even though it wasn't connected to anything.  
+This looks promising.
+
+The docs for the Arduino //UNO// say the USB and external power can both be plugged in, and the ckt will pick external power.
+BUT it also says it wants something more like 7V input.
+
+Having difficulty getting external power AND USB serial console to both work at the same time.
+I did observe that USB.Init() appeared to work sometimes.
+I was expecting that as I type keys on external keyboard I would see something on the serial console.
+
+TODO: figure out how to get the [[SparkFun USB to Serial Interface]] to work on this sketch and rework it so all the print statements go to my serial port instead.
+
+!240730
+
+I found the [[SoftwareSerial|https://docs.arduino.cc/learn/built-in-libraries/software-serial/#print]] library, but it looks like I would have to hack all the code to change print to MySerial.print.  
+Not good!
+
+
+```
+To use these extra serial ports to communicate with your personal computer, you will need an additional USB-to-serial adaptor, as they are not connected to the Mega’s USB-to-serial adaptor. To use them to communicate with an external TTL serial device, connect the TX pin to your device’s RX pin, the RX to your device’s TX pin, and the ground of your Mega to your device’s ground.
+```
+- https://www.arduino.cc/reference/en/language/functions/communication/serial/
+
+As a first hack I was able to successfully attach the [[SparkFun USB to Serial Interface]] to the Duemilanove so I had a 2nd serial port.
+Using [[SoftwareSerial]] I was able to make a simple connection between the two serial ports, so what it typed on one shows on the other.
+I used "$ screen  /dev/tty.usbserial-1410 9600" to connect to the ~SparkFun.
+
+Some things of note:
+
+* screen doesn't echo locally, so you can't see what you type.  Not clear how to get screen(1) to echo locally.
+* ^J in screen causes CR/NL on the serial monitor
+* setting the serial monitor to push CR/NL works best
+* NB you have to type into the one-liner box on the serial monitor
+* I used pins 10/11 as RX/TX on Duemilanove.  Connect GND too (three wires total).
+* ''NB'' TX <--> RX on the other end; ditto for RX<--> TX
+
+Tried to run Fritzing so I could make a sketch, but I couldn't find Mac DMG.
+Tried to run it in Docker (https://hub.docker.com/r/salwaelk/fritzing-bionic) but was unable to get X and this container to work together.
+Gave up.
+
+Experiment: pass references to Serial* so I can change them out.  
+
+```
+SoftwareSerial mySerial(10, 11); // RX, TX
+/* TDB 240730 - make Serial/Serial1/Serial2/etc switchable */
+Stream& ser = mySerial;
+// . . . 
+  // mySerial.begin(9600);
+  ser.begin(9600);
+```
+
+```
+error: 'class Stream' has no member named 'begin'
+```
+
+OK, I had //assumed// SoftwareSerial was more like Serial[123] on the Mega.
+Bummer.
+See [[here|https://forum.arduino.cc/t/redirecting-i-o-from-serial-to-serial1-at-run-time/500728/4]].
+
+For kicks I installed a 16x2 LCD w/ I2C interface.
+Default address 0x27.
+
+!240731
+
+I haven't found any way to easily swap in Serial1 or SoftwareSerial for Serial (i.e. send all console output to attached USB-to-serial device).
+Looks like I'm gonna have to hard code it.  
+Drat!
+
+I have not been able to get LCD display to work.
+This should be easy!
+
+I used the i2c_scanner sketch (part of Arduino IDE) to check my connections.
+
+
+```
+Scanning...
+I2C device found at address 0x27  !
+done
+```
+Divide and conquer!
+I moved the LCD to another Duemilanove and it worked correctly.
+Something about the USB Host Shield is messing up the LCD.
+What pins does the USB Host Shield use?
+Looks like (digital) pins 7-13, which should not interfere with LCD.
+
+Removed the USB Host Shield and the LCD still doesn't work (original Arduino).
+Yet the i2c_scanner sees the device.
+
+I observe that Arduino #2 was running the LCMeter code, so I compiled and downloaded that to Arduino #1 and it works.
+Even more strange: all the sketches in the past three days have choked on lcd.begin(), insisting it has to be lcd.begin(cols, rows, charsize=0).
+
+''SOLVED'' - comparing Hello_World_I2C_ESP32 against LCMeter1 I observe LCMeter1 has a call to lcd.init() //before// the call to lcd.begin(16,2).
+Makes all the difference in the world!
+
+Put the USB Host Shield on and viola! Everything works just fine.
+Now, how to get USB keyboard input to show up somewhere (console? LCD screen?)
+
+!240801
+The sketch ran all night, counting up seconds in a long.
+It will take a very "long" time to overflow 32-bit long!
+
+Sketch is USBHIDBootKbd.ino.
+
+[[How to connect a USB Keyboard to an Arduino Uno using the USB Host Shield|https://www.youtube.com/watch?v=EpXxh4k4NW8]] - ~YouTube video that appears to be using the same USB Host Shield.
+''HE SAYS WE HAVE TO HIT THREE (3!) SOLDER BRIDGES FOR 5V!''
+Why isn't this in the instructions anywhere??
+
+Based on that video I wrote USB-Host-Shield-Keyboard.ino, which works.
+Characters types show up on serial monitor.
+TODO: CR, shift keys, pretty much everything that isn't an ASCII key is ignored.
+
+
+
+```
+#include <hidboot.h>
+#include <SPI.h>
+
+/*
+** TDB 240801 - USB Host Shield on Duemilanove
+** https://www.youtube.com/watch?v=EpXxh4k4NW8
+*/
+
+class KeyboardHandler : public KeyboardReportParser
+{
+  void OnKeyDown (uint8_t mod, uint8_t key);
+};
+
+void KeyboardHandler::OnKeyDown(uint8_t mod, uint8_t key)
+{
+  uint8_t c = OemToAscii(mod, key);
+  Serial.print((char) c);
+}
+
+USB Usb;
+HIDBoot<USB_HID_PROTOCOL_KEYBOARD> HidKeyboard(&Usb);
+KeyboardHandler DoKeyActions;   // declare after dfns above
+
+void setup() {
+  Serial.begin( 115200 );
+  Serial.println("Start");
+
+  if (Usb.Init() == -1) {
+    Serial.println("USB failed to initialize");
+    while (1) { /* do nothing */ }
+  }
+
+  HidKeyboard.SetReportParser(0, &DoKeyActions);
+}
+
+void loop() {
+  Usb.Task();
+}
+
+```
+
+USBHidBootKeyboard.ino now works also, and goes into much deeper detail on capturing shift, control, ALT, etc.
