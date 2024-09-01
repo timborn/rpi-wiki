@@ -1,5 +1,5 @@
 created: 20240816194734371
-modified: 20240821170408094
+modified: 20240821172358443
 tags: Arduino
 title: Arduino Nano
 type: text/vnd.tiddlywiki
@@ -9,3 +9,11 @@ type: text/vnd.tiddlywiki
 [img[Arduino Nano Specs.jpg]]
 
 [img[Arduino-Nano-Pinout.png]]
+
+```
+The numbers in gray are the physical pins on the microcontroller chip. 
+
+Those numbers are not used by the Arduino IDE. The correct pin numbers you need to use are the ones printed on the silkscreen on the board or in purple on the lower graphic. You will notice those numbers are the same on either. Arduino pins 15 and 16 are actually A1 and A2 on the Nano.
+```
+
+[img[Arduino-Nano-Pinout-Complete.jpg]]

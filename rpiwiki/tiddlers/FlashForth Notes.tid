@@ -1,8 +1,10 @@
 created: 20240816163231844
-modified: 20240821164806178
+modified: 20240821170703315
 tags: Arduino Forth
 title: FlashForth Notes
 type: text/vnd.tiddlywiki
+
+* [[FlashForth examples for Arduino|https://arduino-forth.com/article/FORTH_index]]
 
 !240816 
 I am installing ~FlashForth on  [[Arduino Nano]] (probably a clone from Tayda), which uses 328P chip.
