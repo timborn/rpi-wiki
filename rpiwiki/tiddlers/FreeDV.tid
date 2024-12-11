@@ -1,0 +1,20 @@
+created: 20241104150542408
+modified: 20241104160933540
+title: FreeDV
+type: text/vnd.tiddlywiki
+
+~FreeDV is a non-proprietary digital voice encoder for HF.
+
+* https://freedv.org/
+* See Also [[FreeData|https://freedata.app/]], no related but similar open-source digital data xfer in HF
+
+241104
+
+I installed 1.9.9.2 as the "latest" that had a DMG.  Got it working, sort of.  Was able to get a waterfall, and connected to radio OK.
+
+Found the [[FreeDV Reporter|https://qso.freedv.org/#/]] so I could spot some ppl. 
+I see few using 700D, which is what v1.9.9.2 supports, and many trying out RADE.
+
+Cloned from github into ~/hame/freedv. 
+Using macos build instructions from [[here|https://github.com/drowe67/freedv-gui]]. hoping to build a macos image that includes RADE.
+
