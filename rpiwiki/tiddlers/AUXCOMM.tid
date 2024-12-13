@@ -1,0 +1,26 @@
+created: 20241211205120773
+modified: 20241212222205024
+title: AUXCOMM
+type: text/vnd.tiddlywiki
+
+Order of importance to me:
+
+# AUXCOMM
+# EMCOMM / WVARC
+# Arizona Science Center
+# Tuesday Group / Micah
+# Doppler Hunter - dropped 12/12/24
+
+PTS Dialer App - easy use of priority phone access.
+
+"mini logging recorder using a Scanner and PC" would have been interesting, but link is busted.  01. p. 270
+
+* [[AREDN|https://www.arednmesh.org/]] - internet over radio
+* [[ALE|https://en.wikipedia.org/wiki/Automatic_link_establishment]] - Automatic Link Establishment.  Reliable comms over many bands, day or night
+* [[PACTOR III modem ($1K) vs VARA HF/ VARA FM|https://winlink.org/sites/default/files/downloads/a_winlink_digital_mode_performance_comparison_based_on_the_ionos_hf_vhf_channel_simulator_-_may_18_2020.pdf]]
+* JSON - largely interoperate data exchange; non-proprietary
+* Winlink - email
+* Fldigi and friends.  A Swiss army knife of related applications.  Complex, but possible to make work for data xfers.
+* VarAC - possible chat over radio; slow text.  As it depends on Vara, it's reliable, but MSWin only
+
+
