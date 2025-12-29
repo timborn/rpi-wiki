@@ -1,7 +1,7 @@
 caption: Step 1<br>Syncing
 created: 20180819230731840
 creator: rpi
-modified: 20241211191037130
+modified: 20251229223921661
 modifier: rpi
 tags: $:/tags/GettingStarted
 title: GettingStarted
@@ -18,7 +18,6 @@ type: text/vnd.tiddlywiki
 * Start Here: [[Bare Metal RPi]]
 * Start Here: [[Hamster Notes]]
 * Start Here: [[Shared Space For Red]]
-* Start Here: [[Hamster Notes]]
 * Start Here: [[Node-Red Notes]]
 * Start Here: [[Linux on AWS Notes]]
 * Start Here: [[Raspberry Pi Notes]]
