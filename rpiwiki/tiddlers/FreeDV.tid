@@ -1,5 +1,5 @@
 created: 20241104150542408
-modified: 20260129165840271
+modified: 20260130162332208
 title: FreeDV
 type: text/vnd.tiddlywiki
 
@@ -35,3 +35,22 @@ I observe the waterfall (in ~FreeDV) shows a much narrower band when USB-D is us
 ''TODO:'' consider using USB headset w/ mic for ~FreeDV
 
 Confirmed CIV for IC-705 is A4 (Menu / Set / Connectors / CI-V).
+
+! 260130
+!!~FreeDV settings when using QMX:
+
+
+<<<
+There's an option in Tools->Options->Rig Control called ''"Use USB/LSB instead of DIGU/DIGL"''; this will need to be enabled for FreeDV to work with the QMX (otherwise, FreeDV will switch the radio into DIGU or DIGL modes, which are what you'd use for single carrier modes like FT8).
+<<<
+
+https://groups.io/g/QRPLabs/message/161881
+
+!!~FreeDV does not display waterfall until you disable AGC
+
+
+<<<
+I've noticed with mine that the waterfall in FreeDV is basically black unless there's a signal coming in. This appears to be due to how the AGC works on the QMX by default. Setting "AGC Threshold S" to 0 (more info: https://groups.io/g/QRPLabs/message/158563) at least causes FreeDV to show noise on the waterfall and increases the audio volume a bit.
+<<<
+
+https://groups.io/g/QRPLabs/message/162001

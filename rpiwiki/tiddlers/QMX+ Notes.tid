@@ -1,7 +1,12 @@
 created: 20260130152329362
-modified: 20260130152754408
+modified: 20260130193856122
 title: QMX+ Notes
 type: text/vnd.tiddlywiki
+
+!Videos
+
+* [["Why Buying a Big Three Rig Makes No Sense in 2026 | Hans Summers Explains"|https://www.youtube.com/watch?v=06FHSH7LQKs]] - G3LRC
+* Martin Butler M1MRB (ICQ Podcast presenter) presented talk to the Sutton and Cheam Radio Society (UK) on 15th January 2026 about his experiences building the QMX+.   Video here: https://youtu.be/XlKtMd3mcS0
 
 ! How To Connect To QMX+ Firmware on ~MacOS
 
@@ -16,3 +21,27 @@ type: text/vnd.tiddlywiki
 * Then press enter to get Diagnostics menu.
 
 https://groups.io/g/QRPLabs/message/127350
+
+! Double Power Output
+
+"The QMX+ was recently modified with PA0RDT's 4+4 BS170 mod see https://qrp-labs.com/qmxp/qmxpmod/pa0rdt.html ..."
+
+https://groups.io/g/QRPLabs/message/161943
+
+!Ardop
+
+Hans is able to get Winlink to work on RPi / QMX / Linux
+
+<<<
+My ardopcf command line is:
+
+ardopcf -G 8514 -c /dev/ttyACM0 -k 54583B -u 52583B -i 1 -o 1 -H "MYCALL G0UPL"
+
+-k and -u parameters are TX; RX; respectively in ASCII, this lets ardopcf control the QMX transmit/receive using the appropriate CAT commands (I generally avoid the use of VOX wherever possible). 
+
+-i 1 -o 1 select the QMX USB sound card. 
+<<<
+
+This is encouraging.  May show a path to winlink on my mac.
+
+It looks like folks are using [[ardopcf|https://github.com/pflarue/ardop]] for MSWin and Linux, but [[nothing for Mac yet|https://github.com/pflarue/ardop/issues/130]].

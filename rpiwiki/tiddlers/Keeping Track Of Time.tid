@@ -1,0 +1,21 @@
+created: 20260130190235703
+modified: 20260130191618347
+title: Keeping Track Of Time
+type: text/vnd.tiddlywiki
+
+[[Off Grid GPS Time Sync On Mac With GPS Dashboard|https://www.youtube.com/watch?v=ffYaFYioZqo]]
+
+Basically need a GPS signal (USB dongle, IC-705, QMX+) and [[GPS Dashboard|https://apps.apple.com/us/app/gps-dashboard/id1453793800?mt=12]] for mac.
+
+Synopsis for short attention span people:
+
+* get GPS to get a lock
+** dongle will flash
+* open GPS Dashboard
+** ("failed to access serial port") first time you may need to go to Settings / Security and Privacy to enable GPS Dashboard to connect to serial port
+* (dashboard) File / Input Serial Device.  Pick correct port, then Connect.
+* (mac) General / Date & Time 
+** enable Set Date and Time Automatically
+** you should see system clock and WSJT-X get correct time from GPS
+
+
