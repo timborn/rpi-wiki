@@ -1,12 +1,13 @@
 created: 20230111170651707
 creator: rpi
-modified: 20241104150535685
+modified: 20260130152318814
 modifier: rpi
 title: Hamster Notes
 type: text/vnd.tiddlywiki
 
 Amateur Radio Notes (Hamster) - there are so many things to keep track of.
 
+* [[QMX+ Notes]]
 * [[FreeDV]]
 * [[VarAC Notes]]
 * [[Building An L/C Meter]]

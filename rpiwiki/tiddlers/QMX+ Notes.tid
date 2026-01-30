@@ -1,0 +1,18 @@
+created: 20260130152329362
+modified: 20260130152754408
+title: QMX+ Notes
+type: text/vnd.tiddlywiki
+
+! How To Connect To QMX+ Firmware on ~MacOS
+
+* Select from the Shell menu of Terminal: New Window/Pro (Pro gets you color, apparently)
+ 
+* Enable Control-S and Control-Q  (you need Control-Q to exit menus): ''stty -ixon -ixoff''
+ 
+* To show connected ports: ''ls /dev/cu.*''
+ 
+* To connect (use port name from above): ''screen /dev/cu.usbmodem1101''
+ 
+* Then press enter to get Diagnostics menu.
+
+https://groups.io/g/QRPLabs/message/127350

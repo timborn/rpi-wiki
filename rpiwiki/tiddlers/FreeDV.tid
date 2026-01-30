@@ -1,14 +1,14 @@
 created: 20241104150542408
-modified: 20241104160933540
+modified: 20260129165840271
 title: FreeDV
 type: text/vnd.tiddlywiki
 
 ~FreeDV is a non-proprietary digital voice encoder for HF.
 
 * https://freedv.org/
-* See Also [[FreeData|https://freedata.app/]], no related but similar open-source digital data xfer in HF
+* See Also [[FreeData|https://freedata.app/]], not related but similar open-source digital data xfer in HF
 
-241104
+! 241104
 
 I installed 1.9.9.2 as the "latest" that had a DMG.  Got it working, sort of.  Was able to get a waterfall, and connected to radio OK.
 
@@ -18,3 +18,20 @@ I see few using 700D, which is what v1.9.9.2 supports, and many trying out RADE.
 Cloned from github into ~/hame/freedv. 
 Using macos build instructions from [[here|https://github.com/drowe67/freedv-gui]]. hoping to build a macos image that includes RADE.
 
+! 260129
+
+Updated to 2.1.0.  RADEV1 appears to  dominate. Am able to connect to radio (IC-705) and test PTT.  I see a waterfall, but am not hearing anything, even though the ~FreeDV Reporter. is showing ppl xmiting on my freq (14.2360).
+
+''TODO:'' I want to hear something.  Anything!
+After playing around a bit, I restarted ~FreeDV and am now hearing other ppl.  
+What changed? 
+
+I downloaded the RADEV1 WAV test files from github, and while they played, they were really choppy.  What's that all about?
+
+I observe the waterfall (in ~FreeDV) shows a much narrower band when USB-D is used.  When I switch to USB, the bandwidth opens up. 
+
+''SOLVED:'' What is the correct setting for ~FreeDV?  USB or ''USB-D''? (per Getting Started doc).
+
+''TODO:'' consider using USB headset w/ mic for ~FreeDV
+
+Confirmed CIV for IC-705 is A4 (Menu / Set / Connectors / CI-V).
