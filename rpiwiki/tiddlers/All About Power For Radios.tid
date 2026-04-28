@@ -1,0 +1,11 @@
+created: 20260201180633892
+modified: 20260201185336812
+title: All About Power For Radios
+type: text/vnd.tiddlywiki
+
+QDX & QMX require (at most) 12.0V, not 13.5V or better.  Be careful!!!
+(This assumes you have wired your unit for 12V.  Similar caution applies if you wired for 9V.)
+
+Jeff Moore makes a Low Drop Out inline power module.
+
+https://groups.io/g/QRPLabs/message/162180

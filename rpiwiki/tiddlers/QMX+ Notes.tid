@@ -1,5 +1,5 @@
 created: 20260130152329362
-modified: 20260130193856122
+modified: 20260206162013226
 title: QMX+ Notes
 type: text/vnd.tiddlywiki
 
@@ -7,6 +7,10 @@ type: text/vnd.tiddlywiki
 
 * [["Why Buying a Big Three Rig Makes No Sense in 2026 | Hans Summers Explains"|https://www.youtube.com/watch?v=06FHSH7LQKs]] - G3LRC
 * Martin Butler M1MRB (ICQ Podcast presenter) presented talk to the Sutton and Cheam Radio Society (UK) on 15th January 2026 about his experiences building the QMX+.   Video here: https://youtu.be/XlKtMd3mcS0
+
+! 1.03.000 Release Notes
+Lots of stuff to review and understand here, esp voltage limiting feature.
+https://groups.io/g/QRPLabs/topic/117669224
 
 ! How To Connect To QMX+ Firmware on ~MacOS
 
@@ -45,3 +49,46 @@ ardopcf -G 8514 -c /dev/ttyACM0 -k 54583B -u 52583B -i 1 -o 1 -H "MYCALL G0UPL"
 This is encouraging.  May show a path to winlink on my mac.
 
 It looks like folks are using [[ardopcf|https://github.com/pflarue/ardop]] for MSWin and Linux, but [[nothing for Mac yet|https://github.com/pflarue/ardop/issues/130]].
+
+! Microphone
+Electret microphone from Digikey, part number [[668-AOM-5024L-HD-F-R-ND|https://www.digikey.com/en/products/detail/pui-audio-inc/AOM-5024L-HD-F-R/12152286]]
+
+[[Microphone Kit|https://www.qrpkits.com/microphone.html]]
+
+Build the microphone kit and swap in the microphone from Digikey when you build it.
+
+! GPS Not Locking
+
+!! shorted?
+<<<
+I submitted a support ticket which Hans answered in minutes. We exchanged more information, he said to put a piece of paper or tape over the jump under the GPS. That solved the problem the GPS link with the birds with seconds. If you are not using insulated wire for the jump you must cover it to prevent it shorting to the GPS. 
+<<<
+https://groups.io/g/QRPLabs/message/125533 
+
+!! firmware?
+Ron mentioned a possible firmware update, but I don't know if it applies to this QMX+ or not.
+
+https://qrp-labs.com/qmxp/e108fix#qlg3
+
+!QMX Modes
+
+DIGI:  Modulations that run in QMX/QMX+ DIGI mode :
+
+* RTTY, AMTOR, PACTOR, HF Packet (300 baud)
+* All WSTJ-x modes (FT8, FT4, JTxx, JS8Call, etc.), except MSK144
+* In FLDIGI:
+** Hellscriber: Feld Hell, but not the other Hell modes
+** MFSK modes
+** RTTY modes
+** Olivia modes
+
+SSB: Modulations that require SSB mode (almost all use upper-sideband) - don't forget to set the SSB input to the computer/USB interface
+
+* all modes not mentioned above, eg:
+* all PSK and QPSK modes
+* all SSTV modes
+* WSJT-x MSK144 mode
+* all FLDIGI modes except those noted above
+
+- [[cite|#162193   ]]
+

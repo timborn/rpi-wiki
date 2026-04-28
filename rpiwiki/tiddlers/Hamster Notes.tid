@@ -1,13 +1,15 @@
 created: 20230111170651707
 creator: rpi
-modified: 20260130190227511
+modified: 20260204144408305
 modifier: rpi
 title: Hamster Notes
 type: text/vnd.tiddlywiki
 
 Amateur Radio Notes (Hamster) - there are so many things to keep track of.
 
-* [[Keeping Track Of Time]]
+* [[FT8 Notes]]
+* [[All About Power For Radios]]
+* [[Keeping Track Of Time (GPS)]]
 * [[QMX+ Notes]]
 * [[FreeDV]]
 * [[VarAC Notes]]
@@ -19,7 +21,6 @@ Amateur Radio Notes (Hamster) - there are so many things to keep track of.
 * [[Hamster Software Notes - Mac]]
 * [[Doppler Stuff]]
 * [[NBNEMS Stuff]]
-* [[FT8 Protocol Diagrams]]
 * [[Installing JTAlert On CrossOver]]
 * [[Using JT-Bridge for Notifications]]
 * [[Hamster Handbook]]
