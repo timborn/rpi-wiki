@@ -1,0 +1,57 @@
+created: 20260428163924428
+modified: 20260428220049403
+title: Clojure 260428
+type: text/vnd.tiddlywiki
+
+Found clojure.org and the [[Getting Started|https://clojure.org/guides/getting_started]] section.
+I find it interesting that the second thing after installing Clojure is an editor. 
+I guess S-expressions are still painful.
+
+I will explore Vim plug-ins for this.
+
+It appears there are many suggestions for installing plug-ins, including a plug-in manager.
+Vim appears to be default on mac, and it's version 9, so it should handle plug-ins by itself.
+
+
+```
+Vim 8 and newer can automatically load plugins placed in specific "package" directories. 
+
+Path: /.vim/pack/[vendor]/start/[plugin_name] 
+
+Steps:
+Create the directory: mkdir -p ~/.vim/pack/plugins/start.
+Clone the plugin repository directly into that folder:
+$ git clone https://github.com ~/.vim/pack/plugins/start/nerdtree
+Vim will now automatically load this plugin every time it starts.
+```
+
+
+First up: [[Fireplace|https://github.com/tpope/vim-fireplace]].  
+What does it do for me, why do I want it, how do I use it?
+
+Fireplace Installation
+
+Fireplace git repo has similar, but different, instructions for installing the plug-in into Vim:
+
+```
+mkdir -p ~/.vim/pack/tpope/start
+cd ~/.vim/pack/tpope/start
+git clone https://tpope.io/vim/fireplace.git
+vim -u NONE -c "helptags fireplace/doc" -c q
+```
+
+Those commands all run fine.
+How do I know anything happened?
+Do I need to activate something??
+
+```
+$ vim
+:help fireplace
+```
+
+That works!
+It also says there is a (soft) dependency on another another package called cider-nrepl.
+I think I found it in github here: https://github.com/clojure-emacs/cider-nrepl
+
+Analogous to how I installed fireplace, I installed nrepl. 
+No clue how to test if this is visible and working or not.
