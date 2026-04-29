@@ -1,5 +1,5 @@
 created: 20260428163924428
-modified: 20260428220049403
+modified: 20260429020905412
 title: Clojure 260428
 type: text/vnd.tiddlywiki
 
@@ -29,7 +29,7 @@ Vim will now automatically load this plugin every time it starts.
 First up: [[Fireplace|https://github.com/tpope/vim-fireplace]].  
 What does it do for me, why do I want it, how do I use it?
 
-Fireplace Installation
+!Fireplace Installation
 
 Fireplace git repo has similar, but different, instructions for installing the plug-in into Vim:
 
@@ -55,3 +55,36 @@ I think I found it in github here: https://github.com/clojure-emacs/cider-nrepl
 
 Analogous to how I installed fireplace, I installed nrepl. 
 No clue how to test if this is visible and working or not.
+
+!How To Evaluate Clojure From Within Vim?
+Goal: while editing foo.clj I want to be able to interactively evaluate my code.
+
+It appears I need a running Clojure REPL server for this.
+After adding the following magic to XXXXXX:
+MAGIC GOES HERE
+
+Start the REPL in another window:
+
+```
+$ Clojure timborn$ clj -M:nREPL -m nrepl.cmdline
+```
+
+Then I can edit a Clojure file and connect to REPL:
+
+```
+$ vi foo.clj
+:FireplaceConnect nrepl://localhost:58711
+```
+
+Now, how to evaluate my code from with the editor?  ''STUCK''
+
+After watching another tutorial, I installed lein 
+
+```
+$ brew install leiningen
+--- lots of stuff deleted ---
+$ lein new app myapp     # sets up generate app structure to start from
+$ lein run
+```
+
+
