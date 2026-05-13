@@ -1,0 +1,42 @@
+created: 20260429204741085
+modified: 20260430020825220
+title: Clojure 260429
+type: text/vnd.tiddlywiki
+
+After getting stuck getting Vim to work properly for Clojure, I went sideways.
+Found a video explaining VSCode+Calva (I use VSCodium, the UNbranded version of same; it's in brew).
+Easy peasy.  I can highlight code and execute it.  Basic tests passed.
+
+Found some [[Clojure Koans|http://clojurekoans.com/]] to help me understand more deeply.
+
+Found a TDD framework called [[speclj|https://github.com/slagyr/speclj]] that looks promising.
+
+```
+(require '[clojure.repl :refer :all])
+```
+What does that do?
+How does it do it?
+Explain how it works.
+
+!Clojure Data Structures
+
+* Lists (1 2 3): Used for code execution and sequential data where "growth" happens at the front.
+* Vectors [1 2 3]: Used for function parameters, bindings, and //random-access// sequential data.
+* Maps {:key value}: Used for //associative data//; commas are optional.
+* Sets #{1 2 3}: Used for collections of //unique// elements.
+
+I don't think that syntax is correct.
+
+!Funny Punctuation
+These are all symbols.
+Symbols are composed of letters, numbers, and other punctuation and are used to refer to something else, like a function, value, namespace, etc. Symbols may optionally have a namespace, separated with a forward slash from the name.
+
+* map             ; symbol
+* +               ; symbol - most punctuation allowed
+* clojure.core/+  ; namespaced symbol
+* nil             ; null value
+* true false      ; booleans
+* :alpha          ; keyword
+* :release/alpha  ; keyword with namespace
+
+See Also: [[cite|https://clojure.org/guides/learn/syntax]]

@@ -1,0 +1,29 @@
+created: 20260513155623613
+modified: 20260513161420358
+title: QMX+ Notes of 260513
+type: text/vnd.tiddlywiki
+
+As I am laid up with a bum knee, I finally have time to look at the QMX+ Ron built for me.
+
+I am working off QMX_operation_1_03_002.pdf, which is linked to the QMX page as the latest operating manual.
+Interesting, as I think the firmware is up to 1.09 at this point.  
+I shall have to check when things get powered up.
+
+Commit! 
+Print a copy of the 137 page manual.
+Read it carefully.
+
+Tests:
+
+* what firmware version is being used?
+* what are the SWR settings set to?  ("... clear the SWR protection by entering and leaving the main menu ...")
+* low power WSPR
+* verify/set band limits
+* very curious to see GPS outputs, esp PPS.  Does that come out across the USB?
+
+It appears I may need headphones to hear audio for e.g. SSB, and possibly also for CW practice.
+
+NB while my GPS is internal, the antenna is external.
+I *believe* I can leave the antenna connected, unlike the QMX which has external GPS.
+Is this true?
+

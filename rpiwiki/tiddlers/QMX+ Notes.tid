@@ -1,7 +1,10 @@
 created: 20260130152329362
-modified: 20260206162013226
+modified: 20260513155611439
 title: QMX+ Notes
 type: text/vnd.tiddlywiki
+
+!My QMX+ Logs
+* [[QMX+ Notes of 260513]]
 
 !Videos
 
@@ -55,7 +58,17 @@ Electret microphone from Digikey, part number [[668-AOM-5024L-HD-F-R-ND|https://
 
 [[Microphone Kit|https://www.qrpkits.com/microphone.html]]
 
-Build the microphone kit and swap in the microphone from Digikey when you build it.
+~~Build~~ Built the microphone kit and swap in the microphone from Digikey when you build it.
+
+!Earphones
+''TODO:'' Do I need earphones to get any audio output?
+Will any of my existing ones work?
+
+<<<
+The audio output connector is a standard 3.5mm stereo jack socket for connecting 32-ohm
+earphones or similar. It is not suitable for driving a loudspeaker directly. 
+<<<
+- QMX operating manual; firmware 1_03_002, p. 8
 
 ! GPS Not Locking
 
