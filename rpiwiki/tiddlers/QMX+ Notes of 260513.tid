@@ -1,5 +1,5 @@
 created: 20260513155623613
-modified: 20260514023354967
+modified: 20260515014418549
 title: QMX+ Notes of 260513
 type: text/vnd.tiddlywiki
 
@@ -20,7 +20,7 @@ Dummy load, 7V in with 6V max at the PA.
 !!Tests
 
 * put a dummy load on!
-* what firmware version is being used?
+* what firmware version is being used? ''1.03.002''.  I see 1.04.000 BETA is available as of May 8, 2026.  Skip the beta.
 * what are the SWR settings set to?  ("... clear the SWR protection by entering and leaving the main menu ...")
 * ~~low power WSPR~~
 * verify/set band limits
@@ -60,7 +60,14 @@ WSPR transmits in a 6Hz bandwidth somewhere inside a 200Hz sub-band.
 * WSPR Power = 30 (dBm, approx 1W)
 
 See Operating Manual p. 69.
-After you do a few ''20m'' WSPRs, check [[https://qrp-labs.com/images/wsprnet/rxerror.html|https://qrp-labs.com/images/wsprnet/rxerror.html]] to see if you need to calibrate TXCO.
+~~After you do a few ''20m'' WSPRs, check [[https://qrp-labs.com/images/wsprnet/rxerror.html|https://qrp-labs.com/images/wsprnet/rxerror.html]] to see if you need to calibrate TXCO.~~
+
+<<<
+... use WSJT-X and QMX to operate as a 20m WSPR reporter (receiver) for several minutes, then look at this page:
+https://qrp-labs.com/images/wsprnet/rxerror.html
+<<<
+
+
 !!Headphones
 It appears I may need headphones to hear audio for e.g. SSB, and possibly also for CW practice.
 
@@ -106,3 +113,23 @@ If they are empty (and custom splash enabled) you get the defaults.
 Otherwise you can set them as you like.
 
 ''TODO:'' enable splash and set message #12 to my callsign
+
+!!WSJT-X
+Cloned QDX into QMX+.  
+Updated the audio in & out.
+Tested CAT and PTT.
+The PTT shows one dot under the A for the VFO A -- what does that mean?
+
+
+<<<
+This means that QMX has been put into transmit mode via an appropriate CAT command from
+WSJT-X, however it is not receiving any audio, so there is no RF output. 
+<<<
+
+Operating Manual, p. 95
+
+It appears to receive fine, but when I transmit I get a hamlib error.  
+Looks like something in the XMIT chain isn't quite right.
+I observe that on the Audio tab, for Input & Output, the only reasonable choice is "QMX Transceiver".
+If memory serves, there used to be two slightly different named devices before.
+I looked it up, and QMX+ presents both audio in & out as "QMX Transceiver", so this appears correct.
