@@ -1,0 +1,24 @@
+created: 20260519185103851
+modified: 20260519185521990
+title: QMX+ Notes of 260519
+type: text/vnd.tiddlywiki
+
+!Problem Setting Max PA Voltage Above 9V
+
+Connect to QMX+ using screen /dev/tty.usb.987987
+Find the CAT command menu item where you can directly type in CAT commands.
+After much fiddling, this one worked well enough to get me the extra digit.
+From there I was able to use front panel to get to 11V.
+
+Seems likely to change as those numbers are menu items, rather than names.
+
+```
+MM9|0=10.0;
+```
+
+My research shows the following should have worked, but it didn't appear to:
+
+```
+MMProtection|Max. PA voltage=11.5;
+```
+NB if you are looking at Max PA voltage on the display, you need to scroll off, then back to see updated value.
