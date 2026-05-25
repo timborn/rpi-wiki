@@ -1,5 +1,5 @@
 created: 20260201180633892
-modified: 20260201185336812
+modified: 20260523211430561
 title: All About Power For Radios
 type: text/vnd.tiddlywiki
 
@@ -9,3 +9,9 @@ QDX & QMX require (at most) 12.0V, not 13.5V or better.  Be careful!!!
 Jeff Moore makes a Low Drop Out inline power module.
 
 https://groups.io/g/QRPLabs/message/162180
+
+''TODO:'' is it possible to power e.g. QMX+ from USB power blob safely and reliably?
+How?
+
+Probably involves a USB PD trigger cable for 12V.
+But what about the stories of voltage fluctuations?

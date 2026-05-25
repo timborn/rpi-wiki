@@ -1,5 +1,5 @@
 created: 20260518225851731
-modified: 20260519174730490
+modified: 20260523153543769
 title: QMX+ Notes of 260518
 type: text/vnd.tiddlywiki
 
@@ -30,6 +30,8 @@ It goes through the motions, and I can see it thinks it's transmitting.
 I upped the voltage to the PA from 6.0 to 9.0V.
 When I scroll past 9 it wraps to zero.  
 How to get 10 or 11 volts?
+
+[[Next Entry|QMX+ Notes of 260519]]
 
 !TXCO Frequency
 See manual, p. 69.

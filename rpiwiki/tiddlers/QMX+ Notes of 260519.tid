@@ -1,9 +1,11 @@
 created: 20260519185103851
-modified: 20260519185521990
+modified: 20260523153458306
 title: QMX+ Notes of 260519
 type: text/vnd.tiddlywiki
 
 !Problem Setting Max PA Voltage Above 9V
+
+See also [[previous entry|QMX+ Notes of 260518]] on this topic.
 
 Connect to QMX+ using screen /dev/tty.usb.987987
 Find the CAT command menu item where you can directly type in CAT commands.

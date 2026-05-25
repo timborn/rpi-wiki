@@ -1,0 +1,14 @@
+created: 20260523150334492
+modified: 20260523153308670
+title: SDR++
+type: text/vnd.tiddlywiki
+
+T''ODO'': hook this up to my SDR and get some use out of it
+
+* [[website|https://www.sdrpp.org/]]
+* [[manual|https://www.wsj.com/buyside/technology/smartphones/iniu-pocket-rocket-p50-review]]
+* [[git repo|https://github.com/AlexandreRouma/SDRPlusPlus]]
+
+I have the RTL-SDR dongle.
+
+It appears there is a "server" version as well, so you can connect over the net to the machine serving the SDR.
