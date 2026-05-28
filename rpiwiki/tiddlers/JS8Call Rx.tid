@@ -1,0 +1,80 @@
+created: 20260525170935755
+modified: 20260525181226261
+tags: JS8Call
+title: JS8Call Rx
+type: text/vnd.tiddlywiki
+
+JS8Call is software that uses your radio for slow but reliable keyboard to keyboard conversations.
+
+!Getting started with JS8Call
+
+!!Get The Software
+
+* [[JS8Call website|https://js8call.com/]]
+* [[JS8Call manual|https://js8call.com/downloads/JS8Call_User_Guide.pdf]] - I'll save you some digging
+
+Download your flavor from the JS8Call website and follow installation instructions.
+Version 3.0.1 appears current as of this writing.
+
+!!Settings
+
+JS8Call settings look awfully similar to WSJT-X because it is derived from WSJT-X.
+
+I use QDX/QMX.
+Here are the key settings.
+
+Start with opening the settings (JS8Call / Preferences on mac, probably something like File / Setting on MSWin).
+You will see a collection of tabs.
+
+!!General / Station Tab
+Fill in the blank.  
+Callsign.  Gridsquare, etc.
+
+!!Radio Tab
+
+Kenwood TS-440S and Kenwood TS-480 historically work for QDX/QMX.
+Later versions of JS8Call have QRPLabs QMX in the drop down list.
+YMMV
+
+!!Radio / CAT Control Tab
+
+For CAT control you need to pick a serial port that showed up when you plugged in your radio.  
+On the mac the drop down list will include the serial port.
+On MSWin you may have to dig a bit to figure out which COM port it is this time.
+
+Baud rate irrelevant as this is a USB serial port.
+
+By all means TEST the CAT control and make sure you got the correct serial port.
+
+I believe once CAT control TEST works, the PTT test becomes available.  
+You may want to set things on the next tab before testing PTT.
+
+!! Radio / Rig Options
+
+```
+PTT: CAT
+Mode: None
+Transmit Audio Source: Front/MIC
+Split: None
+```
+
+Assuming CAT control TEST passed, now make sure PTT TEST passes.
+//"Do not pass Go, do not collect $200 ...."//
+
+!!Audio Tab
+The drop downs for input & output should match your radio.
+The QMX delightfully shows up as "QMX Transceiver" for both (on a mac).
+Sorry, don't recall what it looks like on MSWin.
+
+Notification Soundcard: make sure you pick your PC or you might end up sending random beeps and boops into the transceiver.
+
+The Radio & Audio tabs are critical.
+Most of your issues will be on these two tabs.
+
+
+!! ... and all the rest 
+
+All the JS8Call docs for HF specifically say to use Upper Side Band (USB).
+For QDX/QMX the ''digi'' mode is perfect.
+
+All the stuff I skipped over, the defaults are good, and at some point when you need some feature you can go dig through to find it.

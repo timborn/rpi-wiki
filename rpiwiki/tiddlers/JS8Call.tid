@@ -1,7 +1,9 @@
 created: 20260523163511747
-modified: 20260524205831254
+modified: 20260525202606286
 title: JS8Call
 type: text/vnd.tiddlywiki
+
+* [[JS8Call Rx]] - getting started
 
 !260523
 
@@ -31,38 +33,9 @@ Progress.
 
 Finally made a QSO, confirming JS8Call is working now.
 
-!COMMSTAT
+(let's test transclusion)
 
-
-<<<
-In amateur radio, Commstat (often used alongside STATREP) is a companion app for the JS8Call digital weak-signal mode. It functions as a visual dashboard, tracking message statuses, check-ins, and network mapping during grid-down events.Resources: Access the open-source software files on the GitHub CommStatOne Repository.Documentation: Get guides and updates via the AmRRON CommStat Category.
-<<<
-
-* [[CommStatOne Repo|https://github.com/W5DMH/commstatone]]
-
-CommStat / STATREP / SITREP
-
-I've also heard ''SIT''uational ''REP''ort.
-
-I see commstatone and commstat-improved.
-Not clear how they relate to each other, or if they interoperate somehow.
-
-I installed CommStat 4.2.3 from https://commstat-improved.com/.
-Installation on the mac was dead easy.
-Had to configure JS8Call so I could see it across the net (JS8Call on Timex, CommStat on MaxiMini).
-
-JS8Call / Preferences / Reporting 
-
-* enable TCP server
-* enable accept TCP requests
-* TCP Server Hostmame is your IP address (or 0.0.0.0?), NOT the local loopback
-
-When you restart JS8Call you get a popup confirming you want to accept incoming connections.
-
-You can also verify the port is set correctly with `lsof -i -P | grep LISTEN | grep :2442`
-
-On CommStat machine, Config  JS8 Connectors.
-For server, use the IP address of the machine running JS8Call.
+{{COMMSTAT}}
 
 !JS8Call SubSpace Edition
 
@@ -83,3 +56,16 @@ However, when I select that radio and push SAVE, I get a SIGSEGV every time.
 
 ''TODO:'' watch for a fix for the segfault when using QMX.
 In the meantime, Kenwood TS-480 seems to work ok.
+
+!260525
+
+Upgraded to v3.0.1 of JS8Call.
+The QRPLabs QMX option .... appears to work!  
+No SIGSEGV.
+
+I observe this version has a pop warning me I have been idle for 60 minutes.
+What's that all about?
+
+JS8Call / General / Networking & Autoreply 
+"idle timeout: disable autoreply after".
+So the timeout is to prevent your machine from generating msgs when you are away.
