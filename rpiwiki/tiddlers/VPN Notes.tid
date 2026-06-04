@@ -1,0 +1,9 @@
+created: 20260528150242999
+modified: 20260528150441305
+tags: VPN
+title: VPN Notes
+type: text/vnd.tiddlywiki
+
+260528 - while I use and like NordVPN, sometimes I miss being able to connect back to home base.
+Saw a recommendation for [[Tailscale|https://tailscale.com]] which looks worth investigating.
+Free, handles NAT, supposed to be simple to use.

@@ -1,7 +1,7 @@
 caption: Step 1<br>Syncing
 created: 20180819230731840
 creator: rpi
-modified: 20260523211534149
+modified: 20260528150231948
 modifier: rpi
 tags: $:/tags/GettingStarted
 title: GettingStarted
@@ -9,6 +9,7 @@ type: text/vnd.tiddlywiki
 
 ''Hello, Hamster!''
 
+* Start Here: [[VPN Notes]]
 * Start Here: [[Hamster Notes]] 
 * Start Here: [[Clojure Notes]]
 * Start Here: [[AUXCOMM]]
