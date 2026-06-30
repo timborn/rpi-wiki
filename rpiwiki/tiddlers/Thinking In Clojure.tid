@@ -1,0 +1,14 @@
+created: 20260428135443035
+modified: 20260428135652072
+title: Thinking In Clojure
+type: text/vnd.tiddlywiki
+
+Thinking in Clojure requires a fundamental shift from imperative, object-oriented paradigms to a functional, data-driven mindset.
+
+* ''Embrace Immutability'': Stop thinking about "changing" data in place. Instead, view programming as deriving new data from existing data. In Clojure, values are constant; to "update" something, you apply a function that returns a new, modified version of that data structure.
+* ''Programs as Pipelines'': Think of your code as a series of data transformations. Use threading macros ( -> and ->> ) to pipe data through a sequence of functions, moving from the "shape" of the input to the desired "shape" of the output.
+* ''Separation of State and Logic'': Distinguish between pure logic (transforming data) and side effects (I/O, database writes). Aim to keep the "core" of your application pure and push state management to the "edges" of your system.
+* ''REPL-Driven Development'': Move away from the "write-compile-run" cycle. Use the Read-Eval-Print Loop (REPL) to experiment with small pieces of code interactively as you write them, gaining immediate feedback.
+* ''Simplicity over Ease'': Follow the philosophy of Simple Made Easy by creator Rich Hickey. "Simple" means "not interleaved" (one thing at a time), while "easy" refers to what is familiar. Thinking in Clojure involves de-complecting (un-braiding) complex problems into independent, focused components.
+* ''Data over Objects'': Instead of creating rigid class hierarchies (e.g., Customer, Order), use generic data structures like maps and vectors. This allows you to use Clojure's vast standard library of sequence functions on any piece of information.
+* ''Iteration via Recursion'': For complex looping, shift from loops to recursion and the special form, or use higher-order functions like map, filter, and reduce.

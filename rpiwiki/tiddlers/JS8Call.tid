@@ -1,0 +1,71 @@
+created: 20260523163511747
+modified: 20260525202606286
+title: JS8Call
+type: text/vnd.tiddlywiki
+
+* [[JS8Call Rx]] - getting started
+
+!260523
+
+I set up JS8Call for the QMX+ by cloning the QDX profile.
+Still using Kenwood TS-440S as the radio.
+The audio routing was dead easy.
+It just shows up as "QMX Transceiver" for both input and output.
+
+CAT test passes.
+PTT appears to pass.
+
+When I hit "tune" in JS8Call the radio appears to be transmitting, although the power shown on the display is 0.0.
+I see no power out on the ATU-10.
+The speakers on the mac have a constant tone.
+
+I checked the audio routing, and it all looks correct.
+
+I see the mode is USB.
+When I changed that to digi, tune briefly through out a 2.4W signal, then it dropped to 0.0 and mode switched to USB.
+No tone on the speakers this time.
+
+Fix: JS8Call / Preferences / Radio / Mode.
+Change from USB to None.
+
+The tone on mac speakers disappeared, and the radio is putting out ~3.1W now.
+Progress.
+
+Finally made a QSO, confirming JS8Call is working now.
+
+(let's test transclusion)
+
+{{COMMSTAT}}
+
+!JS8Call SubSpace Edition
+
+''TODO:'' check this out & report
+
+* [[link|https://www.qrz.com/db/WM8Q]]
+
+Claims made by Gary KC8BN:
+
+* interoperable with JS8Call
+* much, much faster (up to 60 WPM)
+* all platforms
+
+!260524
+
+Upgraded to v2.3.1 of JS8Call, which now includes QRPLabs QMX in the drop down list of radios.
+However, when I select that radio and push SAVE, I get a SIGSEGV every time.
+
+''TODO:'' watch for a fix for the segfault when using QMX.
+In the meantime, Kenwood TS-480 seems to work ok.
+
+!260525
+
+Upgraded to v3.0.1 of JS8Call.
+The QRPLabs QMX option .... appears to work!  
+No SIGSEGV.
+
+I observe this version has a pop warning me I have been idle for 60 minutes.
+What's that all about?
+
+JS8Call / General / Networking & Autoreply 
+"idle timeout: disable autoreply after".
+So the timeout is to prevent your machine from generating msgs when you are away.

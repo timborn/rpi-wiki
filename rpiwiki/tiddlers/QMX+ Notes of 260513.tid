@@ -1,0 +1,135 @@
+created: 20260513155623613
+modified: 20260515014418549
+title: QMX+ Notes of 260513
+type: text/vnd.tiddlywiki
+
+As I am laid up with a bum knee, I finally have time to look at the QMX+ Ron built for me.
+
+I am working off QMX_operation_1_03_002.pdf, which is linked to the QMX page as the latest operating manual.
+Interesting, as I think the firmware is up to 1.09 at this point.  
+I shall have to check when things get powered up.
+
+Commit! 
+Print a copy of the 137 page manual.
+Read it carefully.
+
+Skipping sections I'm not ready for yet, I got through the doc.
+Reviewed settings on the radio, hopefully dialing in max protection.
+Dummy load, 7V in with 6V max at the PA.
+
+!!Tests
+
+* put a dummy load on!
+* what firmware version is being used? ''1.03.002''.  I see 1.04.000 BETA is available as of May 8, 2026.  Skip the beta.
+* what are the SWR settings set to?  ("... clear the SWR protection by entering and leaving the main menu ...")
+* ~~low power WSPR~~
+* verify/set band limits
+* verify/set overvoltage protection (Protection menu / Max PA Voltage) NB do not operate below 6V; 10.5V is the sweet spot.  Supply Voltage = Prevent TX, Max Voltage = 12
+* display is configurable for S-meter/AGC/SWR/Power meter.  Start with SWR.
+* change battery display to show numbers (Battery Enable = Icon)
+* very curious to see GPS outputs, esp PPS.  Does that come out across the USB?
+* CLOCK ON - make sure GPS shows correct time
+* custom splash screen
+
+!!Low Power WSPR
+
+<<<
+WARNING: WSPR transmissions operate a continuous 100% key-down duty-cycle for almost 2 minutes. 
+You should check carefully whether the BS170’s get too hot during thisperiod.
+It is highly recommended to transmit WSPR by reducing the “Max PA Voltage” setting in the Protection menu, to a value such as 6.0V which would cause a WSPR output on the order of 1W or so ...
+<<<
+
+refer to Operating Manual p. 54 for settings
+
+WSPR actual frequencies.
+WSPR transmits in a 6Hz bandwidth somewhere inside a 200Hz sub-band.
+
+```
+80m: 3.570000 – 3.570200
+60m: 5.288600 – 5.288800
+40m: 7.040000 – 7.040200
+30m: 10.140100 – 10.140300
+20m: 14.097000 – 14.097200
+17m: 18.106000 – 18.106200
+15m: 21.096000 – 21.096200
+12m: 24.926000 – 24.926200
+10m: 28.126000 – 28.126200
+```
+* Frame = 10 (repeat every 10 minutes)
+* Start = 6 (offset from top off hour)
+* WSPR Power = 30 (dBm, approx 1W)
+
+See Operating Manual p. 69.
+~~After you do a few ''20m'' WSPRs, check [[https://qrp-labs.com/images/wsprnet/rxerror.html|https://qrp-labs.com/images/wsprnet/rxerror.html]] to see if you need to calibrate TXCO.~~
+
+<<<
+... use WSJT-X and QMX to operate as a 20m WSPR reporter (receiver) for several minutes, then look at this page:
+https://qrp-labs.com/images/wsprnet/rxerror.html
+<<<
+
+
+!!Headphones
+It appears I may need headphones to hear audio for e.g. SSB, and possibly also for CW practice.
+
+!!GPS
+NB while my GPS is internal, the antenna is external.
+I *believe* I can leave the antenna connected, unlike the QMX which has external GPS.
+Is this true?
+
+!!Configuration From Front Panel
+Operating Manual, p. 19 discusses using the menu system from the controls on the front of the radio.
+
+<<<
+... single long press to the “Select” button. 
+Use the TUNE knob to scroll back and forth between the sub menu groups listed. 
+To enter one of them, press the “Select” button. 
+To return to the main operating mode, press the “Exit” button.
+<<<
+
+<<<
+NOTE that changes to configuration parameters in most cases only take effect on the radio, when
+you leave the menu system and return to the main operating mode.
+<<<
+
+!!Serial Ports
+''TODO:'' there are THREE? serial ports on the USB?
+Verify this.
+Which one does what?
+PLUS the AUX port can be a serial port, and the PTT port can be a serial port (with a hardware mod).
+
+<<<
+... enabled these Virtual COM serial ports in the System config / GPS & Ser. Ports menu ...
+<<<
+
+NB after changing the number of USB serial ports, you need to restart QMX+ before changes take effect.
+
+NB MSWin is too stupid to handle three USB serial ports. 
+Only works on anything other than MSWin
+
+!!Custom Splash
+Enable Custom Splash
+Message Memory 11 & 12 correspond to the two lines of display on power up.
+If they are empty (and custom splash enabled) you get the defaults.
+Otherwise you can set them as you like.
+
+''TODO:'' enable splash and set message #12 to my callsign
+
+!!WSJT-X
+Cloned QDX into QMX+.  
+Updated the audio in & out.
+Tested CAT and PTT.
+The PTT shows one dot under the A for the VFO A -- what does that mean?
+
+
+<<<
+This means that QMX has been put into transmit mode via an appropriate CAT command from
+WSJT-X, however it is not receiving any audio, so there is no RF output. 
+<<<
+
+Operating Manual, p. 95
+
+It appears to receive fine, but when I transmit I get a hamlib error.  
+Looks like something in the XMIT chain isn't quite right.
+I observe that on the Audio tab, for Input & Output, the only reasonable choice is "QMX Transceiver".
+If memory serves, there used to be two slightly different named devices before.
+I looked it up, and QMX+ presents both audio in & out as "QMX Transceiver", so this appears correct.

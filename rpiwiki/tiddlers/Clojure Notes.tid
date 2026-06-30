@@ -1,0 +1,9 @@
+created: 20260428135038556
+modified: 20260429200708841
+title: Clojure Notes
+type: text/vnd.tiddlywiki
+
+* [[Clojure 260428]]
+* [[Clojure 260429]]
+* [[Leiningen]] - automating Clojure projects.  It's a build tool.
+* [[Thinking In Clojure]]

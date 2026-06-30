@@ -1,7 +1,21 @@
 created: 20260130152329362
-modified: 20260130152754408
+modified: 20260519174619927
 title: QMX+ Notes
 type: text/vnd.tiddlywiki
+
+!My QMX+ Logs
+* [[QMX+ Notes of 260513]]
+* [[QMX+ Notes of 260518]]
+* [[QMX+ Notes of 260519]]
+
+!Videos
+
+* [["Why Buying a Big Three Rig Makes No Sense in 2026 | Hans Summers Explains"|https://www.youtube.com/watch?v=06FHSH7LQKs]] - G3LRC
+* Martin Butler M1MRB (ICQ Podcast presenter) presented talk to the Sutton and Cheam Radio Society (UK) on 15th January 2026 about his experiences building the QMX+.   Video here: https://youtu.be/XlKtMd3mcS0
+
+! 1.03.000 Release Notes
+Lots of stuff to review and understand here, esp voltage limiting feature.
+https://groups.io/g/QRPLabs/topic/117669224
 
 ! How To Connect To QMX+ Firmware on ~MacOS
 
@@ -16,3 +30,83 @@ type: text/vnd.tiddlywiki
 * Then press enter to get Diagnostics menu.
 
 https://groups.io/g/QRPLabs/message/127350
+
+! Double Power Output
+
+"The QMX+ was recently modified with PA0RDT's 4+4 BS170 mod see https://qrp-labs.com/qmxp/qmxpmod/pa0rdt.html ..."
+
+https://groups.io/g/QRPLabs/message/161943
+
+!Ardop
+
+Hans is able to get Winlink to work on RPi / QMX / Linux
+
+<<<
+My ardopcf command line is:
+
+ardopcf -G 8514 -c /dev/ttyACM0 -k 54583B -u 52583B -i 1 -o 1 -H "MYCALL G0UPL"
+
+-k and -u parameters are TX; RX; respectively in ASCII, this lets ardopcf control the QMX transmit/receive using the appropriate CAT commands (I generally avoid the use of VOX wherever possible). 
+
+-i 1 -o 1 select the QMX USB sound card. 
+<<<
+
+This is encouraging.  May show a path to winlink on my mac.
+
+It looks like folks are using [[ardopcf|https://github.com/pflarue/ardop]] for MSWin and Linux, but [[nothing for Mac yet|https://github.com/pflarue/ardop/issues/130]].
+
+! Microphone
+Electret microphone from Digikey, part number [[668-AOM-5024L-HD-F-R-ND|https://www.digikey.com/en/products/detail/pui-audio-inc/AOM-5024L-HD-F-R/12152286]]
+
+[[Microphone Kit|https://www.qrpkits.com/microphone.html]]
+
+~~Build~~ Built the microphone kit and swap in the microphone from Digikey when you build it.
+
+!Earphones
+''TODO:'' Do I need earphones to get any audio output?
+Will any of my existing ones work?
+
+<<<
+The audio output connector is a standard 3.5mm stereo jack socket for connecting 32-ohm
+earphones or similar. It is not suitable for driving a loudspeaker directly. 
+<<<
+- QMX operating manual; firmware 1_03_002, p. 8
+
+! GPS Not Locking
+
+!! shorted?
+<<<
+I submitted a support ticket which Hans answered in minutes. We exchanged more information, he said to put a piece of paper or tape over the jump under the GPS. That solved the problem the GPS link with the birds with seconds. If you are not using insulated wire for the jump you must cover it to prevent it shorting to the GPS. 
+<<<
+https://groups.io/g/QRPLabs/message/125533 
+
+!! firmware?
+Ron mentioned a possible firmware update, but I don't know if it applies to this QMX+ or not.
+
+https://qrp-labs.com/qmxp/e108fix#qlg3
+
+!QMX Modes
+
+DIGI:  Modulations that run in QMX/QMX+ DIGI mode :
+
+* RTTY, AMTOR, PACTOR, HF Packet (300 baud)
+* All WSTJ-x modes (FT8, FT4, JTxx, JS8Call, etc.), except MSK144
+* In FLDIGI:
+** Hellscriber: Feld Hell, but not the other Hell modes
+** MFSK modes
+** RTTY modes
+** Olivia modes
+
+SSB: Modulations that require SSB mode (almost all use upper-sideband) - don't forget to set the SSB input to the computer/USB interface
+
+* all modes not mentioned above, eg:
+* all PSK and QPSK modes
+* all SSTV modes
+* WSJT-x MSK144 mode
+* all FLDIGI modes except those noted above
+
+- [[cite|#162193   ]]
+
+!CW
+
+* [[Morse Prosigns]]

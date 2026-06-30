@@ -1,0 +1,52 @@
+created: 20260518225851731
+modified: 20260523153543769
+title: QMX+ Notes of 260518
+type: text/vnd.tiddlywiki
+
+!Configuring WSJT-X
+
+I configured WSJT-X for QMX+ and all seems correct, but transmit throws an error.
+
+```
+Hamlib error: Invalid parameter
+ic10_set_mode: unsupported mode PKTUSB
+rig_set_mode: targetable retcode after set_mode=-1
+rig.c(2048):rig_set_mode return(-1) Invalid parameter
+ic10_set_mode: unsupported mode PKTUSB
+rig_set_mode: targetable retcode after set_mode=-1
+rig_set_mode: targetable retcode after set_mode=-1 while setting current VFO mode
+```
+
+I fed this info to google's AI thingy.
+It told me my USB cable needed a choke (wrong!) and something else, equally unhelpful.
+
+In the end when I switched from Kenwood TS-440S to Kenwood TS-480, things started to work, although I haven't made a contact yet.  
+It goes through the motions, and I can see it thinks it's transmitting.
+
+260519 - bumped max PA to 9V (1.8W) and was able to make contact on 20m at ~800 miles/
+
+!Problem Setting Max PA Voltage Above 9V
+
+I upped the voltage to the PA from 6.0 to 9.0V.
+When I scroll past 9 it wraps to zero.  
+How to get 10 or 11 volts?
+
+[[Next Entry|QMX+ Notes of 260519]]
+
+!TXCO Frequency
+See manual, p. 69.
+
+I set up WSJT-X to report WSPR calls, and then went to [[Han's website to see the errors|https://qrp-labs.com/images/wsprnet/rxerror.html]] in my clock.
+
+```
+Website is reporting -32 (Err)
+Dial Frequency: 14,095,600 + 1500 offset = 14,097,100 (XMIT)
+Err * 25MHZ/XMIT = (-32) * 1.77 = -56.7 ~= -57
+```
+While I was typing all that up, my reported error dropped to -5 ==> change TCXO setting by -9.
+After change, letting it run for a while, my Err = -10. 
+Looks like I changed the wrong direction.  
+Try again.
+
+Score!
+25,000,009 gets me Err = 0.
