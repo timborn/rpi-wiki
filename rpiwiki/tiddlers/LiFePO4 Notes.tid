@@ -1,0 +1,16 @@
+created: 20260630002646677
+modified: 20260630005829621
+title: LiFePO4 Notes
+type: text/vnd.tiddlywiki
+
+Lithium Iron Phosphate (LiFePO4) batteries are among the safest of the widely available batteries.  
+I have several I have built for ham radio use, consisting of some number of cells and a BMS to protect the battery during charge & discharge, as well as to provide cell balancing.
+
+Charging these batteries requires nominal 14.4 +/- 0.2V at between 1 & 3 amps for my batteries.  
+Larger batteries, such as used in my truck, are handled separately.
+
+I have a couple of the [[DROK Boost Buck Converters|https://www.amazon.com/dp/B07VNDGFT6]] that, theoretically, should be able to tap the truck battery and provide a nice, clean 14.6V CC/CV output, suitable for charging my LiFePO4 batteries.
+
+[img[DROK Boost Buck Converter.jpg]]
+
+Based on my experiments, and confirmed by Ron, these devices DO NOT boost, so I can't use them to charge my batteries off a car battery.
