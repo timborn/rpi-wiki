@@ -1,0 +1,48 @@
+created: 20261007231803327
+modified: 20261008175229299
+title: National Traffic System NTS
+type: text/vnd.tiddlywiki
+
+* [[Weekly NTS Practice]]
+* https://nts2.arrl.org
+* ARL Shorthand -- affects the count box
+
+* [[Practice How To Say for NTS]]
+
+* Pro Words
+** BREAK (BT, =)
+** ATSIGN
+** I SPELL
+** AMATEUR CALL
+** MIXED GROUP
+** FIGURE / FIGURES
+** INITIAL / INITIALS
+** X (period) (is this is prosign?)
+** R (decimal point)
+** QUERY (?)
+** CORRECTIONS
+** AFFIRMATIVE / NEGATIVE (yes / no)
+
+* ICS Forms
+** Radiogram Form
+
+* Parts
+** Preamble
+*** Station of Origin - the ham who put it on the air - this is the station that will get service msgs back
+*** Place of Origin is CITY STATE
+*** Place of Origin matches signature (ie who wrote the msg)
+*** Time Files assumes UTC, so don't bother with Z, otherwise specify
+*** Date is MMM DD (NB UTC!)
+** Address
+*** FIRST LAST [CALLSIGN]
+*** ADDRESS
+*** CITY STATE ZIP
+*** PHONE NUMBER ###-###-####
+*** [email]
+** [OP NOTE]
+** Receiving Station info - rarely used
+** ''BREAK''
+** Text Body
+** Signature
+** Received / Sent Info
+
