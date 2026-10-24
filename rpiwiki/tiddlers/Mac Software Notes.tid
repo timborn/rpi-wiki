@@ -1,0 +1,53 @@
+created: 20261024151224843
+modified: 20261024152807839
+title: Mac Software Notes
+type: text/vnd.tiddlywiki
+
+Timex is a nice mac laptop, but it's firmly stuck at MacOS 14.
+I need a way to extend the life as best I can.
+
+!Updating Brew
+
+```
+$ brew update && brew upgrade
+```
+This used to run reliably, but now throws errors.
+Some things cannot be installed, and some things are broken (like rpiwiki).
+
+The error log suggests using MacPorts
+
+!Updating Xcode
+I was on Xcode 16.0 and the brew logs complained loudly, asking for Xcode 16.2.
+After signing in with my apple credentials, I dug through apple website and eventually found Xcode 16.2 Command Line Tools:
+
+```
+https://developer.apple.com/download/all/?q=xcode
+```
+
+After installing that, Brew continued to report it was finding Xcode 16.0.
+I deleted Applications/Xcode, installed the command line tools again, and brew complained.  
+It really did want Xcode - the whole thing.
+
+Back to that URL (above).  
+Found Xcode 16.2.
+It downloads as a ".xip" file, which it can decompress into Xcode folder -- in Downloads!
+You need to copy ~/Downloads to /Applications/.
+I think I also had to run Xcode once and have it install Xcode.
+Doesn't make much sense to download a huge file, then have to run it to install stuff, but that's my memory.
+
+Check your work:
+
+```
+$ xcodebuild -version
+```
+
+!MacPorts
+
+macports.org
+
+Apparently you can mix brew and macports, but the advice I saw was especially libraries can cause conflicts.
+Perhaps use brew primary, then scan the logs to find errors that brew can't handle.
+Uninstall whatever is causing heartburn with brew, install using macports.
+
+More fiddling, but it may get me a usable machine again.
+
