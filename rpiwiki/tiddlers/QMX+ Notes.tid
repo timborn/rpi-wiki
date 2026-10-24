@@ -1,5 +1,5 @@
 created: 20260130152329362
-modified: 20260630225935097
+modified: 20261024164056708
 title: QMX+ Notes
 type: text/vnd.tiddlywiki
 
@@ -111,3 +111,17 @@ SSB: Modulations that require SSB mode (almost all use upper-sideband) - don't f
 !CW
 
 * [[Morse Prosigns]]
+
+!QMX Antenna SWR Sweep
+QMX Antenna SWR Sweep , a single-file browser tool for QMX/QMX+.
+
+Paul Harrison, G4ADF
+
+https://groups.io/g/QRPLabs/message/172453
+
+''TODO:'' try this out
+
+NB this may leave power output unusually low, so after running this, check your power or other stuff may not run
+
+
+
