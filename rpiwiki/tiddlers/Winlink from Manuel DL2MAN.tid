@@ -1,0 +1,15 @@
+created: 20261024153308413
+modified: 20261024155620592
+title: Winlink from Manuel DL2MAN
+type: text/vnd.tiddlywiki
+
+* https://groups.io/g/QRPLabs/topic/120232524
+* https://dl2man.de/ARDOP/
+
+A single HTML file with a functional Winlink client for QMX.
+Simply amazing!  
+
+''TODO'' try this out
+
+NB you must open the html from it's secure (https) website in order to work.
+Might it be possible to run a local webserver that can handle https and make this work without an internet connection?

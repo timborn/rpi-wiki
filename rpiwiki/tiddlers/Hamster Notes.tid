@@ -1,12 +1,13 @@
 created: 20230111170651707
 creator: rpi
-modified: 20261007231635603
+modified: 20261024160237206
 modifier: rpi
 title: Hamster Notes
 type: text/vnd.tiddlywiki
 
 Amateur Radio Notes (Hamster) - there are so many things to keep track of.
 
+* [[fldigi Suite Notes]]
 * [[National Traffic System NTS]]
 * [[Callsign Database]]
 * [[LiFePO4 Notes]]
