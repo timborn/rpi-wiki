@@ -1,0 +1,144 @@
+created: 20261103161408676
+modified: 20261103213351997
+tags: [[Mac Software Notes]]
+title: Installing Linux on Mac Pro 2013
+type: text/vnd.tiddlywiki
+
+!261103
+
+TODO: numbering in this section is wonky
+
+I previously installed Ubuntu LTS 24.x on R2D2, and the install works, but when you boot, you get a splash screen, then it goes black.
+I set this aside for months, but I'm back at it.
+
+!!Step 1 - Get It To Boot So You Can See Desktop
+
+The following instructions worked for me.
+
+Prompt> I have installed Ubuntu LTS 24, and the mac boots up, I see a splash screen, then the screen goes black.  I rebooted and am in grub.  How do I fix this black screen stuff?
+
+This black screen happens because Ubuntu 24.04 tries to use the default radeon kernel driver, which crashes when it encounters the unique dual AMD FirePro (D300/D500/D700) setup inside the 2013 Mac Pro. 
+
+Since you are already sitting at the GRUB menu, you can fix this permanently by forcing Ubuntu to use the newer amdgpu driver framework. 
+
+Step 1: Temporarily Boot into Ubuntu
+
+First, we need to bypass the broken graphics driver so you can reach your desktop: 
+
+# In the GRUB menu, make sure the top Ubuntu option is highlighted and press the e key on your keyboard to edit the boot parameters.
+# Use your arrow keys to scroll down to the bottom paragraph. Look for the long line that starts with linux (it usually ends with something like ro quiet splash $vt_handoff).
+# Move your cursor to the very end of that line, add a space, and type: 
+
+```
+nomodeset
+```
+
+# Press F10 (or Ctrl + X) to boot. 
+
+Your Mac Pro will now boot up using basic, low-resolution "safe" graphics. It might look pixelated or slow, but you will reach your desktop. 
+
+Step 2: Make the Fix Permanent
+
+Now that you are on your Ubuntu desktop, we need to permanently tell GRUB to map the FirePro cards correctly: 
+
+# Press Ctrl + Alt + T to open a Terminal window.
+# Open the GRUB configurations file using a text editor by running:
+
+```
+sudo nano /etc/default/grub
+```
+
+# Type your password when prompted (no characters will show on screen while typing, just hit Enter).
+# Look for the line that reads:
+
+```
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+```
+
+# Change that line to exactly this to disable the old driver and force the modern AMD stack:
+
+```
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash radeon.si_support=0 amdgpu.si_support=1 amdgpu.dc=1"
+```
+
+# Save the file by pressing Ctrl + O, then hit Enter. Exit the editor by pressing Ctrl + X.
+
+Step 3: Update and Reboot
+
+For Ubuntu to recognize the changes you just saved, you have to refresh the boot manager:
+
+# Run the update command in your terminal:
+
+```
+sudo update-grub
+```
+
+2. Once it finishes processing, restart your Mac Pro: 
+
+```
+sudo reboot
+```
+
+Upon restarting, your Mac Pro should cruise right past the splash screen and boot directly into a perfectly scaled, hardware-accelerated desktop environment.
+
+Once you are successfully logged in, let me know if you need help getting the Wi-Fi/Bluetooth working or configuring fan controls so your Mac Pro doesn't overheat under Linux load!
+
+!! Installing Fan Control on Mac Pro 2013
+
+```
+apt install macfanctld
+vi /etc/macfanctl.conf
+# set these two as follows:
+# temp_avg_floor: 45
+# temp_avg_ceiling: 80
+
+sudo systemctl restart macfanctld
+sudo systemctl enable macfanctld
+
+sudo apt install lm-sensors -y
+sensors   # show temps of important stuff
+```
+
+!! Wifi & Bluetooth on Mac Pro 2013
+While The Google warns that these won't work (on early Ubuntu 24 LTS), it appears the fixes are in, so using CAT5 cable I was able to get it working:
+
+```
+sudo apt update && sudo apt install broadcom-sta-dkms -y
+```
+
+I then went to wifi settings, found my network and authenticated.  
+All Seems Well
+
+!!UBSAN Lockup
+
+After an hour or so of use, the machine locked up tight.
+Display was good, but nothing responded.
+After reboot, look at the logs:
+
+```
+journalctl -b -1 -p err..emerg
+```
+
+The last few lines implicated something called UBSAN, which is ?????
+
+TODO TODO TODO
+
+!!Remote Desktop
+
+In system settings on R2D2 you can enable either cloning main desktop or remote login.
+If you clone the main desktop and that session gets locked, you're hosed.
+I opted for remote login.
+Make sure to enable a hole in filewall for 3389/tcp.
+
+You can use Microsoft RDP client (app store) for either of these.
+For remote desktop, just append ":3389" to name of the machine.
+
+There's a bug in RDF client.
+Export the card containing connection details for your 3389 and edit it.
+You will find a line that looks like this, ending in ZERO. 
+Change the ZERO to ONE and import it back into RDF app, or just double click on the file.
+
+```
+use redirection server name:i:1
+```
+
