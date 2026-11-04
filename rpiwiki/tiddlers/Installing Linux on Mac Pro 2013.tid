@@ -1,5 +1,5 @@
 created: 20261103161408676
-modified: 20261103213351997
+modified: 20261103214816915
 tags: [[Mac Software Notes]]
 title: Installing Linux on Mac Pro 2013
 type: text/vnd.tiddlywiki
@@ -121,7 +121,28 @@ journalctl -b -1 -p err..emerg
 
 The last few lines implicated something called UBSAN, which is ?????
 
-TODO TODO TODO
+```
+kernel: UBSAN: array-index-out-of-bounds in src/wl/sys/wl_linux.c:1939:4
+kernel: index 2 is out of range for type 'ether_addr'
+```
+
+This is the fix.
+NB my wpa_supplicant.conf was not there, so I created it.
+
+```
+sudo vi /etc/wpa_supplicant/wpa_supplicant.conf
+
+# add the following lines:
+ctrl_interface=/var/run/wpa_supplicant
+update_config=1
+bgscan=""
+```
+
+Save the file and restart the daemon:
+
+```
+sudo systemctl restart NetworkManager
+```
 
 !!Remote Desktop
 
