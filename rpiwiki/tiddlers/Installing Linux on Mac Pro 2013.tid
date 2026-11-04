@@ -1,5 +1,5 @@
 created: 20261103161408676
-modified: 20261103214816915
+modified: 20261104175607697
 tags: [[Mac Software Notes]]
 title: Installing Linux on Mac Pro 2013
 type: text/vnd.tiddlywiki
@@ -163,3 +163,16 @@ Change the ZERO to ONE and import it back into RDF app, or just double click on 
 use redirection server name:i:1
 ```
 
+! 261104
+The Wayland display manager is default.  
+I would like to be able to share ~/rje from MaxiMini, and also have the copy/paste work more reliably.
+The Google suggests dumping Wayland for XFCE should do it. 
+Let's try that.
+
+
+<<<
+"To get both Mac folder sharing and a flawless bidirectional clipboard working natively via your Microsoft RDP app, installing XFCE alongside xrdp is the best solution."
+<<<
+
+This did not go well.
+Complex, and the cut & paste still unreliable, so I reverted back to Wayland.
