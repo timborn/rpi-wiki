@@ -1,5 +1,5 @@
 created: 20261103161408676
-modified: 20261104175607697
+modified: 20261104182150568
 tags: [[Mac Software Notes]]
 title: Installing Linux on Mac Pro 2013
 type: text/vnd.tiddlywiki
@@ -15,7 +15,7 @@ I set this aside for months, but I'm back at it.
 
 The following instructions worked for me.
 
-Prompt> I have installed Ubuntu LTS 24, and the mac boots up, I see a splash screen, then the screen goes black.  I rebooted and am in grub.  How do I fix this black screen stuff?
+//Prompt> I have installed Ubuntu LTS 24, and the mac boots up, I see a splash screen, then the screen goes black.  I rebooted and am in grub.  How do I fix this black screen stuff?//
 
 This black screen happens because Ubuntu 24.04 tries to use the default radeon kernel driver, which crashes when it encounters the unique dual AMD FirePro (D300/D500/D700) setup inside the 2013 Mac Pro. 
 
@@ -88,7 +88,8 @@ Once you are successfully logged in, let me know if you need help getting the Wi
 ```
 apt install macfanctld
 vi /etc/macfanctl.conf
-# set these two as follows:
+# set these three as follows:
+# fan_min: 800  # nice and quiet!
 # temp_avg_floor: 45
 # temp_avg_ceiling: 80
 
