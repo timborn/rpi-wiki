@@ -1,5 +1,5 @@
 created: 20261024151224843
-modified: 20261103161632262
+modified: 20261109185848406
 title: Mac Software Notes
 type: text/vnd.tiddlywiki
 
@@ -50,7 +50,7 @@ Check your work:
 $ xcodebuild -version
 ```
 
-!MacPorts
+!~MacPorts
 
 macports.org
 

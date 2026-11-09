@@ -1,0 +1,24 @@
+created: 20261109184831843
+modified: 20261109185725609
+title: MacWinlink
+type: text/vnd.tiddlywiki
+
+!261109 
+
+VERY excited to see a mac option for winlink.
+Still beta, but I tried it, and it worked!
+
+* [[Announcement | https://machamradio.com/blog/2026/09/26/an-official-native-winlink-client-is-coming-to-the-mac-introducing-macwinlink/]]
+* [[Release Link | https://github.com/jjones9527/macwinlink-releases/releases#release-helper-v1.0.0-beta43]] latest as of 11/9/26
+* [[Apple Announcement of Stuff Not Supported in MacOS28 | https://support.apple.com/en-us/102527?cid=mc-ols-rosetta-article_102527-macos_finder-52526201]] - when I tried to install VARA and VARA FM I got warnings from Apple that Wine Stable would no longer be supported in MacOS28
+
+I downloaded MacWinlink and during installation I //thought// I need to install Mac Winlink Helper, so I did.  
+The helper sets up VARA and VARA FM inside Wine.
+It did a nice job, but I kept gettig an error that "VARA installer exited with 1", and I wasn't able to find any more detailed logs.
+After re-reading things, I don't need the helper at all, so I just used MacWinlink and ARDOP.
+It's all built it!
+It supports IC-705 and QRP Labs QMX out of the box.
+
+While ARDOP technically can be used on 2m, it commonly is not, which might explain why I can't find any support for 2m connections.
+
+TODO: once the helper gets sorted out it will be interesting to see VARA FM and 2m connection to the Red Cross.
