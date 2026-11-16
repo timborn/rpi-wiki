@@ -1,11 +1,34 @@
 created: 20261024160243657
-modified: 20261024163706180
+modified: 20261116144205279
 title: fldigi Suite Notes
 type: text/vnd.tiddlywiki
 
-261024 - Dave (callsign?), the author(?) and maintainer of fldigi suite of software, has recently added SSTV.
+!261116
+Moving on to alpha product to pick up SSTV.
+I went to Dave's "alpha" folder, first looking in flamp.
+There is a readme for dmg (apple) users that explains I want the BS suffix, which is the universal binary that should run on Mx chips.
+Unfortunately there are no dmg files in that folder.
+Checking other folders I see the same thing.
+Mac users need not help test out the alpha product.
+
+!261115
+Downloaded latest stable, configured and used it for NWNM net (on ~OldBlue).
+
+* flamp-2.2.14_VN.dmg	
+* flmsg-4.0.24.dmg
+* fldigi-4.2.13.dmg	
+* flrig-2.0.12.dmg
+
+Downloaded from SOURCEFORGE.
+https://sourceforge.net/p/fldigi/_list/git
+
+!261024 
+Dave W1HKJ, the author and maintainer of fldigi suite of software, has recently added SSTV.
 As I have had loads of trouble with the existing unsupported, old, MSWin-only SSTV solutions, this is very exciting.
 
 https://groups.io/g/linuxham/topic/121840895
+
+Looks like the "alpha" software is all on Dave's site, not SOURCEFORGE.
+https://www.w1hkj.org/alpha/
 
 ''TODO:'' upgrade fldigi and test SSTV
